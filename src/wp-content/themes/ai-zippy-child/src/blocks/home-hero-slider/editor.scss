@@ -1,0 +1,100 @@
+// Home Hero Slider Block — Editor Styles
+
+.wp-block-ai-zippy-child-home-hero-slider {
+	background-color: #0b0b0b;
+	color: #ffffff;
+	padding: 2rem;
+	min-height: 400px;
+
+	.hhs__container {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.hhs__content {
+		position: static;
+		padding: 0;
+		flex-direction: column;
+		align-items: flex-start;
+		pointer-events: auto;
+	}
+
+	.hhs__title {
+		font-size: 3rem;
+		color: #ffffff;
+	}
+
+	.hhs__subtitle {
+		color: rgba(255, 255, 255, 0.7);
+	}
+
+	.hhs__grid-preview {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 1rem;
+	}
+
+	.hhs__slide-card {
+		background-color: #1a1a1a;
+		border-radius: 8px;
+		overflow: hidden;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+		&:hover {
+			border-color: rgba(255, 255, 255, 0.2);
+		}
+
+		&.is-active {
+			border-color: #EC4600;
+			box-shadow: 0 0 12px rgba(236, 70, 0, 0.45);
+		}
+	}
+
+	.hhs__slide-img-wrap {
+		position: relative;
+		aspect-ratio: 4/5;
+		overflow: hidden;
+	}
+
+	.hhs__slide-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		opacity: 1;
+		transform: none;
+	}
+
+	.hhs__slide-placeholder {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		background-color: #111;
+		color: rgba(255, 255, 255, 0.3);
+		min-height: 220px;
+		border: 2px dashed rgba(255, 255, 255, 0.1);
+	}
+
+	.hhs__slide-edit-overlay {
+		position: absolute;
+		top: 8px;
+		right: 8px;
+		z-index: 10;
+		background: rgba(0, 0, 0, 0.7);
+		padding: 4px;
+		border-radius: 4px;
+	}
+
+	.hhs__slide-meta {
+		padding: 0.75rem;
+
+		strong {
+			color: #ffffff;
+			font-size: 0.9rem;
+		}
+	}
+}

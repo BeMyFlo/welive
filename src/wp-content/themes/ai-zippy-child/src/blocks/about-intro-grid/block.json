@@ -1,0 +1,80 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/about-intro-grid",
+	"version": "1.0.0",
+	"title": "[About Us] Intro Grid",
+	"category": "welive",
+	"icon": "grid-view",
+	"description": "About page description columns and partners/artists photo collage grid.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"introText": {
+			"type": "string",
+			"default": "DAO Music Entertainment is a leading music company driving innovation across Vietnam’s music industry."
+		},
+		"col1Text": {
+			"type": "string",
+			"default": "Founded in 2020, DAO Music Entertainment powers Vietnam’s first integrated music ecosystem offering comprehensive solutions spanning Music Distribution, Publishing & Licensing, Music Marketing, Music & Visual Production, Artist Development and Digital Media Network Solutions."
+		},
+		"col2Text": {
+			"type": "string",
+			"default": "We have collaborated with over 1,000 artists and supported more than 5,000 music projects, working closely with leading international and domestic labels and music companies. Our reputation as a trusted partner reflects our commitment to empowering artists and advancing the growth of Vietnam’s music industry."
+		},
+		"images": {
+			"type": "array",
+			"default": [
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"title": "DAO MUSIC PRODUCTION",
+					"subtitle": "Music & Visual Production"
+				},
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"title": "DAO MUSIC DISTRIBUTION",
+					"subtitle": "Music Distribution Platform"
+				},
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"title": "DAO MUSIC PUBLISHING",
+					"subtitle": "Publishing & Licensing"
+				},
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"title": "DAO MUSIC MARKETING",
+					"subtitle": "Music Marketing & PR"
+				},
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"title": "ARTIST DEVELOPMENT",
+					"subtitle": "Empowering Creative Talents"
+				},
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"title": "DIGITAL MEDIA NETWORK",
+					"subtitle": "Digital Media Solutions"
+				}
+			]
+		},
+		"textAlign": {
+			"type": "string",
+			"default": "left"
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

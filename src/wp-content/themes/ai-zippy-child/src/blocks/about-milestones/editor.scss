@@ -1,0 +1,30 @@
+// [About Us] Milestones Block — Editor Styles
+
+.wp-block-ai-zippy-child-about-milestones {
+	background-color: #0b0b0b;
+	color: #ffffff;
+	padding: 2rem;
+
+	.abm__flex-header {
+		margin-bottom: 2rem;
+	}
+
+	.abm__heading {
+		font-size: 2.25rem;
+		line-height: 1.15;
+		color: #ffffff;
+		margin: 0;
+	}
+
+	.abm__desc {
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 1rem;
+		margin: 1rem 0 0;
+	}
+
+	.abm__timeline-editor {
+		border: 1px dashed rgba(255, 255, 255, 0.1);
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+}

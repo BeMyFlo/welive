@@ -1,0 +1,95 @@
+// [About Us] Hero Block — Frontend Styles
+
+.abh {
+	width: 100%;
+	background-color: #EC4600 !important; // Solid brand red-orange background
+	color: #ffffff;
+	padding: 8rem 0;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.abh__container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	box-sizing: border-box;
+}
+
+.abh__flex {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 5rem;
+	align-items: center;
+}
+
+.abh__left {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.abh__title {
+	font-family: 'Inter', sans-serif;
+	font-size: clamp(3.5rem, 6vw, 5.5rem);
+	font-weight: 900;
+	line-height: 0.95;
+	letter-spacing: -0.04em;
+	color: #ffffff !important;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.abh__subtitle {
+	font-family: 'Inter', sans-serif;
+	font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+	line-height: 1.6;
+	color: #ffffff;
+	margin: 0;
+	max-width: 380px;
+	font-weight: 500;
+}
+
+.abh__right {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.abh__big-text {
+	font-family: 'Inter', sans-serif;
+	font-size: clamp(2.5rem, 6.5vw, 5.5rem); // Reduced font size to prevent overflow clipping of long words
+	font-weight: 900;
+	line-height: 1.05; // Increased line-height for better word wrapping spacing
+	letter-spacing: -0.03em;
+	color: #ffffff !important;
+	margin: 0;
+	text-transform: uppercase;
+	text-align: left;
+}
+
+// ---- Responsive ----
+@media (max-width: 991px) {
+	.abh {
+		padding: 6rem 0;
+	}
+
+	.abh__flex {
+		grid-template-columns: 1.2fr 1fr;
+		gap: 3rem;
+	}
+}
+
+@media (max-width: 767px) {
+	.abh__flex {
+		grid-template-columns: 1fr;
+		gap: 4rem;
+	}
+
+	.abh__right {
+		justify-content: flex-start;
+	}
+
+	.abh__subtitle {
+		max-width: 100%;
+	}
+}

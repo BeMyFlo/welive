@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/home-join-us",
+	"version": "1.0.0",
+	"title": "Home Join Us",
+	"category": "welive",
+	"icon": "megaphone",
+	"description": "Call to action banner to join Welive with a customizable button link.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "JOIN US"
+		},
+		"btnText": {
+			"type": "string",
+			"default": "GET STARTED WITH WELIVE"
+		},
+		"btnUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"textAlign": {
+			"type": "string",
+			"default": "center"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#0b0b0b"
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

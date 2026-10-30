@@ -1,0 +1,165 @@
+// [About Us] Ecosystem Block — Frontend Styles
+
+.abec {
+	width: 100%;
+	background-color: #0b0b0b;
+	color: #ffffff;
+	padding: 6rem 0;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.abec__container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	box-sizing: border-box;
+}
+
+.abec__header {
+	margin-bottom: 5rem;
+	max-width: 700px;
+}
+
+.abec__title {
+	font-family: 'Inter', sans-serif;
+	font-size: clamp(2rem, 4vw, 3rem);
+	font-weight: 800;
+	line-height: 1.2;
+	text-transform: uppercase;
+	margin: 0 0 1.25rem;
+	letter-spacing: -0.01em;
+}
+
+.abec__subtitle {
+	font-family: 'Inter', sans-serif;
+	font-size: 1.05rem;
+	line-height: 1.6;
+	color: #aaaaaa;
+	margin: 0;
+}
+
+// ---- Main Section Layout ----
+.abec__main {
+	display: grid;
+	grid-template-columns: 1fr 1.3fr;
+	gap: 5rem;
+	align-items: flex-start;
+}
+
+.abec__tab-menu {
+	display: flex;
+	flex-direction: column;
+}
+
+.abec__tab-btn {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	padding: 1.5rem 0.5rem;
+	color: rgba(255, 255, 255, 0.5);
+	cursor: pointer;
+	text-align: left;
+	transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+	box-sizing: border-box;
+
+	&:hover {
+		color: #ffffff;
+		padding-left: 1rem;
+	}
+}
+
+.abec__tab-name {
+	font-family: 'Inter', sans-serif;
+	font-size: 1.25rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: -0.01em;
+}
+
+.abec__tab-arrow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: inherit;
+	transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+	transform: rotate(-45deg);
+}
+
+.abec__tab-btn--active {
+	color: #EC4600 !important;
+	border-bottom-color: #EC4600;
+	padding-left: 1rem;
+
+	.abec__tab-arrow {
+		transform: rotate(0deg);
+		color: #EC4600;
+	}
+}
+
+// ---- Content Panels ----
+.abec__tab-content {
+	position: relative;
+	width: 100%;
+}
+
+.abec__tab-panel {
+	display: none;
+	opacity: 0;
+	transform: translateY(15px);
+}
+
+.abec__tab-panel--active {
+	display: block;
+	animation: abecFadeIn 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.abec__card {
+	background-color: #121212;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	border-left: 4px solid #EC4600;
+	border-radius: 24px 4px;
+	padding: 3rem 2.5rem;
+	box-sizing: border-box;
+	min-height: 280px;
+	display: flex;
+	align-items: center;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.abec__desc {
+	font-family: 'Inter', sans-serif;
+	font-size: 1.1rem;
+	line-height: 1.75;
+	color: rgba(255, 255, 255, 0.8);
+	margin: 0;
+	font-weight: 400;
+}
+
+@keyframes abecFadeIn {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+// ---- Responsive ----
+@media (max-width: 991px) {
+	.abec {
+		padding: 4rem 0;
+	}
+
+	.abec__main {
+		grid-template-columns: 1fr;
+		gap: 3rem;
+	}
+
+	.abec__card {
+		min-height: auto;
+		padding: 2.25rem 1.75rem;
+	}
+}

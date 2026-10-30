@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"color": {
+			"palette": [
+				{
+					"slug": "accent",
+					"color": "#EC4600",
+					"name": "Accent"
+				},
+				{
+					"slug": "primary",
+					"color": "#0b0b0b",
+					"name": "Primary"
+				}
+			]
+		}
+	},
+	"customTemplates": [
+		{
+			"name": "page-fullwidth",
+			"title": "Full Width (No Padding)",
+			"postTypes": ["page"]
+		},
+		{
+			"name": "page-coming-soon",
+			"title": "Coming Soon",
+			"postTypes": ["page"]
+		}
+	],
+	"styles": {}
+}

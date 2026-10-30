@@ -1,0 +1,55 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/about-partner",
+	"version": "1.0.0",
+	"title": "About Partner",
+	"category": "welive",
+	"icon": "welcome-widgets-menus",
+	"description": "About section with 360-degree solutions text and visual space banner.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"subheading": {
+			"type": "string",
+			"default": "Who we are"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Your <span class=\"ap__highlight\">All-in-One</span> Music Partner"
+		},
+		"description": {
+			"type": "string",
+			"default": "DAO Music Entertainment is Vietnam’s leading music ecosystem, providing 360-degree solutions for artists, labels, and brands. From production and distribution to marketing and monetization, we redefine music in the digital age."
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "LEARN MORE"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "/about"
+		},
+		"bannerImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"bannerImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"textAlign": {
+			"type": "string",
+			"default": "left"
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

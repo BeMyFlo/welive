@@ -1,0 +1,11 @@
+// Scrolling Ticker Block — Editor Styles
+
+.wp-block-ai-zippy-child-scrolling-ticker {
+	margin: 1.5rem 0;
+	
+	.st__track {
+		animation: none; // Disable infinite animation inside the block editor for ease of editing
+		overflow-x: auto;
+		max-width: 100%;
+	}
+}

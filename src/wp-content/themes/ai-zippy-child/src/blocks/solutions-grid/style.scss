@@ -1,0 +1,89 @@
+// Solutions Grid Block — Frontend Styles
+
+.sg {
+	position: relative;
+	width: 100%;
+	background-color: #151515;
+	color: #ffffff;
+	padding: 6rem 0;
+	box-sizing: border-box;
+	overflow: hidden;
+	z-index: 1;
+
+	@media (max-width: 767px) {
+		padding: 4rem 0;
+	}
+}
+
+.sg--has-bg {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(180deg, rgba(11, 11, 11, 0.75) 0%, rgba(11, 11, 11, 0.9) 100%);
+		z-index: 0;
+		pointer-events: none;
+	}
+
+	.sg__container {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+.sg__container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	box-sizing: border-box;
+}
+
+.sg__intro {
+	margin-bottom: 0;
+	max-width: 800px;
+}
+
+.sg__subheading-wrap {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.sg__subheading-icon {
+	transform: rotate(-45deg);
+	margin-right: 0.5rem;
+	flex-shrink: 0;
+}
+
+.sg__subheading {
+	font-family: 'Inter', sans-serif;
+	font-size: 0.85rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: #ffffff;
+	margin: 0;
+}
+
+.sg__heading {
+	font-family: 'Inter', sans-serif;
+	font-size: clamp(2rem, 4vw, 3rem);
+	font-weight: 800;
+	line-height: 1.2;
+	text-transform: uppercase;
+	margin: 0 0 1.5rem;
+	letter-spacing: -0.01em;
+}
+
+.sg__desc {
+	font-family: 'Inter', sans-serif;
+	font-size: 1.1rem;
+	line-height: 1.7;
+	color: #cccccc;
+	margin: 0;
+	font-weight: 400;
+}

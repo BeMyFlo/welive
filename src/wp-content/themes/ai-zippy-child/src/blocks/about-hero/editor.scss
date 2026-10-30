@@ -1,0 +1,36 @@
+// [About Us] Hero Block — Editor Styles
+
+.wp-block-ai-zippy-child-about-hero {
+	background-color: #EC4600 !important; // Red-orange inside editor too
+	color: #ffffff !important;
+	padding: 4rem 2rem;
+
+	.abh__flex {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: center;
+	}
+
+	.abh__title {
+		font-size: 4rem;
+		line-height: 1;
+		color: #ffffff !important;
+		margin: 0;
+	}
+
+	.abh__subtitle {
+		color: #ffffff !important;
+		font-size: 1.1rem;
+		margin: 1.5rem 0 0;
+		max-width: 380px;
+	}
+
+	.abh__big-text {
+		font-size: 5rem;
+		line-height: 0.9;
+		color: #ffffff !important;
+		margin: 0;
+		text-transform: uppercase;
+	}
+}

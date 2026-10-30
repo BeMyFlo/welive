@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/contact-info",
+	"version": "1.0.0",
+	"title": "Contact Info Cards",
+	"category": "welive",
+	"icon": "phone",
+	"description": "Displays custom contact info cards (e.g. Email, Location, Phone).",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"cards": {
+			"type": "array",
+			"default": [
+				{
+					"title": "Email",
+					"content": "hello@agency.com",
+					"icon": "email"
+				},
+				{
+					"title": "Location",
+					"content": "DAO Space, 47 Tran Quy Kien, Thanh My Loi Ward, Thu Duc, HCM City, Vietnam",
+					"icon": "location"
+				},
+				{
+					"title": "Phone",
+					"content": "+ 84 0919 080 620",
+					"icon": "phone"
+				}
+			]
+		},
+		"textAlign": {
+			"type": "string",
+			"default": "left"
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

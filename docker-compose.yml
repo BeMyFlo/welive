@@ -1,0 +1,35 @@
+services:
+  wordpress:
+    container_name: ${PROJECT_ID}
+    image: wordpress:6.9
+    user: www-data
+    volumes:
+      # Mount volumes themes and plugin
+      - ./src/.htaccess:/var/www/html/.htaccess
+      - ./.env:/var/www/html/.env
+
+      - ./src/wp-content/themes/:/var/www/html/wp-content/themes
+      - ./src/wp-content/plugins:/var/www/html/wp-content/plugins
+      - ./src/wp-content/uploads:/var/www/html/wp-content/uploads
+
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_TABLE_PREFIX: ${WORDPRESS_TABLE_PREFIX}
+      WORDPRESS_CONFIG_EXTRA: ${WORDPRESS_CONFIG_EXTRA}
+      APACHE_RUN_USER: www-data
+      APACHE_RUN_GROUP: www-data
+
+    ports:
+      - ${PORT}:80
+    networks:
+      - webnet
+
+    restart: unless-stopped
+
+networks:
+  webnet:
+    name: webnet
+    driver: bridge

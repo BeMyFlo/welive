@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/about-vision-mission",
+	"version": "1.0.0",
+	"title": "[About Us] Vision Mission",
+	"category": "welive",
+	"icon": "visibility",
+	"description": "About page section detailing corporate Vision, Mission, and USP next to a display image.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Vision & Mission"
+		},
+		"visionText": {
+			"type": "string",
+			"default": "Become Southeast Asia’s leading music ecosystem; exporting Vietnamese music to the world through innovation, creativity, and technology."
+		},
+		"missionText": {
+			"type": "string",
+			"default": "Our mission is to cultivate a sustainable, forward-thinking music ecosystem by empowering artists, strengthening partnerships, and fostering industry innovation. We are committed to delivering creative, impactful solutions and building a vibrant community that elevates Vietnamese music worldwide."
+		},
+		"uspText": {
+			"type": "string",
+			"default": "Our unique position as a music ecosystem is driven by three core pillars setting us apart from the rest. As the top music company in Vietnam, we deliver bold music experiences through innovation, tech-powered strategy, data and local insights, and artist first solutions."
+		},
+		"graphicImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"graphicImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"textAlign": {
+			"type": "string",
+			"default": "left"
+		},
+		"visionLabel": {
+			"type": "string",
+			"default": "Vision"
+		},
+		"missionLabel": {
+			"type": "string",
+			"default": "Mission"
+		},
+		"uspLabel": {
+			"type": "string",
+			"default": "USP"
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,87 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/solutions-grid",
+	"version": "1.0.0",
+	"title": "Solutions Grid",
+	"category": "welive",
+	"icon": "grid-view",
+	"description": "Grid of 360-degree service solution cards with flip and hover image overlays.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"sectionSubheading": {
+			"type": "string",
+			"default": "What we do"
+		},
+		"sectionHeading": {
+			"type": "string",
+			"default": "OUR Solutions"
+		},
+		"sectionDesc": {
+			"type": "string",
+			"default": "DAO Music Entertainment delivers end-to-end expertise across Music Distribution, Publishing, Marketing, Production, Artist development, and Digital Media for artists, labels, and brands."
+		},
+		"services": {
+			"type": "array",
+			"default": [
+				{
+					"title": "Music Distribution",
+					"subtitle": "Seamless global reach for your music",
+					"imageId": 0,
+					"imageUrl": "",
+					"link": "/services/distribution"
+				},
+				{
+					"title": "Music Publishing",
+					"subtitle": "Protect your rights, maximize your earnings",
+					"imageId": 0,
+					"imageUrl": "",
+					"link": "/services/publishing"
+				},
+				{
+					"title": "Music Production",
+					"subtitle": "High-quality recording, mixing, and visuals",
+					"imageId": 0,
+					"imageUrl": "",
+					"link": "/services/production"
+				},
+				{
+					"title": "Marketing & Promotion",
+					"subtitle": "Strategic campaigns, real fan engagement",
+					"imageId": 0,
+					"imageUrl": "",
+					"link": "/services/marketing"
+				},
+				{
+					"title": "Merchandise & Fan Commerce",
+					"subtitle": "Turning artist brands into exclusive products",
+					"imageId": 0,
+					"imageUrl": "",
+					"link": "/services/merch"
+				}
+			]
+		},
+		"bgImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"bgImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"textAlign": {
+			"type": "string",
+			"default": "left"
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

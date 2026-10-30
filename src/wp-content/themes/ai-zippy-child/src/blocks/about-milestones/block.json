@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/about-milestones",
+	"version": "1.0.0",
+	"title": "[About Us] Milestones",
+	"category": "welive",
+	"icon": "backup-oc",
+	"description": "About page company milestones timeline with horizontal touch-scrolling track.",
+	"supports": {
+		"html": false,
+		"align": ["full"]
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "OUR MILESTONES"
+		},
+		"description": {
+			"type": "string",
+			"default": "Founded in 2020, DAO Music Entertainment powers Vietnam’s first integrated music ecosystem. With 1,000+ artists and 5,000+ projects supported, we provide comprehensive distribution, production, and marketing solutions."
+		},
+		"milestones": {
+			"type": "array",
+			"default": [
+				{ "year": "2020", "label": "Thành lập", "detail": "DAO Entertainment", "date": "" },
+				{ "year": "2023", "label": ">1000", "detail": "Artists Distribution", "date": "01/2023" },
+				{ "year": "2023", "label": "Thành lập", "detail": "ZLAB & ZD Media", "date": "04/2023" },
+				{ "year": "2024", "label": "1B+100B", "detail": "Streams Spotify & Tiktok", "date": "03/2024" },
+				{ "year": "2024", "label": "05", "detail": "First Exclusive Artists", "date": "" },
+				{ "year": "2024", "label": "Thành lập", "detail": "DB Lab & DAO Studio", "date": "08/2023" },
+				{ "year": "2024", "label": "IFPI", "detail": "First Vietnamese Member", "date": "12/2024" },
+				{ "year": "2025", "label": "Rebrand", "detail": "Mở rộng toàn cầu", "date": "03/2024" }
+			]
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/about-hero",
+	"version": "1.0.0",
+	"title": "[About Us] Hero",
+	"category": "welive",
+	"icon": "welcome-widgets-menus",
+	"description": "About page hero section with floating banner and bold typography.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "ABOUT US"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "The leading music ecosystem in Vietnam, empowering independent artists and labels."
+		},
+		"mobileBackgroundText": {
+			"type": "string",
+			"default": "BOLD\nMUSIC\nBOLD\nFUTURE"
+		},
+		"bannerImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"bannerImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"textAlign": {
+			"type": "string",
+			"default": "left"
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

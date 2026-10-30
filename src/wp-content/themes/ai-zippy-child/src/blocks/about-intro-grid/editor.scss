@@ -1,0 +1,130 @@
+// [About Us] Intro Grid Block — Editor Styles
+
+.wp-block-ai-zippy-child-about-intro-grid {
+	background-color: #0b0b0b;
+	color: #ffffff;
+	padding: 2rem;
+
+	.abig__content {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.abig__intro {
+		font-size: 2rem;
+		line-height: 1.2;
+		color: #ffffff;
+		margin: 0;
+	}
+
+	.abig__grid-text {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.abig__para {
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 1rem;
+		margin: 0;
+	}
+
+	.abig__collage {
+		margin-top: 2rem;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+	}
+
+	.abig__collage-column {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.abig__collage-column--2 {
+		margin-top: 2rem;
+	}
+
+	.abig__collage-column--3 {
+		margin-top: 1rem;
+	}
+
+	.abig__collage-box {
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 24px 4px;
+		background-color: #121212;
+		aspect-ratio: 4/5;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.abig__collage-box--empty {
+		opacity: 0.15;
+		border: 1px dashed rgba(255, 255, 255, 0.2);
+		background-color: transparent;
+	}
+
+	.abig__collage-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.abig__collage-placeholder {
+		font-size: 0.8rem;
+		color: rgba(255, 255, 255, 0.3);
+	}
+
+	.abig__info-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		padding: 1.25rem;
+		box-sizing: border-box;
+		z-index: 5;
+	}
+
+	.abig__info-content {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		width: 100%;
+	}
+
+	.abig__info-title {
+		font-size: 1.1rem;
+		font-weight: 800;
+		color: #ffffff;
+		margin: 0;
+		line-height: 1.2;
+		border: 1px dashed rgba(255, 255, 255, 0.2);
+		padding: 2px;
+		min-height: 1.5rem;
+		
+		&.rich-text:focus {
+			border-color: #EC4600;
+		}
+	}
+
+	.abig__info-subtitle {
+		font-size: 0.85rem;
+		color: rgba(255, 255, 255, 0.7);
+		margin: 0;
+		line-height: 1.2;
+		border: 1px dashed rgba(255, 255, 255, 0.15);
+		padding: 2px;
+		min-height: 1.2rem;
+		
+		&.rich-text:focus {
+			border-color: #EC4600;
+		}
+	}
+}

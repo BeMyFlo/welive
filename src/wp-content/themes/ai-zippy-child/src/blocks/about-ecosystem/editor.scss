@@ -1,0 +1,27 @@
+// [About Us] Ecosystem Block — Editor Styles
+
+.wp-block-ai-zippy-child-about-ecosystem {
+	background-color: #0b0b0b;
+	color: #ffffff;
+	padding: 2rem;
+
+	.abec__title {
+		font-size: 2.25rem;
+		line-height: 1.2;
+		color: #ffffff;
+		margin: 0;
+	}
+
+	.abec__subtitle {
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 1rem;
+		margin: 1rem 0 0;
+	}
+
+	.abec__divisions-list {
+		margin-top: 2rem;
+		border: 1px dashed rgba(255, 255, 255, 0.1);
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+}

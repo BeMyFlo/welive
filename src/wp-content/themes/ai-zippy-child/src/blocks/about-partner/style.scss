@@ -1,0 +1,184 @@
+// About Partner Block — Frontend Styles
+
+.ap {
+	width: 100%;
+	background-color: #111111;
+	color: #ffffff;
+	padding: 6rem 0;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.ap__container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	box-sizing: border-box;
+}
+
+.ap__grid {
+	display: grid;
+	grid-template-columns: 1.2fr 1fr;
+	gap: 4rem;
+	align-items: flex-start;
+	margin-bottom: 5rem;
+}
+
+.ap__col {
+	display: flex;
+	flex-direction: column;
+}
+
+.ap__subheading-wrap {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+
+.ap__subheading-icon {
+	transform: rotate(-45deg);
+	margin-right: 0.75rem;
+	flex-shrink: 0;
+}
+
+.ap__subheading {
+	font-family: 'Inter', sans-serif;
+	font-size: 0.85rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: #ffffff;
+	margin: 0;
+}
+
+.ap__heading {
+	font-family: 'Inter', sans-serif;
+	font-size: clamp(2rem, 4vw, 3.5rem);
+	font-weight: 800;
+	line-height: 1.15;
+	margin: 0;
+	letter-spacing: -0.02em;
+}
+
+.ap__highlight {
+	background: linear-gradient(135deg, #EC4600 0%, #FF6B00 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	display: inline;
+}
+
+.ap__desc {
+	font-family: 'Inter', sans-serif;
+	font-size: 1.05rem;
+	line-height: 1.7;
+	color: #aaaaaa;
+	margin: 0 0 2.5rem;
+	font-weight: 400;
+}
+
+.ap__btn-wrap {
+	display: inline-block;
+}
+
+.ap__btn {
+	display: inline-flex;
+	align-items: center;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: #ffffff;
+	text-decoration: none;
+	transition: color 0.3s ease;
+	cursor: pointer;
+
+	&:hover {
+		color: #EC4600;
+
+		.ap__btn-circle {
+			background-color: #EC4600;
+			transform: scale(1.1);
+		}
+	}
+}
+
+.ap__btn-circle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	border-radius: 50%;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	margin-left: 1rem;
+	transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+	background-color: transparent;
+	flex-shrink: 0;
+}
+
+.ap__btn-icon {
+	transform: rotate(-45deg);
+	transition: transform 0.3s ease;
+}
+
+.ap__banner {
+	position: relative;
+	width: 100%;
+	border-radius: 24px 4px;
+	overflow: hidden;
+	background-color: #1a1a1a;
+	aspect-ratio: 16/9;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.ap__banner-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+
+	&:hover {
+		transform: scale(1.05);
+	}
+}
+
+.ap__banner-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	border: 2px dashed rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
+	color: rgba(255, 255, 255, 0.3);
+	cursor: pointer;
+	transition: border-color 0.3s ease, color 0.3s ease;
+
+	&:hover {
+		border-color: rgba(255, 255, 255, 0.3);
+		color: rgba(255, 255, 255, 0.5);
+	}
+}
+
+// ---- Responsive ----
+@media (max-width: 991px) {
+	.ap {
+		padding: 4rem 0;
+	}
+
+	.ap__grid {
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+		margin-bottom: 3.5rem;
+	}
+}
+
+@media (max-width: 767px) {
+	.ap__desc {
+		font-size: 0.95rem;
+		margin-bottom: 2rem;
+	}
+}

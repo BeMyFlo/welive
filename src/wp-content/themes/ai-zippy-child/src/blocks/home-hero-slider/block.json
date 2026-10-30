@@ -1,0 +1,65 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/home-hero-slider",
+	"version": "1.0.0",
+	"title": "Home Hero Slider",
+	"category": "welive",
+	"icon": "images-alt2",
+	"description": "Full screen cinematic slider of artists matching daomusic.com.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "BOLD MUSIC BOLD FUTURE"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "The leading music service ecosystem in Vietnam, empowering independent artists and labels."
+		},
+		"slides": {
+			"type": "array",
+			"default": [
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"artistName": "Dương Domic",
+					"link": "/artists/duong-domic",
+					"title": "GROW CREATE SHINE TOGETHER",
+					"subtitle": "Đối tác đồng hành cùng Creator trên hành trình phát triển và tỏa sáng."
+				},
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"artistName": "Juky San",
+					"link": "/artists/juky-san",
+					"title": "EMPOWERING INDEPENDENT ARTISTS",
+					"subtitle": "Cung cấp các công cụ và giải pháp toàn diện cho nghệ sĩ độc lập."
+				},
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"artistName": "buitruonglinh",
+					"link": "/artists/bui-truong-linh",
+					"title": "BOLD MUSIC BOLD FUTURE",
+					"subtitle": "Kiến tạo tương lai âm nhạc Việt Nam cùng thế hệ nghệ sĩ mới."
+				}
+			]
+		},
+		"textAlign": {
+			"type": "string",
+			"default": "left"
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

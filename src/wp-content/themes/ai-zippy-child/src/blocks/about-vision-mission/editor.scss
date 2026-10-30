@@ -1,0 +1,72 @@
+// [About Us] Vision Mission Block — Editor Styles
+
+.wp-block-ai-zippy-child-about-vision-mission {
+	background-color: #0b0b0b;
+	color: #ffffff;
+	padding: 2rem;
+
+	.abvm__grid {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.abvm__main-title {
+		font-size: 2rem;
+		line-height: 1.2;
+		color: #ffffff;
+		margin: 0;
+	}
+
+	.abvm__item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.abvm__label {
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: #EC4600;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+	}
+
+	.abvm__text {
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 1rem;
+		margin: 0;
+	}
+
+	.abvm__graphic-wrap {
+		margin-top: 1rem;
+		border-radius: 24px 4px;
+		overflow: hidden;
+		background-color: #111;
+		border: 1px dashed rgba(255, 255, 255, 0.1);
+		min-height: 200px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+	}
+
+	.abvm__image-preview-wrap {
+		width: 100%;
+		height: 100%;
+	}
+
+	.abvm__image-preview {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	.abvm__image-placeholder {
+		padding: 3rem;
+		color: rgba(255, 255, 255, 0.4);
+		cursor: pointer;
+		width: 100%;
+		text-align: center;
+	}
+}

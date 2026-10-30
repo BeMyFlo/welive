@@ -1,0 +1,35 @@
+.ah {
+	background-color: #0b0b0b;
+	padding: 5rem 0 2rem 0;
+
+	@media (min-width: 768px) {
+		padding: 8rem 0 3rem 0;
+	}
+
+	&__container {
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+		box-sizing: border-box;
+	}
+
+	&__title {
+		font-family: 'Inter', sans-serif;
+		color: #ffffff;
+		font-size: 3rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: -0.04em;
+		line-height: 1;
+		margin: 0;
+
+		@media (min-width: 480px) {
+			font-size: 5rem;
+		}
+
+		@media (min-width: 768px) {
+			font-size: 8rem;
+		}
+	}
+}

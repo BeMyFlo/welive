@@ -1,0 +1,87 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/artists-spotlight",
+	"version": "1.0.0",
+	"title": "Artists Spotlight",
+	"category": "welive",
+	"icon": "admin-users",
+	"description": "Artist showcase grid/slider with social link overlays on hover.",
+	"supports": {
+		"html": false,
+		"align": ["full"]
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "OUR ARTISTS"
+		},
+		"subheading": {
+			"type": "string",
+			"default": "Talent spotlight"
+		},
+		"artists": {
+			"type": "array",
+			"default": [
+				{
+					"name": "buitruonglinh",
+					"number": "01",
+					"imageId": 0,
+					"imageUrl": "",
+					"dob": "10/11/1999",
+					"genre": "R&B / Pop Ballad",
+					"bio": "buitruonglinh is a prominent Vietnamese singer-songwriter known for his emotional vocals and chart-topping hits. He has made a strong personal mark on the Vietnamese music market with his unique R&B and Pop ballads.",
+					"socials": {
+						"facebook": "https://www.facebook.com/buitruonglinhh",
+						"instagram": "https://www.instagram.com/buitruonglinh/",
+						"tiktok": "https://www.tiktok.com/@buitruonglinh",
+						"threads": "https://www.threads.net/@buitruonglinh",
+						"youtube": "https://www.youtube.com/@buitruonglinh"
+					}
+				},
+				{
+					"name": "Dương Domic",
+					"number": "02",
+					"imageId": 0,
+					"imageUrl": "",
+					"dob": "31/08/2000",
+					"genre": "Pop / Dance",
+					"bio": "Dương Domic is a standout face in Vietnam's music market, a true \"from zero to hero\" story. With well-rounded songwriting, production, and performance abilities, plus a bright vocal tone, Dương Domic carries youthful energy paired with depth and substance in his lyrics.\n\nDương Domic began his music career as a trainee under a Korean company with the MV \"Candy.\" He then chose to join Sàn Đấu Vũ Đạo to learn and refine his abilities.\n\nIn 2024, Dương Domic returned to the music race...",
+					"socials": {
+						"facebook": "https://www.facebook.com/duongdomicofficial",
+						"instagram": "https://www.instagram.com/duongdomic/",
+						"tiktok": "https://www.tiktok.com/@duongdomic",
+						"threads": "",
+						"youtube": ""
+					}
+				},
+				{
+					"name": "Juky San",
+					"number": "03",
+					"imageId": 0,
+					"imageUrl": "",
+					"dob": "14/01/1998",
+					"genre": "Ballad / Pop",
+					"bio": "Juky San is a popular female vocalist in Vietnam, famous for sweet, clear voice and youthful image. She rose to fame through successful covers and original music projects, establishing herself as a signature voice in V-Pop.",
+					"socials": {
+						"facebook": "https://www.facebook.com/JukySan141",
+						"instagram": "https://www.instagram.com/juky.san/",
+						"tiktok": "https://www.tiktok.com/@jukysan",
+						"threads": "https://www.threads.net/@juky.san",
+						"youtube": "https://youtube.com/@jukysanofficial"
+					}
+				}
+			]
+		},
+		"textAlign": {
+			"type": "string",
+			"default": "left"
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

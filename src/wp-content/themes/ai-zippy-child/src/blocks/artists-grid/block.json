@@ -1,0 +1,67 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/artists-grid",
+	"version": "1.0.0",
+	"title": "Artists Grid",
+	"category": "welive",
+	"icon": "grid-view",
+	"description": "Interactive grid displaying artists with hover social links and modal profile popups.",
+	"supports": {
+		"html": false,
+		"align": ["full"]
+	},
+	"attributes": {
+		"artists": {
+			"type": "array",
+			"default": [
+				{
+					"name": "52Hz",
+					"number": "01",
+					"imageId": 0,
+					"imageUrl": "",
+					"socials": {
+						"facebook": "https://www.facebook.com/52hzofficial",
+						"instagram": "https://www.instagram.com/ising52hz/",
+						"tiktok": "https://www.tiktok.com/@ising52hz",
+						"threads": "https://www.threads.com/@ising52hz",
+						"youtube": "https://youtube.com/@ising52hz"
+					},
+					"realName": "",
+					"dob": "10/06/1999",
+					"genre": "Pop",
+					"overview": "52Hz is one of the rare female artists pursuing R&B in Vietnam. She is known for her ethereal vocals and a distinctive musical personality that has left a strong personal mark on the Vietnamese music market.",
+					"labelPreset": "dao",
+					"labelLogoId": 0,
+					"labelLogoUrl": ""
+				},
+				{
+					"name": "Dương Domic",
+					"number": "02",
+					"imageId": 0,
+					"imageUrl": "",
+					"socials": {
+						"facebook": "https://www.facebook.com/duongdomicofficial",
+						"instagram": "https://www.instagram.com/duongdomic/",
+						"tiktok": "https://www.tiktok.com/@duongdomic",
+						"threads": "",
+						"youtube": "https://youtube.com/@duongdomic"
+					},
+					"realName": "",
+					"dob": "31/08/2000",
+					"genre": "Pop",
+					"overview": "Dương Domic is a standout face in Vietnam's music market, a true 'from zero to hero' story. With well-rounded songwriting, production, and performance abilities, plus a bright vocal tone, Dương Domic carries youthful energy paired with depth and substance in his lyrics.",
+					"labelPreset": "dao",
+					"labelLogoId": 0,
+					"labelLogoUrl": ""
+				}
+			]
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

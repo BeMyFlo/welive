@@ -1,0 +1,461 @@
+// Artists Spotlight Block — Frontend Styles
+
+.as {
+	width: 100%;
+	background-color: #0b0b0b;
+	color: #ffffff;
+	padding: 6rem 0;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.as__container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	box-sizing: border-box;
+}
+
+.as__header-wrap {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-bottom: 4rem;
+}
+
+.as__intro {
+	max-width: 600px;
+}
+
+.as__subheading-wrap {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.as__subheading-icon {
+	transform: rotate(-45deg);
+	margin-right: 0.5rem;
+	flex-shrink: 0;
+}
+
+.as__subheading {
+	font-family: 'Inter', sans-serif;
+	font-size: 0.85rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: #ffffff;
+	margin: 0;
+}
+
+.as__heading {
+	font-family: 'Inter', sans-serif;
+	font-size: clamp(2rem, 4vw, 3rem);
+	font-weight: 800;
+	line-height: 1.2;
+	text-transform: uppercase;
+	margin: 0;
+	letter-spacing: -0.01em;
+}
+
+// ---- Grid ----
+.as__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 2rem;
+}
+
+// ---- Card ----
+.as__card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background-color: #121212;
+	overflow: hidden;
+	border-radius: 24px 4px;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+
+	&:hover {
+		transform: translateY(-8px);
+		border-color: rgba(236, 70, 0, 0.4);
+		box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+
+		.as__card-img {
+			transform: scale(1.05);
+		}
+
+		.as__card-social-overlay {
+			opacity: 1;
+		}
+		
+		.as__card-info {
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(236, 70, 0, 0.7) 100%);
+		}
+	}
+}
+
+.as__card-img-wrap {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 4/5;
+	overflow: hidden;
+	background-color: #1a1a1a;
+}
+
+.as__card-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.as__card-img-placeholder {
+	width: 100%;
+	height: 100%;
+	background-color: #1c1c1c;
+}
+
+// ---- Hover Overlay & Social Icons ----
+.as__card-social-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	backdrop-filter: blur(4px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+	z-index: 2;
+}
+
+.as__social-icons {
+	display: flex;
+	gap: 0.75rem;
+	align-items: center;
+	margin-bottom: 2rem; // Lift up slightly to avoid overlapping info tag
+}
+
+.as__social-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	border-radius: 50%;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	color: #ffffff;
+	background-color: transparent;
+	transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+	text-decoration: none;
+
+	&:hover {
+		background-color: #EC4600;
+		border-color: #EC4600;
+		transform: scale(1.1);
+		color: #ffffff;
+	}
+}
+
+// ---- Info Overlay Tag ----
+.as__card-info {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 1.5rem;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.95) 100%);
+	backdrop-filter: blur(5px);
+	display: flex;
+	align-items: baseline;
+	z-index: 3;
+	transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.as__card-meta {
+	margin-right: 0.75rem;
+	flex-shrink: 0;
+}
+
+.as__card-number {
+	font-family: 'Inter', sans-serif;
+	font-size: 0.85rem;
+	font-weight: 700;
+	color: #EC4600;
+	letter-spacing: 0.05em;
+}
+
+.as__card-name {
+	font-family: 'Inter', sans-serif;
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: #ffffff;
+	margin: 0;
+	letter-spacing: -0.01em;
+	text-transform: uppercase;
+}
+
+// ---- Responsive ----
+@media (max-width: 767px) {
+	.as {
+		padding: 4rem 0;
+	}
+
+	.as__header-wrap {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1.5rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.as__grid {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		scroll-snap-type: x mandatory;
+		gap: 1.25rem;
+		margin: 0 -2rem;
+		padding: 0 2rem 1rem;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+		scrollbar-width: none;
+	}
+
+	.as__card {
+		flex: 0 0 78%;
+		scroll-snap-align: start;
+	}
+
+	.as__card-img-wrap {
+		aspect-ratio: 4/5;
+	}
+}
+
+// ---- Popup Modal ----
+body.as-modal-active {
+	overflow: hidden; // scroll lock when modal is open
+}
+
+.as__modal {
+	position: fixed;
+	inset: 0;
+	z-index: 99999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem;
+	box-sizing: border-box;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+
+	&.is-open {
+		opacity: 1;
+		pointer-events: auto;
+
+		.as__modal-container {
+			transform: scale(1) translateY(0);
+		}
+	}
+}
+
+.as__modal-overlay {
+	position: absolute;
+	inset: 0;
+	background-color: rgba(7, 7, 7, 0.85);
+	backdrop-filter: blur(16px);
+	z-index: 1;
+}
+
+.as__modal-container {
+	position: relative;
+	width: 94%;
+	max-width: 1450px; // Enlarge container significantly
+	background-color: transparent; // transparent to float cutout image
+	z-index: 2;
+	transform: scale(0.95) translateY(20px);
+	transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+	overflow: visible;
+}
+
+.as__modal-content {
+	display: flex;
+	align-items: stretch; // Stretch right card height to match left image height
+	gap: 6rem; // generous spacing between image and text block
+	width: 100%;
+}
+
+.as__modal-left {
+	width: 46%;
+	position: relative;
+	background-color: transparent; // transparent background
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: visible;
+}
+
+.as__modal-img {
+	width: 100%;
+	height: auto;
+	max-height: 82vh; // Stretch vertical height relative to viewport height
+	object-fit: contain;
+	display: block;
+	// Premium shadow outlining the subject shape (perfect for transparent PNGs)
+	filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.75));
+}
+
+.as__modal-img-placeholder {
+	width: 100%;
+	aspect-ratio: 4/5;
+	background-color: rgba(255, 255, 255, 0.05);
+	border-radius: 24px;
+}
+
+.as__modal-right {
+	width: 54%;
+	background-color: #121212; // separate dark card background for text
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 32px 4px;
+	padding: 5rem 4.5rem; // increase padding inside the card
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
+}
+
+.as__modal-close {
+	position: absolute;
+	top: 1.5rem;
+	right: 1.5rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	background-color: rgba(0, 0, 0, 0.3);
+	color: #ffffff;
+	font-size: 1.5rem;
+	line-height: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	z-index: 10;
+	transition: all 0.3s ease;
+
+	&:hover {
+		background-color: #EC4600;
+		border-color: #EC4600;
+		transform: rotate(90deg);
+	}
+}
+
+.as__modal-number {
+	font-family: 'Inter', sans-serif;
+	font-size: 0.95rem;
+	font-weight: 700;
+	color: #EC4600;
+	letter-spacing: 0.1em;
+	display: block;
+	margin-bottom: 0.5rem;
+}
+
+.as__modal-name {
+	font-family: 'Inter', sans-serif;
+	font-size: clamp(2rem, 3.5vw, 3.5rem); // larger name title
+	font-weight: 800;
+	line-height: 1.15;
+	color: #ffffff;
+	margin: 0 0 1.5rem;
+	text-transform: uppercase;
+	letter-spacing: -0.02em;
+}
+
+.as__modal-bio {
+	font-family: 'Inter', sans-serif;
+	font-size: 1.05rem; // slightly larger text
+	line-height: 1.7;
+	color: #cccccc;
+	margin-bottom: 2rem;
+	max-height: 380px; // allow more text height since container is bigger
+	overflow-y: auto;
+	padding-right: 1.5rem;
+
+	&::-webkit-scrollbar {
+		width: 4px;
+	}
+	&::-webkit-scrollbar-track {
+		background: rgba(255, 255, 255, 0.05);
+	}
+	&::-webkit-scrollbar-thumb {
+		background: #EC4600;
+		border-radius: 2px;
+	}
+}
+
+.as__modal-socials {
+	display: flex;
+	gap: 0.75rem;
+	margin-top: auto;
+}
+
+@media (max-width: 991px) {
+	.as__modal-content {
+		gap: 2rem;
+	}
+}
+
+@media (max-width: 767px) {
+	.as__modal {
+		padding: 1rem;
+	}
+
+	.as__modal-container {
+		max-height: 85vh;
+		overflow-y: auto;
+	}
+
+	.as__modal-content {
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.as__modal-left {
+		width: 100%;
+	}
+
+	.as__modal-img {
+		max-height: 350px;
+	}
+
+	.as__modal-right {
+		width: 100%;
+		padding: 2.5rem 1.5rem 2rem;
+		border-radius: 24px 4px;
+	}
+
+	.as__modal-close {
+		top: 1rem;
+		right: 1rem;
+		width: 2.25rem;
+		height: 2.25rem;
+		font-size: 1.25rem;
+	}
+
+	.as__modal-bio {
+		max-height: 180px;
+	}
+}

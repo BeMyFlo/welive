@@ -1,0 +1,49 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/scrolling-ticker",
+	"version": "1.0.0",
+	"title": "Scrolling Ticker",
+	"category": "welive",
+	"icon": "ellipsis",
+	"description": "Infinite scrolling text marquee.",
+	"supports": {
+		"html": false,
+		"align": ["full"]
+	},
+	"attributes": {
+		"tickerText": {
+			"type": "string",
+			"default": "Pulse Forward"
+		},
+		"speed": {
+			"type": "number",
+			"default": 12
+		},
+		"textColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"bgColor": {
+			"type": "string",
+			"default": "#EC4600"
+		},
+		"logoId": {
+			"type": "number",
+			"default": 0
+		},
+		"logoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"logoHeight": {
+			"type": "number",
+			"default": 60
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

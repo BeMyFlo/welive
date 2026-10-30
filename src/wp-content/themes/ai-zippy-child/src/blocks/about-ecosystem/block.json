@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/about-ecosystem",
+	"version": "1.0.0",
+	"title": "[About Us] Ecosystem",
+	"category": "welive",
+	"icon": "share",
+	"description": "About page ecosystem showcase with interactive tabbed panels.",
+	"supports": {
+		"html": false,
+		"align": ["full"]
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "ECOSYSTEM"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "1,000+ Artists. 3+ Billion Streams. One Unified Ecosystem."
+		},
+		"divisions": {
+			"type": "array",
+			"default": [
+				{ "name": "DAO Labels", "description": "A multi-label platform under DAO Music Entertainment, dedicated to discovering and developing Vietnamese artists through a music-first approach." },
+				{ "name": "DAO Studio", "description": "A creative hub, where artists, songwriters, and producers collaborate to create, experiment, and shape the next generation of Vietnamese music." },
+				{ "name": "DAO Publishing", "description": "Pioneering a new era of songwriter protection in Vietnam, combining global publishing infrastructure with deep local expertise." },
+				{ "name": "ZD Media", "description": "Providing music marketing solutions that amplify releases and combine strategy, creativity, and data to connect artists and brands with audiences at scale." },
+				{ "name": "ZLAB", "description": "A music production house creating original music-driven content, blending performance, visuals, and youth culture into compelling digital formats." },
+				{ "name": "FanMe", "description": "Powering meaningful fan connections by transforming music and artist identity into official merchandise and experiences." }
+			]
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}
