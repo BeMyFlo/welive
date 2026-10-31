@@ -1,8 +1,9 @@
 import { useBlockProps, RichText, MediaUpload } from "@wordpress/block-editor";
 import { Button, SelectControl } from "@wordpress/components";
+import CardsEditor from "../shared/CardsEditor.js";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { title, visionText, missionText, uspText, graphicImageId, graphicImageUrl, textAlign, visionLabel, missionLabel, uspLabel } = attributes;
+	const { title, visionText, missionText, uspText, graphicImageId, graphicImageUrl, textAlign, visionLabel, missionLabel, uspLabel, cards } = attributes;
 	const blockProps = useBlockProps({ className: `abvm has-text-align-${textAlign || "left"}` });
 
 	return (
@@ -71,6 +72,8 @@ export default function Edit({ attributes, setAttributes }) {
 							/>
 						</div>
 					</div>
+
+					<CardsEditor prefix="abvm" cards={cards} onChange={(val) => setAttributes({ cards: val })} />
 
 					<div className="abvm__graphic-wrap">
 						{graphicImageUrl ? (

@@ -77,6 +77,26 @@
 		"textAlign": {
 			"type": "string",
 			"default": "left"
+		},
+		"cards": {
+			"type": "array",
+			"default": [
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"text": ""
+				},
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"text": ""
+				},
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"text": ""
+				}
+			]
 		}
 	},
 	"textdomain": "ai-zippy-child",

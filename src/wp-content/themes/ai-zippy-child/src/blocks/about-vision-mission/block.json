@@ -53,6 +53,26 @@
 		"uspLabel": {
 			"type": "string",
 			"default": "USP"
+		},
+		"cards": {
+			"type": "array",
+			"default": [
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"text": ""
+				},
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"text": ""
+				},
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"text": ""
+				}
+			]
 		}
 	},
 	"textdomain": "ai-zippy-child",

@@ -1,0 +1,100 @@
+// Shared card ("frame") styles: image on top, caption below.
+// Usage: @include cards("sg");
+
+@mixin cards($p) {
+	.#{$p}__cards {
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: minmax(0, 1fr);
+		gap: 1.25rem;
+		align-items: stretch;
+	}
+
+	.#{$p}__card {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 20px;
+		padding: 0.75rem;
+		box-sizing: border-box;
+	}
+
+	.#{$p}__card-media {
+		aspect-ratio: 4 / 5;
+		border-radius: 14px;
+		overflow: hidden;
+		background: rgba(255, 255, 255, 0.06);
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+			transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+		}
+	}
+
+	.#{$p}__card:hover .#{$p}__card-media img {
+		transform: scale(1.05);
+	}
+
+	.#{$p}__card-text {
+		padding: 0.9rem 0.35rem 0.4rem;
+		font-family: 'Inter', sans-serif;
+		font-size: 0.95rem;
+		font-weight: 600;
+		line-height: 1.4;
+		text-align: center;
+		color: #ffffff;
+	}
+
+	@media (max-width: 767px) {
+		.#{$p}__cards {
+			grid-auto-flow: row;
+			grid-auto-columns: auto;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+}
+
+// Editor-only: placeholders, add-frame slot, remove button
+@mixin cards-editor($p) {
+	.#{$p}__card-media {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.#{$p}__card-placeholder {
+		color: rgba(255, 255, 255, 0.5);
+		font-size: 0.9rem;
+	}
+
+	.#{$p}__card-remove {
+		margin-top: 0.5rem;
+		align-self: center;
+	}
+
+	.#{$p}__card-add {
+		min-height: 160px;
+		border: 2px dashed rgba(255, 255, 255, 0.3);
+		border-radius: 20px;
+		background: transparent;
+		color: rgba(255, 255, 255, 0.6);
+		font-size: 1rem;
+		cursor: pointer;
+
+		&:hover {
+			border-color: #EC4600;
+			color: #EC4600;
+		}
+	}
+
+	.#{$p}__cards {
+		grid-auto-flow: row;
+		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	}
+}

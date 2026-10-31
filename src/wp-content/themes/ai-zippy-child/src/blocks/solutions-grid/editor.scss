@@ -1,3 +1,5 @@
+@use "../shared/cards" as *;
+
 // Solutions Grid Block — Editor Styles
 
 .wp-block-ai-zippy-child-solutions-grid {
@@ -11,4 +13,8 @@
 	.sg__card-content {
 		width: 100%;
 	}
+}
+
+.wp-block-ai-zippy-child-solutions-grid {
+	@include cards-editor("sg");
 }

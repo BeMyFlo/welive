@@ -1,3 +1,5 @@
+@use "../shared/cards" as *;
+
 // Solutions Grid Block — Frontend Styles
 
 .sg {
@@ -87,3 +89,18 @@
 	margin: 0;
 	font-weight: 400;
 }
+
+// ---- Intro (left) + cards (right) ----
+.sg__layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+	gap: 4rem;
+	align-items: center;
+
+	@media (max-width: 991px) {
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+	}
+}
+
+@include cards("sg");

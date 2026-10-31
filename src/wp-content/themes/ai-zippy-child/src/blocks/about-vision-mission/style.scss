@@ -1,3 +1,5 @@
+@use "../shared/cards" as *;
+
 // [About Us] Vision Mission Block — Frontend Styles
 
 .abvm {
@@ -18,7 +20,7 @@
 
 .abvm__grid {
 	display: grid;
-	grid-template-columns: 1.2fr 1fr;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
 	gap: 5rem;
 	align-items: center;
 }
@@ -111,3 +113,5 @@
 		gap: 2rem;
 	}
 }
+
+@include cards("abvm");

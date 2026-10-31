@@ -1,3 +1,5 @@
+@use "../shared/cards" as *;
+
 // [About Us] Vision Mission Block — Editor Styles
 
 .wp-block-ai-zippy-child-about-vision-mission {
@@ -69,4 +71,6 @@
 		width: 100%;
 		text-align: center;
 	}
+
+	@include cards-editor("abvm");
 }
