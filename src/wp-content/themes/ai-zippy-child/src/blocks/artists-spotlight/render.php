@@ -7,8 +7,33 @@ defined('ABSPATH') || exit;
 $subheading = $attributes['subheading'] ?? 'Talent spotlight';
 $title      = $attributes['title'] ?? 'OUR ARTISTS';
 $artists    = $attributes['artists'] ?? [];
+$layout     = $attributes['layout'] ?? 'grid';
+$is_wall    = $layout === 'wall';
 
-$wrapper = get_block_wrapper_attributes(['class' => 'as has-text-align-' . $text_align]);
+// Wall layout: rows of 3 · 4 · 3 (then 4 per row)
+$row_sizes = [3, 4, 3];
+$row_start = [];
+$row_end   = [];
+if ($is_wall) {
+	$cursor = 0;
+	$total  = count($artists);
+	for ($r = 0; $cursor < $total; $r++) {
+		$size           = $row_sizes[$r] ?? 4;
+		$row_start[$cursor] = $r;
+		$row_end[min($cursor + $size, $total) - 1] = $r;
+		$cursor        += $size;
+	}
+	$frame_dir = get_stylesheet_directory_uri() . '/assets/images/creator-frame-';
+	$frame_vars = '';
+	foreach (['top1', 'top2', 'top3', 'rest'] as $tier) {
+		$frame_vars .= '--as-frame-' . $tier . ":url('" . esc_url($frame_dir . $tier . '.png') . "');";
+	}
+}
+
+// Wall tier: artist 1 = Top 1 (shown centre), 2 = Top 2, 3 = Top 3, the rest share one frame
+$tier_of = static fn(int $i): string => [0 => 'top1', 1 => 'top2', 2 => 'top3'][$i] ?? 'rest';
+
+$wrapper = get_block_wrapper_attributes(['class' => 'as has-text-align-' . $text_align . ($is_wall ? ' as--wall' : '')]);
 ?>
 <div <?php echo $wrapper; ?>>
 	<div class="as__container">
@@ -24,14 +49,17 @@ $wrapper = get_block_wrapper_attributes(['class' => 'as has-text-align-' . $text
 			</div>
 		</div>
 
-		<div class="as__grid" data-reveal-stagger=".as__card" data-reveal-delay-base="100">
+		<div class="as__grid<?php echo $is_wall ? ' as__grid--wall' : ''; ?>"<?php echo $is_wall ? ' style="' . esc_attr($frame_vars) . '"' : ''; ?> data-reveal-stagger=".as__card" data-reveal-delay-base="100">
 			<?php foreach ($artists as $index => $artist) :
 				$name      = $artist['name'] ?? '';
 				$number    = $artist['number'] ?? '01';
 				$image_url = $artist['imageUrl'] ?? '';
 				$socials   = $artist['socials'] ?? [];
 			?>
-				<div class="as__card reveal-item reveal-fade-up">
+				<?php if ($is_wall && isset($row_start[$index])) : ?>
+					<div class="as__row as__row--<?php echo (int) $row_start[$index]; ?>">
+				<?php endif; ?>
+				<div class="as__card reveal-item reveal-fade-up<?php echo $is_wall ? ' as__card--framed as__card--' . $tier_of((int) $index) : ''; ?>">
 					<div class="as__card-img-wrap">
 						<?php if ($image_url) : ?>
 							<img class="as__card-img" src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($name); ?>" loading="lazy" />
@@ -163,6 +191,9 @@ $wrapper = get_block_wrapper_attributes(['class' => 'as has-text-align-' . $text
 						</div>
 					</div>
 				</div>
+				<?php if ($is_wall && isset($row_end[$index])) : ?>
+					</div>
+				<?php endif; ?>
 			<?php endforeach; ?>
 		</div>
 	</div>

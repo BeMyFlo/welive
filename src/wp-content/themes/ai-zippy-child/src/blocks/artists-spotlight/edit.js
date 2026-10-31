@@ -2,7 +2,7 @@ import { useBlockProps, RichText, MediaUpload, InspectorControls } from "@wordpr
 import { PanelBody, TextControl, Button, Dashicon, SelectControl, TextareaControl } from "@wordpress/components";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { title, subheading, artists, textAlign } = attributes;
+	const { title, subheading, artists, textAlign, layout } = attributes;
 	const blockProps = useBlockProps({ className: `as has-text-align-${textAlign || "left"}` });
 
 	const addArtist = () => {
@@ -48,6 +48,17 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<InspectorControls>
+				<PanelBody title="Layout" initialOpen={true}>
+					<SelectControl
+						label="Layout"
+						value={layout || "grid"}
+						options={[
+							{ label: "Grid", value: "grid" },
+							{ label: "Wall (3 · 4 · 3)", value: "wall" }
+						]}
+						onChange={(val) => setAttributes({ layout: val })}
+					/>
+				</PanelBody>
 				<PanelBody title="Text Alignment" initialOpen={false}>
 					<SelectControl
 						label="Text Alignment"
@@ -70,11 +81,6 @@ export default function Edit({ attributes, setAttributes }) {
 									Remove
 								</Button>
 							</div>
-							<TextControl
-								label="Artist Name"
-								value={artist.name || ""}
-								onChange={(val) => updateArtist(index, "name", val)}
-							/>
 							<TextControl
 								label="Number"
 								value={artist.number}

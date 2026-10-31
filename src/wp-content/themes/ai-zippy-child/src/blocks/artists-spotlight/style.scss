@@ -459,3 +459,193 @@ body.as-modal-active {
 		max-height: 180px;
 	}
 }
+
+// ---- Wall layout: rows of 3 · 4 · 3 ----
+// Every creator gets a frame: Top 1 (winged gold), Top 2 (silver), Top 3 (copper), 4+ (slim copper).
+// Window = photo area inside each frame PNG, as % of the cropped image.
+$wall-tiers: (
+	top1: (ratio: 1081 / 1105, left: 22.48%, top: 7.69%, w: 55.13%, h: 84.62%),
+	top2: (ratio: 743 / 1124, left: 10.09%, top: 7.38%, w: 79.95%, h: 84.79%),
+	top3: (ratio: 743 / 1128, left: 10.09%, top: 8.51%, w: 79.68%, h: 84.75%),
+	rest: (ratio: 709 / 1040, left: 3.67%, top: 3.08%, w: 92.38%, h: 93.56%),
+);
+
+.as__grid--wall {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	margin: 0 auto;
+
+	.as__row {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 6%;
+		width: 100%;
+	}
+
+	// TOP 1-2-3: Top 1 centred, Top 2 / 3 at the outer edges, starting 40% down Top 1
+	.as__row--0 {
+		display: grid;
+		grid-template-columns: 1fr 42% 1fr;
+		align-items: start;
+		container-type: inline-size;
+		padding: 0 3%;
+		gap: 0;
+
+		.as__card--top2,
+		.as__card--top1,
+		.as__card--top3 {
+			grid-row: 1;
+		}
+
+		.as__card--top2 {
+			grid-column: 1;
+			justify-self: start;
+		}
+
+		.as__card--top1 {
+			grid-column: 2;
+		}
+
+		.as__card--top3 {
+			grid-column: 3;
+			justify-self: end;
+		}
+
+		.as__card--top2,
+		.as__card--top3 {
+			margin-top: calc(42cqw * 1105 / 1081 * 0.4); // 40% of Top 1's height
+		}
+	}
+
+	.as__card--framed {
+		position: relative;
+		background: transparent;
+		border: 0;
+		border-radius: 0;
+		overflow: visible;
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: var(--as-frame) center / 100% 100% no-repeat;
+			pointer-events: none;
+			z-index: 3;
+		}
+
+		&:hover {
+			border-color: transparent;
+			box-shadow: none;
+		}
+
+		.as__card-img-wrap {
+			position: absolute;
+			left: var(--win-left);
+			top: var(--win-top);
+			width: var(--win-w);
+			height: var(--win-h);
+			aspect-ratio: auto;
+			border-radius: 10px;
+			z-index: 1;
+		}
+
+		.as__card-info {
+			left: var(--win-left);
+			width: var(--win-w);
+			bottom: calc(100% - var(--win-top) - var(--win-h));
+			padding: 0.6rem 0.5rem;
+			border-radius: 0 0 10px 10px;
+			z-index: 2;
+		}
+
+		.as__card-name {
+			font-size: 1rem;
+		}
+	}
+
+	@each $tier, $m in $wall-tiers {
+		.as__card--#{$tier} {
+			--as-frame: var(--as-frame-#{$tier});
+			--win-left: #{map-get($m, left)};
+			--win-top: #{map-get($m, top)};
+			--win-w: #{map-get($m, w)};
+			--win-h: #{map-get($m, h)};
+			aspect-ratio: #{map-get($m, ratio)};
+		}
+	}
+
+	.as__card--top1 {
+		width: 100%;
+	}
+
+	.as__card--top2,
+	.as__card--top3 {
+		width: 25cqw;
+	}
+
+	.as__card--rest {
+		flex: 0 0 19%;
+		max-width: 19%;
+	}
+}
+
+@media (max-width: 767px) {
+	.as__grid--wall {
+		.as__row,
+		.as__row--0 {
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			gap: 1rem;
+			padding: 0;
+		}
+
+		.as__card--top2,
+		.as__card--top3,
+		.as__card--rest {
+			flex: 0 0 calc(50% - 0.5rem);
+			max-width: calc(50% - 0.5rem);
+		}
+
+		.as__row--0 {
+			display: flex;
+			container-type: normal;
+
+			.as__card--top2,
+			.as__card--top3 {
+				margin-top: 0;
+				width: auto;
+				justify-self: auto;
+			}
+
+			.as__card--top1 {
+				width: auto;
+			}
+		}
+
+		.as__card--top1 {
+			order: -1;
+			flex: 0 0 100%;
+			max-width: 420px;
+		}
+	}
+}
+
+// Wall layout: centered heading above the creators
+.as--wall {
+	.as__header-wrap {
+		justify-content: center;
+		text-align: center;
+	}
+
+	.as__intro {
+		max-width: none;
+	}
+
+	.as__subheading-wrap {
+		justify-content: center;
+	}
+}

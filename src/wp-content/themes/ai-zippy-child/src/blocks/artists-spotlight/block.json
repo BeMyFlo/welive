@@ -9,7 +9,9 @@
 	"description": "Artist showcase grid/slider with social link overlays on hover.",
 	"supports": {
 		"html": false,
-		"align": ["full"]
+		"align": [
+			"full"
+		]
 	},
 	"attributes": {
 		"title": {
@@ -76,6 +78,10 @@
 		"textAlign": {
 			"type": "string",
 			"default": "left"
+		},
+		"layout": {
+			"type": "string",
+			"default": "grid"
 		}
 	},
 	"textdomain": "ai-zippy-child",
