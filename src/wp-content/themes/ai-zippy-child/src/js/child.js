@@ -9,6 +9,14 @@
 
 console.log("[ai-zippy-child] loaded");
 
+// Header: add .is-scrolled once the page leaves the top (solid background)
+const siteHeader = document.querySelector("header.wp-block-group");
+if (siteHeader) {
+	const onScroll = () => siteHeader.classList.toggle("is-scrolled", window.scrollY > 10);
+	onScroll();
+	window.addEventListener("scroll", onScroll, { passive: true });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 	// 1. Countdown Timer
 	const countdownEl = document.querySelector(".coming-soon-countdown");
