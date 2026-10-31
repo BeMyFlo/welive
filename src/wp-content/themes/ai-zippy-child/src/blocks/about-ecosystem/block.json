@@ -6,7 +6,7 @@
 	"title": "[About Us] Ecosystem",
 	"category": "welive",
 	"icon": "share",
-	"description": "About page ecosystem showcase with interactive tabbed panels.",
+	"description": "Solutions row: heading with a button, and a grid of image cards with title and description.",
 	"supports": {
 		"html": false,
 		"align": ["full"]
@@ -14,21 +14,28 @@
 	"attributes": {
 		"title": {
 			"type": "string",
-			"default": "ECOSYSTEM"
+			"default": "Giải pháp"
 		},
 		"subtitle": {
 			"type": "string",
-			"default": "1,000+ Artists. 3+ Billion Streams. One Unified Ecosystem."
+			"default": ""
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Xem chi tiết"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": ""
 		},
 		"divisions": {
 			"type": "array",
 			"default": [
-				{ "name": "DAO Labels", "description": "A multi-label platform under DAO Music Entertainment, dedicated to discovering and developing Vietnamese artists through a music-first approach." },
-				{ "name": "DAO Studio", "description": "A creative hub, where artists, songwriters, and producers collaborate to create, experiment, and shape the next generation of Vietnamese music." },
-				{ "name": "DAO Publishing", "description": "Pioneering a new era of songwriter protection in Vietnam, combining global publishing infrastructure with deep local expertise." },
-				{ "name": "ZD Media", "description": "Providing music marketing solutions that amplify releases and combine strategy, creativity, and data to connect artists and brands with audiences at scale." },
-				{ "name": "ZLAB", "description": "A music production house creating original music-driven content, blending performance, visuals, and youth culture into compelling digital formats." },
-				{ "name": "FanMe", "description": "Powering meaningful fan connections by transforming music and artist identity into official merchandise and experiences." }
+				{ "name": "Phát hành & phân phối", "description": "Phân phối nhạc số, kế hoạch phát hành và đối soát doanh thu.", "imageId": 0, "imageUrl": "" },
+				{ "name": "Bản quyền & cấp phép", "description": "Quản trị quyền tác giả, thu bản quyền và cấp phép âm nhạc.", "imageId": 0, "imageUrl": "" },
+				{ "name": "Phát triển & sản xuất", "description": "Phát triển nghệ sĩ, sáng tác, thu âm và sản xuất âm nhạc.", "imageId": 0, "imageUrl": "" },
+				{ "name": "Truyền thông & thương hiệu", "description": "Nội dung, quảng bá âm nhạc và hợp tác thương hiệu.", "imageId": 0, "imageUrl": "" },
+				{ "name": "Kết nối người hâm mộ", "description": "Đĩa nhạc, sản phẩm lưu niệm và trải nghiệm người hâm mộ.", "imageId": 0, "imageUrl": "" }
 			]
 		}
 	},
@@ -36,6 +43,5 @@
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"render": "file:./render.php",
-	"viewScript": "file:./view.js"
+	"render": "file:./render.php"
 }

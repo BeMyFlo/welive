@@ -2,50 +2,49 @@
 
 defined('ABSPATH') || exit;
 
-$title     = $attributes['title'] ?? 'ECOSYSTEM';
-$subtitle  = $attributes['subtitle'] ?? '';
-$divisions = $attributes['divisions'] ?? [];
+$title       = $attributes['title'] ?? '';
+$subtitle    = $attributes['subtitle'] ?? '';
+$button_text = $attributes['buttonText'] ?? '';
+$button_url  = $attributes['buttonUrl'] ?? '';
+$divisions   = $attributes['divisions'] ?? [];
 
 $wrapper = get_block_wrapper_attributes(['class' => 'abec']);
 ?>
 <div <?php echo $wrapper; ?>>
 	<div class="abec__container">
-		<!-- Header -->
 		<div class="abec__header reveal-on-scroll reveal-fade-up">
-			<h2 class="abec__title"><?php echo esc_html($title); ?></h2>
-			<p class="abec__subtitle"><?php echo wp_kses_post($subtitle); ?></p>
+			<div class="abec__intro">
+				<h2 class="abec__title"><?php echo esc_html($title); ?></h2>
+				<?php if ($subtitle !== '') : ?>
+					<p class="abec__subtitle"><?php echo wp_kses_post($subtitle); ?></p>
+				<?php endif; ?>
+			</div>
+			<?php if ($button_text !== '') : ?>
+				<a class="abec__btn" href="<?php echo esc_url($button_url ?: '#'); ?>">
+					<span><?php echo esc_html($button_text); ?></span>
+					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</a>
+			<?php endif; ?>
 		</div>
 
-		<!-- Interactive Ecosystem Panels -->
-		<div class="abec__main reveal-on-scroll reveal-fade-up" data-reveal-delay="150">
-			<!-- Tab Menu -->
-			<div class="abec__tab-menu">
-				<?php foreach ($divisions as $index => $div) : 
-					$name = $div['name'] ?? '';
-				?>
-					<button class="abec__tab-btn <?php echo $index === 0 ? 'abec__tab-btn--active' : ''; ?>" data-index="<?php echo $index; ?>">
-						<span class="abec__tab-name"><?php echo esc_html($name); ?></span>
-						<span class="abec__tab-arrow">
-							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-							</svg>
-						</span>
-					</button>
-				<?php endforeach; ?>
-			</div>
-
-			<!-- Tab Panels -->
-			<div class="abec__tab-content">
-				<?php foreach ($divisions as $index => $div) : 
-					$desc = $div['description'] ?? '';
-				?>
-					<div class="abec__tab-panel <?php echo $index === 0 ? 'abec__tab-panel--active' : ''; ?>" data-panel="<?php echo $index; ?>">
-						<div class="abec__card">
-							<p class="abec__desc"><?php echo wp_kses_post(nl2br($desc)); ?></p>
-						</div>
+		<div class="abec__grid" data-reveal-stagger=".abec__item" data-reveal-delay-base="100">
+			<?php foreach ($divisions as $div) :
+				$name      = $div['name'] ?? '';
+				$desc      = $div['description'] ?? '';
+				$image_url = $div['imageUrl'] ?? '';
+			?>
+				<div class="abec__item reveal-item reveal-fade-up">
+					<div class="abec__media">
+						<?php if ($image_url) : ?>
+							<img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($name); ?>" loading="lazy" />
+						<?php endif; ?>
 					</div>
-				<?php endforeach; ?>
-			</div>
+					<h3 class="abec__name"><?php echo esc_html($name); ?></h3>
+					<p class="abec__desc"><?php echo wp_kses_post(nl2br($desc)); ?></p>
+				</div>
+			<?php endforeach; ?>
 		</div>
 	</div>
 </div>

@@ -1,5 +1,4 @@
 // [About Us] Ecosystem Block — Frontend Styles
-
 .abec {
 	width: 100%;
 	background-color: #0b0b0b;
@@ -17,18 +16,20 @@
 }
 
 .abec__header {
-	margin-bottom: 5rem;
-	max-width: 700px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1.5rem;
+	margin-bottom: 3.5rem;
 }
 
 .abec__title {
 	font-family: 'Inter', sans-serif;
-	font-size: clamp(2rem, 4vw, 3rem);
+	font-size: clamp(2rem, 4vw, 3.5rem);
 	font-weight: 800;
-	line-height: 1.2;
-	text-transform: uppercase;
-	margin: 0 0 1.25rem;
-	letter-spacing: -0.01em;
+	line-height: 1.15;
+	margin: 0;
+	letter-spacing: -0.02em;
 }
 
 .abec__subtitle {
@@ -36,130 +37,95 @@
 	font-size: 1.05rem;
 	line-height: 1.6;
 	color: #aaaaaa;
-	margin: 0;
+	margin: 1rem 0 0;
 }
 
-// ---- Main Section Layout ----
-.abec__main {
-	display: grid;
-	grid-template-columns: 1fr 1.3fr;
-	gap: 5rem;
-	align-items: flex-start;
-}
-
-.abec__tab-menu {
-	display: flex;
-	flex-direction: column;
-}
-
-.abec__tab-btn {
-	display: flex;
-	justify-content: space-between;
+.abec__btn {
+	display: inline-flex;
 	align-items: center;
-	width: 100%;
-	background: transparent;
-	border: none;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-	padding: 1.5rem 0.5rem;
-	color: rgba(255, 255, 255, 0.5);
-	cursor: pointer;
-	text-align: left;
-	transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-	box-sizing: border-box;
+	gap: 0.75rem;
+	flex-shrink: 0;
+	padding: 0.85rem 1.75rem;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 999px;
+	color: #ffffff;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.95rem;
+	text-decoration: none;
+	transition: background-color 0.3s ease, border-color 0.3s ease;
 
 	&:hover {
+		background-color: #EC4600;
+		border-color: #EC4600;
 		color: #ffffff;
-		padding-left: 1rem;
 	}
 }
 
-.abec__tab-name {
-	font-family: 'Inter', sans-serif;
-	font-size: 1.25rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: -0.01em;
+// ---- Solutions grid ----
+.abec__grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 2.5rem 2rem;
 }
 
-.abec__tab-arrow {
+.abec__media {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: inherit;
-	transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-	transform: rotate(-45deg);
-}
+	aspect-ratio: 4 / 3;
+	margin-bottom: 2rem;
 
-.abec__tab-btn--active {
-	color: #EC4600 !important;
-	border-bottom-color: #EC4600;
-	padding-left: 1rem;
-
-	.abec__tab-arrow {
-		transform: rotate(0deg);
-		color: #EC4600;
+	img {
+		max-width: 100%;
+		max-height: 100%;
+		object-fit: contain;
 	}
 }
 
-// ---- Content Panels ----
-.abec__tab-content {
-	position: relative;
-	width: 100%;
-}
-
-.abec__tab-panel {
-	display: none;
-	opacity: 0;
-	transform: translateY(15px);
-}
-
-.abec__tab-panel--active {
-	display: block;
-	animation: abecFadeIn 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-}
-
-.abec__card {
-	background-color: #121212;
-	border: 1px solid rgba(255, 255, 255, 0.05);
-	border-left: 4px solid #EC4600;
-	border-radius: 24px 4px;
-	padding: 3rem 2.5rem;
-	box-sizing: border-box;
-	min-height: 280px;
-	display: flex;
-	align-items: center;
-	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+.abec__name {
+	font-family: 'Inter', sans-serif;
+	font-size: 1.35rem;
+	font-weight: 600;
+	line-height: 1.3;
+	margin: 0 0 1.25rem;
+	transition: color 0.3s ease;
 }
 
 .abec__desc {
 	font-family: 'Inter', sans-serif;
-	font-size: 1.1rem;
+	font-size: 0.95rem;
 	line-height: 1.75;
-	color: rgba(255, 255, 255, 0.8);
+	color: rgba(255, 255, 255, 0.6);
 	margin: 0;
-	font-weight: 400;
 }
 
-@keyframes abecFadeIn {
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
+.abec__item:hover .abec__name {
+	color: #EC4600;
 }
 
 // ---- Responsive ----
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
+	.abec__grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 767px) {
 	.abec {
 		padding: 4rem 0;
 	}
 
-	.abec__main {
-		grid-template-columns: 1fr;
-		gap: 3rem;
+	.abec__header {
+		flex-direction: column;
+		align-items: flex-start;
 	}
 
-	.abec__card {
-		min-height: auto;
-		padding: 2.25rem 1.75rem;
+	.abec__grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem 1rem;
+	}
+
+	.abec__name {
+		font-size: 1.1rem;
 	}
 }

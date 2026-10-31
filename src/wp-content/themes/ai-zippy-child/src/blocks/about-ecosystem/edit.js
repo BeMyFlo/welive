@@ -1,8 +1,8 @@
-import { useBlockProps, RichText, InspectorControls } from "@wordpress/block-editor";
+import { useBlockProps, RichText, InspectorControls, MediaUpload, MediaUploadCheck } from "@wordpress/block-editor";
 import { PanelBody, TextControl, TextareaControl, Button } from "@wordpress/components";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { title, subtitle, divisions } = attributes;
+	const { title, subtitle, buttonText, buttonUrl, divisions } = attributes;
 	const blockProps = useBlockProps({ className: "abec" });
 
 	const updateDivision = (index, key, value) => {
@@ -14,7 +14,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const addDivision = () => {
 		const newDivisions = [
 			...divisions,
-			{ name: "New Division", description: "Division description text." }
+			{ name: "Tiêu đề", description: "Mô tả ngắn.", imageId: 0, imageUrl: "" }
 		];
 		setAttributes({ divisions: newDivisions });
 	};
@@ -27,29 +27,45 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Ecosystem Divisions" initialOpen={true}>
+				<PanelBody title="Nút" initialOpen={false}>
+					<TextControl label="Chữ nút (để trống để ẩn)" value={buttonText} onChange={(val) => setAttributes({ buttonText: val })} />
+					<TextControl label="Link nút" value={buttonUrl} onChange={(val) => setAttributes({ buttonUrl: val })} />
+				</PanelBody>
+				<PanelBody title="Giải pháp" initialOpen={true}>
 					{divisions.map((div, index) => (
 						<div key={index} style={{ borderBottom: "1px solid #ccc", paddingBottom: 15, marginBottom: 15 }}>
 							<div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-								<strong>Division #{index + 1}</strong>
+								<strong>#{index + 1}</strong>
 								<Button isDestructive variant="link" onClick={() => removeDivision(index)}>
-									Remove
+									Xoá
 								</Button>
 							</div>
+							<MediaUploadCheck>
+								<MediaUpload
+									onSelect={(media) => setAttributes({ divisions: divisions.map((d, i) => (i === index ? { ...d, imageId: media.id, imageUrl: media.url } : d)) })}
+									allowedTypes={["image"]}
+									value={div.imageId}
+									render={({ open }) => (
+										<Button variant="secondary" onClick={open} style={{ marginBottom: 10 }}>
+											{div.imageUrl ? "Đổi ảnh" : "Chọn ảnh"}
+										</Button>
+									)}
+								/>
+							</MediaUploadCheck>
 							<TextControl
-								label="Division Name"
+								label="Tiêu đề"
 								value={div.name}
 								onChange={(val) => updateDivision(index, "name", val)}
 							/>
 							<TextareaControl
-								label="Description"
+								label="Mô tả"
 								value={div.description}
 								onChange={(val) => updateDivision(index, "description", val)}
 							/>
 						</div>
 					))}
 					<Button variant="primary" onClick={addDivision} style={{ width: "100%", marginTop: 10 }}>
-						Add New Division
+						Thêm giải pháp
 					</Button>
 				</PanelBody>
 			</InspectorControls>
@@ -69,21 +85,22 @@ export default function Edit({ attributes, setAttributes }) {
 							className="abec__subtitle"
 							value={subtitle}
 							onChange={(val) => setAttributes({ subtitle: val })}
-							placeholder="Subtitle..."
+							placeholder="Mô tả (có thể để trống)"
 						/>
 					</div>
 
-					<div className="abec__divisions-list">
+					<div className="abec__grid">
 						{divisions.map((div, index) => (
-							<div key={index} style={{ padding: 15, border: "1px solid #333", borderRadius: 8, margin: "10px 0", backgroundColor: "#111" }}>
-								<div style={{ fontWeight: "bold", color: "#EC4600" }}>{div.name}</div>
-								<div style={{ color: "#aaa", fontSize: "0.9rem", marginTop: 5 }}>{div.description}</div>
+							<div key={index} className="abec__item">
+								<div className="abec__media">{div.imageUrl ? <img src={div.imageUrl} alt="" /> : <span className="abec__media-empty">Ảnh</span>}</div>
+								<h3 className="abec__name">{div.name}</h3>
+								<p className="abec__desc">{div.description}</p>
 							</div>
 						))}
-						<Button variant="secondary" onClick={addDivision} style={{ width: "100%", marginTop: 10 }}>
-							+ Add Division Item
-						</Button>
 					</div>
+					<Button variant="secondary" onClick={addDivision} style={{ width: "100%", marginTop: 20 }}>
+						+ Thêm giải pháp
+					</Button>
 				</div>
 			</div>
 		</>
