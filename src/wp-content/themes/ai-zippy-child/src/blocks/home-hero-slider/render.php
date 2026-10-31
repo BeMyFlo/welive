@@ -65,12 +65,13 @@ $wrapper_attributes = get_block_wrapper_attributes(['class' => 'hhs has-text-ali
 				<?php endforeach; ?>
 			</div>
 
-			<!-- Cinematic Slide Counter -->
-			<div class="hhs__counter">
-				<div class="hhs__counter-current">01</div>
-				<div class="hhs__counter-divider">—</div>
-				<div class="hhs__counter-total"><?php echo str_pad(count($slides) ?: 1, 2, '0', STR_PAD_LEFT); ?></div>
-			</div>
+			<!-- CTA -->
+			<a class="hhs__cta" href="<?php echo esc_url(home_url('/artists/')); ?>">
+				<span class="hhs__cta-label">Khám phá nghệ sĩ</span>
+				<svg class="hhs__cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</a>
 		</div>
 	</div>
 </div>

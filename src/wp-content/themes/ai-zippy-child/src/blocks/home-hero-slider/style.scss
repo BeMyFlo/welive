@@ -114,43 +114,38 @@
 	font-weight: 400;
 }
 
-// ---- Slide Counter ----
-.hhs__counter {
-	display: flex;
-	flex-direction: row;
+// ---- CTA button ----
+.hhs__cta {
+	display: inline-flex;
 	align-items: center;
-	gap: 0.75rem;
-	background: rgba(0, 0, 0, 0.4);
-	backdrop-filter: blur(12px);
-	border: 1px solid rgba(255, 255, 255, 0.08);
-	border-left: 3px solid #EC4600;
-	border-radius: 4px;
-	padding: 0.6rem 1.25rem;
-	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-	pointer-events: auto;
-}
-
-.hhs__counter-current {
-	font-family: 'Inter', sans-serif;
-	font-size: clamp(1.25rem, 2vw, 1.75rem);
-	font-weight: 800;
-	color: #ffffff;
-	line-height: 1;
-	letter-spacing: -0.02em;
-}
-
-.hhs__counter-divider {
-	font-family: 'Inter', sans-serif;
-	font-size: 1.1rem;
-	color: #EC4600;
-	font-weight: 700;
-}
-
-.hhs__counter-total {
+	justify-content: space-between;
+	gap: 1.5rem;
+	background: #ffffff;
+	color: #0b0b0b;
+	border-radius: 100px;
+	padding: 1.1rem 2rem 1.1rem 2.25rem;
 	font-family: 'Inter', sans-serif;
 	font-size: 1rem;
-	font-weight: 500;
-	color: rgba(255, 255, 255, 0.5);
+	font-weight: 700;
+	line-height: 1;
+	text-decoration: none;
+	pointer-events: auto;
+	transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+	&:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+		color: #0b0b0b;
+	}
+
+	&:hover .hhs__cta-icon {
+		transform: translate(2px, -2px);
+	}
+}
+
+.hhs__cta-icon {
+	flex-shrink: 0;
+	transition: transform 0.3s ease;
 }
 
 // ---- Pagination ----
@@ -215,12 +210,6 @@
 
 	.hhs__content-left {
 		max-width: 100%;
-	}
-
-	.hhs__counter {
-		align-items: flex-start;
-		flex-direction: row;
-		align-items: center;
 	}
 
 	.hhs__nav {
