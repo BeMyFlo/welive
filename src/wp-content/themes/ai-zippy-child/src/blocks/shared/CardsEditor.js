@@ -6,7 +6,7 @@ import { Button } from "@wordpress/components";
 export default function CardsEditor({ prefix, cards = [], onChange }) {
 	const update = (index, patch) => onChange(cards.map((card, i) => (i === index ? { ...card, ...patch } : card)));
 	const remove = (index) => onChange(cards.filter((_, i) => i !== index));
-	const add = () => onChange([...cards, { imageId: 0, imageUrl: "", text: "" }]);
+	const add = () => onChange([...cards, { imageId: 0, imageUrl: "", text: "", sub: "" }]);
 
 	return (
 		<div className={`${prefix}__cards`}>
@@ -30,6 +30,13 @@ export default function CardsEditor({ prefix, cards = [], onChange }) {
 						value={card.text}
 						onChange={(val) => update(index, { text: val })}
 						placeholder="Chữ sửa được"
+					/>
+					<RichText
+						tagName="p"
+						className={`${prefix}__card-sub`}
+						value={card.sub || ""}
+						onChange={(val) => update(index, { sub: val })}
+						placeholder="Chữ nhỏ bên dưới (tuỳ chọn)"
 					/>
 					<Button className={`${prefix}__card-remove`} variant="secondary" isDestructive isSmall onClick={() => remove(index)}>
 						Xoá khung

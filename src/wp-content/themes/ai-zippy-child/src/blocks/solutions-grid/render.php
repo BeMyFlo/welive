@@ -34,6 +34,7 @@ $wrapper  = get_block_wrapper_attributes([
 					<?php foreach ($cards as $card) :
 						$card_img  = $card['imageUrl'] ?? '';
 						$card_text = $card['text'] ?? '';
+						$card_sub  = $card['sub'] ?? '';
 					?>
 						<figure class="sg__card">
 							<div class="sg__card-media">
@@ -43,6 +44,9 @@ $wrapper  = get_block_wrapper_attributes([
 							</div>
 							<?php if ($card_text) : ?>
 								<figcaption class="sg__card-text"><?php echo wp_kses_post($card_text); ?></figcaption>
+							<?php endif; ?>
+							<?php if ($card_sub) : ?>
+								<p class="sg__card-sub"><?php echo wp_kses_post($card_sub); ?></p>
 							<?php endif; ?>
 						</figure>
 					<?php endforeach; ?>

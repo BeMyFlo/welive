@@ -50,6 +50,16 @@
 		color: #ffffff;
 	}
 
+	.#{$p}__card-sub {
+		margin: 0;
+		padding: 0 0.5rem 0.6rem;
+		font-family: 'Inter', sans-serif;
+		font-size: 0.8rem;
+		line-height: 1.5;
+		text-align: center;
+		color: rgba(255, 255, 255, 0.6);
+	}
+
 	@media (max-width: 767px) {
 		.#{$p}__cards {
 			grid-auto-flow: row;
