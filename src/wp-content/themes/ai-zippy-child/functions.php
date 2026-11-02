@@ -241,60 +241,45 @@ function ai_zippy_child_handle_subscribe_submit(): void
 
 
 // -----------------------------------------------------------------------------
-// One-time content seed: Agency page + menu link.
-// Only ever ADDS missing things (never edits existing pages/menus), so content
-// that editors changed on a live site is left alone. Runs once per seed version.
+// Migrations: every file in /migrations runs once, in filename order.
+// Applied file names are stored in the `ai_zippy_child_migrations` option.
+// A migration file returns a callable and must be idempotent and ADD-only
+// (never overwrite content that editors changed on a live site).
+// Name files `YYYY_MM_DD_NNN_description.php` so they sort chronologically.
 // -----------------------------------------------------------------------------
-add_action('init', function (): void {
-	$seed_version = '1';
-	if (get_option('ai_zippy_child_seed') === $seed_version) {
+function ai_zippy_child_run_migrations(): void
+{
+	$files = glob(get_stylesheet_directory() . '/migrations/*.php');
+	if (!$files) {
+		return;
+	}
+	sort($files);
+
+	$done = get_option('ai_zippy_child_migrations', []);
+	$done = is_array($done) ? $done : [];
+
+	$pending = array_filter($files, static fn(string $file): bool => !in_array(basename($file), $done, true));
+	if (!$pending || get_transient('ai_zippy_child_migrating')) {
 		return;
 	}
 
-	$page = get_page_by_path('agency');
-	if (!$page) {
-		$page_id = wp_insert_post([
-			'post_title'    => 'Agency',
-			'post_name'     => 'agency',
-			'post_type'     => 'page',
-			'post_status'   => 'publish',
-			'post_content'  => "<!-- wp:ai-zippy-child/agency-hero /-->\n\n<!-- wp:ai-zippy-child/agency-audience /-->\n\n<!-- wp:ai-zippy-child/agency-services /-->\n\n<!-- wp:ai-zippy-child/agency-contact /-->",
-			'page_template' => 'page-fullwidth',
-		]);
-		$page = $page_id && !is_wp_error($page_id) ? get_post($page_id) : null;
-	}
-
-	$navs = get_posts(['post_type' => 'wp_navigation', 'post_status' => 'publish', 'numberposts' => 1, 'orderby' => 'ID', 'order' => 'ASC']);
-	if ($page && $navs) {
-		$nav = $navs[0];
-		$url = get_permalink($page);
-		if (strpos($nav->post_content, '"id":' . $page->ID . ',') === false && strpos($nav->post_content, $url) === false) {
-			$link = '<!-- wp:navigation-link ' . wp_json_encode([
-				'label' => 'Agency',
-				'type'  => 'page',
-				'id'    => $page->ID,
-				'url'   => $url,
-				'kind'  => 'post-type',
-			], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . ' /-->';
-			$parts = array_filter(explode("\n\n", trim($nav->post_content)), 'strlen');
-			$out   = [];
-			$added = false;
-			foreach ($parts as $part) {
-				if (!$added && stripos($part, '"label":"Contact"') !== false) {
-					$out[] = $link;
-					$added = true;
-				}
-				$out[] = $part;
+	set_transient('ai_zippy_child_migrating', 1, 60); // avoid two requests running the same migration
+	foreach ($pending as $file) {
+		try {
+			$run = require $file;
+			if (is_callable($run)) {
+				$run();
 			}
-			if (!$added) {
-				$out[] = $link;
-			}
-			wp_update_post(['ID' => $nav->ID, 'post_content' => implode("\n\n", $out)]);
+			$done[] = basename($file);
+			update_option('ai_zippy_child_migrations', $done, false);
+		} catch (\Throwable $e) {
+			error_log('[ai-zippy-child] migration failed: ' . basename($file) . ' — ' . $e->getMessage());
+			break; // stop here; retried on the next request
 		}
 	}
-
-	update_option('ai_zippy_child_seed', $seed_version, false);
-}, 20);
+	delete_transient('ai_zippy_child_migrating');
+}
+add_action('init', 'ai_zippy_child_run_migrations', 20);
 
 // Overlay header (transparent over the hero) on every page that uses the full-width template.
 add_filter('body_class', function (array $classes): array {
