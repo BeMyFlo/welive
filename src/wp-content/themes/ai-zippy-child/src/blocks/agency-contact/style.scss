@@ -1,0 +1,101 @@
+// [Agency] Contact — Frontend Styles
+
+.agc {
+	width: 100%;
+	background-color: #0b0b0b;
+	color: #ffffff;
+	padding: 5rem 0;
+	box-sizing: border-box;
+	scroll-margin-top: 4rem;
+}
+
+.agc__container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	box-sizing: border-box;
+}
+
+.agc__header {
+	margin-bottom: 2rem;
+}
+
+.agc__title {
+	font-family: 'Inter', sans-serif;
+	font-size: clamp(1.75rem, 3vw, 2.5rem);
+	font-weight: 800;
+	letter-spacing: -0.01em;
+	margin: 0 0 0.75rem;
+}
+
+.agc__desc {
+	font-family: 'Inter', sans-serif;
+	font-size: 1rem;
+	color: rgba(255, 255, 255, 0.6);
+	margin: 0;
+}
+
+.agc__grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+}
+
+.agc__item {
+	display: flex;
+	align-items: center;
+	gap: 1.25rem;
+	background: #121212;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 16px;
+	padding: 1.5rem;
+	box-sizing: border-box;
+}
+
+.agc__icon {
+	flex-shrink: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	background: rgba(236, 70, 0, 0.15);
+	color: #EC4600;
+}
+
+.agc__info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+	min-width: 0;
+}
+
+.agc__label {
+	font-family: 'Inter', sans-serif;
+	font-size: 0.9rem;
+	font-weight: 700;
+}
+
+.agc__value {
+	font-family: 'Inter', sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: rgba(255, 255, 255, 0.7);
+	text-decoration: none;
+	overflow-wrap: anywhere;
+}
+
+a.agc__value:hover {
+	color: #EC4600;
+}
+
+@media (max-width: 991px) {
+	.agc {
+		padding: 3.5rem 0;
+	}
+
+	.agc__grid {
+		grid-template-columns: 1fr;
+	}
+}

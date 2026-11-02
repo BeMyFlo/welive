@@ -1,0 +1,118 @@
+// [Agency] Audience Cards — Frontend Styles
+
+.aga {
+	width: 100%;
+	background-color: #0b0b0b;
+	color: #ffffff;
+	padding: 1rem 0 5rem;
+	box-sizing: border-box;
+}
+
+.aga__container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.5rem;
+	box-sizing: border-box;
+}
+
+.aga__card {
+	display: grid;
+	grid-template-columns: 1.1fr 1fr;
+	align-items: end;
+	gap: 1rem;
+	min-height: 260px;
+	padding: 2rem 0 0 2rem;
+	border-radius: 20px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.aga__card--dark {
+	background: linear-gradient(135deg, #1b1b1b 0%, #121212 100%);
+}
+
+.aga__card--warm {
+	background: linear-gradient(135deg, rgba(236, 70, 0, 0.28) 0%, #141414 90%);
+	border-color: rgba(236, 70, 0, 0.25);
+}
+
+.aga__body {
+	align-self: center;
+	padding-bottom: 2rem;
+}
+
+.aga__title {
+	font-family: 'Inter', sans-serif;
+	font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+	font-weight: 800;
+	line-height: 1.2;
+	margin: 0 0 0.6rem;
+}
+
+.aga__subtitle {
+	font-family: 'Inter', sans-serif;
+	font-size: 0.95rem;
+	color: rgba(255, 255, 255, 0.7);
+	margin: 0 0 1.5rem;
+}
+
+.aga__btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.6rem;
+	padding: 0.8rem 1.4rem;
+	border-radius: 10px;
+	background: #EC4600;
+	color: #ffffff;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.85rem;
+	font-weight: 700;
+	text-decoration: none;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+	&:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 22px rgba(236, 70, 0, 0.4);
+		color: #ffffff;
+	}
+}
+
+.aga__media {
+	align-self: end;
+	justify-self: end;
+	width: 100%;
+	height: 100%;
+	min-height: 200px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+
+	img {
+		max-width: 100%;
+		max-height: 100%;
+		object-fit: contain;
+		object-position: right bottom;
+		display: block;
+	}
+}
+
+@media (max-width: 991px) {
+	.aga__container {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 575px) {
+	.aga__card {
+		grid-template-columns: 1fr;
+		padding: 1.75rem 0 0 1.5rem;
+	}
+
+	.aga__media {
+		min-height: 180px;
+	}
+}

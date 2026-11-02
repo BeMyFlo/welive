@@ -1,0 +1,46 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/agency-audience",
+	"version": "1.0.0",
+	"title": "[Agency] Audience Cards",
+	"category": "welive",
+	"icon": "columns",
+	"description": "Two call-to-action cards, each with title, subtitle, button and image.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"cards": {
+			"type": "array",
+			"default": [
+				{
+					"title": "Tôi đang vận hành agency",
+					"subtitle": "Tuyển nhà sáng tạo và mở rộng đội ngũ",
+					"btnText": "Khám phá giải pháp",
+					"btnUrl": "#giai-phap",
+					"tone": "dark",
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"title": "Tôi muốn trở thành agency",
+					"subtitle": "Liên hệ trực tiếp để được tư vấn",
+					"btnText": "Liên hệ tư vấn",
+					"btnUrl": "#lien-he",
+					"tone": "warm",
+					"imageId": 0,
+					"imageUrl": ""
+				}
+			]
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

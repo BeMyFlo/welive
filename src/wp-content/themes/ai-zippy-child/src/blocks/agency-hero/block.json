@@ -1,0 +1,56 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/agency-hero",
+	"version": "1.0.0",
+	"title": "[Agency] Hero",
+	"category": "welive",
+	"icon": "groups",
+	"description": "Agency page hero: eyebrow, heading, description and a collage of four images.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "GIẢI PHÁP AGENCY"
+		},
+		"title": {
+			"type": "string",
+			"default": "Khởi đầu và phát triển agency nhà sáng tạo"
+		},
+		"description": {
+			"type": "string",
+			"default": "Tìm kiếm, tuyển chọn và phát triển đội ngũ nhà sáng tạo phù hợp."
+		},
+		"images": {
+			"type": "array",
+			"default": [
+				{
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"imageId": 0,
+					"imageUrl": ""
+				}
+			]
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

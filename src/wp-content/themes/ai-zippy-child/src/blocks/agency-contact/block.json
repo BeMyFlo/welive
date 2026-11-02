@@ -1,0 +1,58 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/agency-contact",
+	"version": "1.0.0",
+	"title": "[Agency] Contact",
+	"category": "welive",
+	"icon": "email",
+	"description": "Heading and three contact cards with icon, label and value.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": "lien-he"
+		},
+		"title": {
+			"type": "string",
+			"default": "Liên hệ hợp tác"
+		},
+		"description": {
+			"type": "string",
+			"default": "Bạn muốn trở thành agency? Liên hệ với chúng tôi để được tư vấn."
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"icon": "mail",
+					"label": "Email",
+					"value": "hello@welive.vn",
+					"url": "mailto:hello@welive.vn"
+				},
+				{
+					"icon": "phone",
+					"label": "Hotline / Zalo",
+					"value": "+84 000 000 000",
+					"url": "tel:+84000000000"
+				},
+				{
+					"icon": "pin",
+					"label": "Văn phòng",
+					"value": "44 Đ. D, Khu đô thị, Bình Trưng, Hồ Chí Minh",
+					"url": ""
+				}
+			]
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

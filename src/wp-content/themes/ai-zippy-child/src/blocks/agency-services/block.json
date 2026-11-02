@@ -1,0 +1,72 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/agency-services",
+	"version": "1.0.0",
+	"title": "[Agency] Services",
+	"category": "welive",
+	"icon": "screenoptions",
+	"description": "Heading, three service cards with icon, text and image, and a centred button.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": "giai-phap"
+		},
+		"title": {
+			"type": "string",
+			"default": "Phát triển đội ngũ nhà sáng tạo"
+		},
+		"description": {
+			"type": "string",
+			"default": "Giải pháp toàn diện giúp bạn tìm kiếm, tuyển chọn và đồng hành phát triển đội ngũ phù hợp."
+		},
+		"cards": {
+			"type": "array",
+			"default": [
+				{
+					"icon": "search",
+					"title": "Tìm kiếm",
+					"subtitle": "Hồ sơ phù hợp với tiêu chí",
+					"text": "Tiếp cận và gợi ý những nhà sáng tạo phù hợp với định hướng và nhu cầu của agency.",
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"icon": "users",
+					"title": "Tuyển chọn & kết nối",
+					"subtitle": "Sàng lọc và hỗ trợ tiếp nhận",
+					"text": "Đánh giá, sàng lọc hồ sơ và kết nối với những nhà sáng tạo tiềm năng.",
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"icon": "chart",
+					"title": "Đồng hành mở rộng",
+					"subtitle": "Quy trình, đào tạo và phát triển",
+					"text": "Hỗ trợ xây dựng quy trình, đào tạo kỹ năng và đồng hành phát triển đội ngũ lâu dài.",
+					"imageId": 0,
+					"imageUrl": ""
+				}
+			]
+		},
+		"btnText": {
+			"type": "string",
+			"default": "Nhận đề xuất phù hợp"
+		},
+		"btnUrl": {
+			"type": "string",
+			"default": "#lien-he"
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
