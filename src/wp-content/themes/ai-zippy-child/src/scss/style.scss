@@ -558,7 +558,7 @@ header.wp-block-group .az-join-btn .wp-block-button__link {
 
 // =============================================================================
 // Home — alternating section backgrounds (gray / black)
-// Order: hero · solutions (gray) · milestones (black) · ecosystem (gray) · ticker · artists (black)
+// Order: hero · solutions + milestones (one gray section) · ecosystem (black) · ticker · artists (gray)
 // =============================================================================
 
 $home-bg-gray: #151515;
@@ -566,12 +566,22 @@ $home-bg-black: #0b0b0b;
 
 body.page-id-5 {
 	.sg,
-	.abec {
+	.as {
 		background-color: $home-bg-gray;
 	}
 
 	.abm,
-	.as {
+	.abec {
 		background-color: $home-bg-black;
 	}
+}
+
+// Solutions cards + stats strip read as ONE section: shared background, no gap between them.
+.sg:has(+ .abm) {
+	padding-bottom: 3rem;
+}
+
+body .sg + .abm {
+	background-color: $home-bg-gray;
+	padding-top: 0;
 }
