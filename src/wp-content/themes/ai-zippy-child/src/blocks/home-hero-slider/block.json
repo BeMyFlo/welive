@@ -18,6 +18,14 @@
 			"type": "string",
 			"default": "BOLD MUSIC BOLD FUTURE"
 		},
+		"ctaText": {
+			"type": "string",
+			"default": "Khám phá nghệ sĩ"
+		},
+		"ctaUrl": {
+			"type": "string",
+			"default": "/artists/"
+		},
 		"subtitle": {
 			"type": "string",
 			"default": "The leading music service ecosystem in Vietnam, empowering independent artists and labels."

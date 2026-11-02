@@ -89,12 +89,17 @@ export default function Edit({ attributes, setAttributes }) {
 						/>
 					</div>
 
+					{buttonText !== "" && (
+						<div className="abec__btn">
+							<RichText tagName="span" value={buttonText} onChange={(val) => setAttributes({ buttonText: val })} placeholder="Chữ nút" allowedFormats={[]} />
+						</div>
+					)}
 					<div className="abec__grid">
 						{divisions.map((div, index) => (
 							<div key={index} className="abec__item">
 								<div className="abec__media">{div.imageUrl ? <img src={div.imageUrl} alt="" /> : <span className="abec__media-empty">Ảnh</span>}</div>
-								<h3 className="abec__name">{div.name}</h3>
-								<p className="abec__desc">{div.description}</p>
+								<RichText tagName="h3" className="abec__name" value={div.name} onChange={(val) => updateDivision(index, "name", val)} placeholder="Tiêu đề" allowedFormats={[]} />
+								<RichText tagName="p" className="abec__desc" value={div.description} onChange={(val) => updateDivision(index, "description", val)} placeholder="Mô tả" allowedFormats={[]} />
 							</div>
 						))}
 					</div>

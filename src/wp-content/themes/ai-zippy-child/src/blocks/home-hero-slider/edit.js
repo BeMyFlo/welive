@@ -3,7 +3,7 @@ import { useBlockProps, RichText, MediaUpload, InspectorControls } from "@wordpr
 import { PanelBody, TextControl, TextareaControl, Button, SelectControl } from "@wordpress/components";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { title, subtitle, slides, textAlign } = attributes;
+	const { title, subtitle, slides, textAlign, ctaText, ctaUrl } = attributes;
 	const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 	const blockProps = useBlockProps({ className: `hhs has-text-align-${textAlign || "left"}` });
 
@@ -52,6 +52,9 @@ export default function Edit({ attributes, setAttributes }) {
 						]}
 						onChange={(val) => setAttributes({ textAlign: val })}
 					/>
+				</PanelBody>
+				<PanelBody title="CTA Button" initialOpen={false}>
+					<TextControl label="Link" value={ctaUrl} onChange={(val) => setAttributes({ ctaUrl: val })} />
 				</PanelBody>
 				<PanelBody title="Manage Slides Info" initialOpen={true}>
 					{slides.map((slide, index) => (
@@ -125,6 +128,16 @@ export default function Edit({ attributes, setAttributes }) {
 							onChange={(val) => updateSlide(activeSlideIndex, "subtitle", val)}
 							placeholder="Slide Description..."
 						/>
+						<div className="hhs__cta">
+							<RichText
+								tagName="span"
+								className="hhs__cta-label"
+								value={ctaText}
+								onChange={(val) => setAttributes({ ctaText: val })}
+								placeholder="Button text..."
+								allowedFormats={[]}
+							/>
+						</div>
 						<Button variant="primary" onClick={addSlide} style={{ marginTop: 15 }}>
 							Add Slide
 						</Button>

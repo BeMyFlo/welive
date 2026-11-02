@@ -11,6 +11,8 @@ wp_enqueue_script('swiper-cdn', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-b
 $title    = $attributes['title'] ?? 'BOLD MUSIC BOLD FUTURE';
 $subtitle = $attributes['subtitle'] ?? '';
 $slides   = $attributes['slides'] ?? [];
+$cta_text = $attributes['ctaText'] ?? 'Khám phá nghệ sĩ';
+$cta_url  = $attributes['ctaUrl'] ?? '/artists/';
 
 $wrapper_attributes = get_block_wrapper_attributes(['class' => 'hhs has-text-align-' . $text_align]);
 ?>
@@ -66,12 +68,14 @@ $wrapper_attributes = get_block_wrapper_attributes(['class' => 'hhs has-text-ali
 			</div>
 
 			<!-- CTA -->
-			<a class="hhs__cta" href="<?php echo esc_url(home_url('/artists/')); ?>">
-				<span class="hhs__cta-label">Khám phá nghệ sĩ</span>
+			<?php if ($cta_text !== '') : ?>
+			<a class="hhs__cta" href="<?php echo esc_url(str_starts_with($cta_url, '/') ? home_url($cta_url) : $cta_url); ?>">
+				<span class="hhs__cta-label"><?php echo wp_kses_post($cta_text); ?></span>
 				<svg class="hhs__cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 					<path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				</svg>
 			</a>
+			<?php endif; ?>
 		</div>
 	</div>
 </div>

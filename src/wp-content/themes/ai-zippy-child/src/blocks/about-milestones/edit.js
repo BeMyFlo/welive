@@ -87,16 +87,14 @@ export default function Edit({ attributes, setAttributes }) {
 
 					<div className="abm__timeline-editor">
 						{milestones.map((m, idx) => (
-							<div key={idx} style={{ padding: 15, border: "1px solid #333", borderRadius: 8, margin: "10px 0", backgroundColor: "#111" }}>
-								<div style={{ display: "flex", gap: 10 }}>
-									<div style={{ color: "#EC4600", fontSize: "1.25rem", fontWeight: "bold" }}>{m.year}</div>
-									<div style={{ color: "#888" }}>{m.date ? `(${m.date})` : ""}</div>
+								<div key={idx} style={{ padding: 15, border: "1px solid #333", borderRadius: 8, margin: "10px 0", backgroundColor: "#111" }}>
+									<RichText tagName="div" style={{ color: "#EC4600", fontSize: "1.25rem", fontWeight: "bold" }} value={m.year} onChange={(val) => updateMilestone(idx, "year", val)} placeholder="Value (5M+)" allowedFormats={[]} />
+									<RichText tagName="div" style={{ fontWeight: "bold", color: "#fff", marginTop: 5 }} value={m.label} onChange={(val) => updateMilestone(idx, "label", val)} placeholder="Label" allowedFormats={[]} />
+									<RichText tagName="div" style={{ color: "#aaa", fontSize: "0.9rem" }} value={m.detail} onChange={(val) => updateMilestone(idx, "detail", val)} placeholder="Detail" allowedFormats={[]} />
+									<RichText tagName="div" style={{ color: "#888", fontSize: "0.8rem" }} value={m.date} onChange={(val) => updateMilestone(idx, "date", val)} placeholder="Date (optional)" allowedFormats={[]} />
 								</div>
-								<div style={{ fontWeight: "bold", color: "#fff", marginTop: 5 }}>{m.label}</div>
-								<div style={{ color: "#aaa", fontSize: "0.9rem" }}>{m.detail}</div>
-							</div>
-						))}
-						<Button variant="secondary" onClick={addMilestone} style={{ marginTop: 10, width: "100%" }}>
+							))}
+							<Button variant="secondary" onClick={addMilestone} style={{ marginTop: 10, width: "100%" }}>
 							+ Add Milestone Card
 						</Button>
 					</div>
