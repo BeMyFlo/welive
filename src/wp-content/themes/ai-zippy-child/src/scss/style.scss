@@ -585,3 +585,11 @@ body .sg + .abm {
 	background-color: $home-bg-gray;
 	padding-top: 0;
 }
+
+// Creator plan page: first block sits under the fixed overlay header
+.az-overlay-header {
+	.cbn:first-child,
+	.crm:first-child {
+		padding-top: 9rem;
+	}
+}
