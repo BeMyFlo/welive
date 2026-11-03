@@ -1,0 +1,75 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/creator-intro",
+	"version": "1.0.0",
+	"title": "[Creator] Intro",
+	"category": "welive",
+	"icon": "megaphone",
+	"description": "Intro with badge, two-tone heading, text, two buttons, meta line and an image with caption.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"badge": {
+			"type": "string",
+			"default": "DÀNH CHO NHÀ SÁNG TẠO"
+		},
+		"title": {
+			"type": "string",
+			"default": "Bạn sáng tạo."
+		},
+		"titleAccent": {
+			"type": "string",
+			"default": "WELIVE đồng hành."
+		},
+		"description": {
+			"type": "string",
+			"default": "Từ phiên LIVE đầu tiên đến hành trình phát triển nội dung. Có đội ngũ hỗ trợ và kế hoạch đào tạo 45 ngày phù hợp với mục tiêu của bạn."
+		},
+		"primaryText": {
+			"type": "string",
+			"default": "Nhận kế hoạch 45 ngày"
+		},
+		"primaryUrl": {
+			"type": "string",
+			"default": "/ke-hoach-45-ngay/"
+		},
+		"secondaryText": {
+			"type": "string",
+			"default": "Khám phá quyền lợi"
+		},
+		"secondaryUrl": {
+			"type": "string",
+			"default": "/ke-hoach-45-ngay/#quyen-loi"
+		},
+		"metaText": {
+			"type": "string",
+			"default": "14 ngày xây nền tảng · Chặng tiếp theo theo mục tiêu"
+		},
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"captionTitle": {
+			"type": "string",
+			"default": "Mỗi mục tiêu, một kế hoạch riêng."
+		},
+		"captionText": {
+			"type": "string",
+			"default": "Khởi đầu từ khả năng và điều bạn muốn hướng tới."
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

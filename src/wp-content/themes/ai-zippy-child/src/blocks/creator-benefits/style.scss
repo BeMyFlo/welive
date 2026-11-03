@@ -1,0 +1,159 @@
+// [Creator] Benefits — Frontend Styles
+
+.cbn {
+	width: 100%;
+	background-color: #0b0b0b;
+	color: #ffffff;
+	padding: 5rem 0;
+	box-sizing: border-box;
+	scroll-margin-top: 4rem;
+}
+
+.cbn__container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	box-sizing: border-box;
+}
+
+.cbn__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	gap: 2rem;
+	margin-bottom: 2.5rem;
+}
+
+.cbn__eyebrow {
+	display: block;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: #EC4600;
+	margin-bottom: 1.25rem;
+}
+
+.cbn__title {
+	font-family: 'Inter', sans-serif;
+	font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+	font-weight: 800;
+	line-height: 1.15;
+	letter-spacing: -0.01em;
+	margin: 0;
+}
+
+.cbn__desc {
+	max-width: 17rem;
+	margin: 0;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.85rem;
+	line-height: 1.8;
+	color: rgba(255, 255, 255, 0.55);
+}
+
+.cbn__grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1.25rem;
+}
+
+.cbn__card {
+	display: flex;
+	flex-direction: column;
+	background: #151515;
+	border: 3px solid #262626;
+	border-radius: 22px;
+	overflow: hidden;
+	transition: border-color 0.3s ease, transform 0.3s ease;
+
+	&:hover {
+		border-color: rgba(236, 70, 0, 0.55);
+		transform: translateY(-4px);
+	}
+}
+
+.cbn__media {
+	position: relative;
+	aspect-ratio: 4 / 3.2;
+	background: rgba(255, 255, 255, 0.04);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset: auto 0 0 0;
+		height: 40%;
+		background: linear-gradient(to top, #151515, transparent);
+		pointer-events: none;
+	}
+}
+
+.cbn__body {
+	padding: 1.25rem 1.5rem 1.75rem;
+}
+
+.cbn__card-title {
+	font-family: 'Inter', sans-serif;
+	font-size: 1.2rem;
+	font-weight: 700;
+	line-height: 1.35;
+	margin: 0 0 1.1rem;
+}
+
+.cbn__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.85rem;
+
+	li {
+		position: relative;
+		padding-left: 1.25rem;
+		font-family: 'Inter', sans-serif;
+		font-size: 0.9rem;
+		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.7);
+
+		&::before {
+			content: "+";
+			position: absolute;
+			left: 0;
+			color: #EC4600;
+			font-weight: 700;
+		}
+	}
+}
+
+@media (max-width: 1199px) {
+	.cbn__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 767px) {
+	.cbn {
+		padding: 3.5rem 0;
+	}
+
+	.cbn__header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.cbn__grid {
+		grid-template-columns: 1fr;
+	}
+}

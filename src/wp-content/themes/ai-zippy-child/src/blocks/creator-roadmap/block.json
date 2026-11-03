@@ -1,0 +1,109 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/creator-roadmap",
+	"version": "1.0.0",
+	"title": "[Creator] Roadmap",
+	"category": "welive",
+	"icon": "editor-ol",
+	"description": "Badge, two-tone heading, day-range tabs with detail panel, and a footer note with link.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": "lo-trinh"
+		},
+		"badge": {
+			"type": "string",
+			"default": "LỘ TRÌNH ĐÀO TẠO 45 NGÀY"
+		},
+		"title": {
+			"type": "string",
+			"default": "Một khởi đầu bài bản."
+		},
+		"titleAccent": {
+			"type": "string",
+			"default": "Một kế hoạch dành riêng."
+		},
+		"description": {
+			"type": "string",
+			"default": "14 ngày đầu giúp bạn làm quen, rèn kỹ năng và từng bước tự vận hành LIVE. Chặng tiếp theo được soạn theo mục tiêu, khả năng và lịch của bạn."
+		},
+		"tabs": {
+			"type": "array",
+			"default": [
+				{
+					"label": "NGÀY 1–3",
+					"name": "Làm quen & thiết lập",
+					"heading": "Bắt đầu từ những điều cơ bản",
+					"bullets": [
+						"Thống nhất lịch và nội dung LIVE cùng manager.",
+						"Hoàn thiện hồ sơ, góc quay, ánh sáng và âm thanh.",
+						"Tập chào hỏi, phản hồi và cảm ơn người xem."
+					],
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"label": "NGÀY 4–7",
+					"name": "Giữ nhịp & ghép kỹ năng",
+					"heading": "Giữ nhịp LIVE đều đặn",
+					"bullets": [
+						"Duy trì lịch LIVE cố định mỗi ngày.",
+						"Ghép các kỹ năng tương tác vào từng phiên LIVE.",
+						"Cùng manager xem lại tiến bộ ở ngày thứ 7."
+					],
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"label": "NGÀY 8–14",
+					"name": "Rèn luyện & tự vận hành",
+					"heading": "Tự tin vận hành phiên LIVE",
+					"bullets": [
+						"Luyện cách mở đầu và giữ chân người xem.",
+						"Tự quản lý phiên LIVE với sự hỗ trợ khi cần.",
+						"Đánh giá lại tiến độ ở ngày thứ 14."
+					],
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"label": "NGÀY 15–45",
+					"name": "Phát triển theo mục tiêu",
+					"heading": "Kế hoạch dành riêng cho bạn",
+					"bullets": [
+						"Xây dựng mục tiêu theo khả năng và lịch của bạn.",
+						"Đồng hành cùng manager trong suốt chặng tiếp theo.",
+						"Điều chỉnh kế hoạch theo kết quả thực tế."
+					],
+					"imageId": 0,
+					"imageUrl": ""
+				}
+			]
+		},
+		"footnote": {
+			"type": "string",
+			"default": "Cùng nhìn lại tiến bộ ở ngày 7 và ngày 14."
+		},
+		"linkText": {
+			"type": "string",
+			"default": "Trao đổi mục tiêu của bạn"
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": "#"
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

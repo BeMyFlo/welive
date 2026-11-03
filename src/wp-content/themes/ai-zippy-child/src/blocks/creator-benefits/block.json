@@ -1,0 +1,84 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/creator-benefits",
+	"version": "1.0.0",
+	"title": "[Creator] Benefits",
+	"category": "welive",
+	"icon": "star-filled",
+	"description": "Eyebrow, two-line heading with side text and a row of image cards with bullet lists.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": "quyen-loi"
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "QUYỀN LỢI NHÀ SÁNG TẠO"
+		},
+		"title": {
+			"type": "string",
+			"default": "Tập trung sáng tạo."
+		},
+		"titleLine2": {
+			"type": "string",
+			"default": "Thêm nguồn lực để phát triển."
+		},
+		"description": {
+			"type": "string",
+			"default": "Những hỗ trợ thiết thực cho nội dung, phiên LIVE và hành trình kết nối cùng cộng đồng."
+		},
+		"cards": {
+			"type": "array",
+			"default": [
+				{
+					"title": "Tăng trưởng LIVE & video",
+					"bullets": [
+						"Hỗ trợ tăng tiếp cận LIVE",
+						"Hỗ trợ tăng tiếp cận video"
+					],
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"title": "Hỗ trợ sáng tạo nội dung",
+					"bullets": [
+						"Hỗ trợ làm video, hình ảnh"
+					],
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"title": "Đồng hành vận hành",
+					"bullets": [
+						"Hỗ trợ kháng cáo vi phạm LIVE",
+						"Đội ngũ hỗ trợ 24/24"
+					],
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"title": "Kết nối & ghi nhận",
+					"bullets": [
+						"PK giao lưu nội địa/quốc tế",
+						"Event nội bộ của team",
+						"Thưởng khi đạt mốc doanh thu"
+					],
+					"imageId": 0,
+					"imageUrl": ""
+				}
+			]
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

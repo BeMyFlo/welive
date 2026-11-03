@@ -1,0 +1,243 @@
+// [Creator] Roadmap — Frontend Styles
+
+.crm {
+	width: 100%;
+	background-color: #151515;
+	color: #ffffff;
+	padding: 5rem 0;
+	box-sizing: border-box;
+	scroll-margin-top: 4rem;
+}
+
+.crm__container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	box-sizing: border-box;
+}
+
+.crm__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	gap: 2rem;
+	margin-bottom: 2.5rem;
+}
+
+.crm__badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.6rem;
+	padding: 0.7rem 1.4rem;
+	border: 2px solid rgba(236, 70, 0, 0.4);
+	border-radius: 999px;
+	background: rgba(236, 70, 0, 0.12);
+	color: #ff9a5c;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	margin-bottom: 1.5rem;
+}
+
+.crm__title {
+	font-family: 'Inter', sans-serif;
+	font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+	font-weight: 800;
+	line-height: 1.15;
+	letter-spacing: -0.01em;
+	margin: 0;
+}
+
+.crm__title-accent {
+	display: block;
+	color: #EC4600;
+}
+
+.crm__desc {
+	max-width: 24rem;
+	margin: 0;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.95rem;
+	line-height: 1.8;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+// ---- Tabs ----
+.crm__tabs {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1rem;
+	margin-bottom: 1.25rem;
+}
+
+.crm__tab {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	text-align: left;
+	padding: 1.1rem 1.25rem;
+	background: #1c1c1c;
+	border: 3px solid #2b2b2b;
+	border-radius: 14px;
+	color: rgba(255, 255, 255, 0.7);
+	cursor: pointer;
+	transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+
+	&:hover {
+		border-color: rgba(236, 70, 0, 0.5);
+	}
+
+	&.is-active {
+		background: rgba(236, 70, 0, 0.14);
+		border-color: #EC4600;
+		color: #ffffff;
+	}
+}
+
+.crm__tab-label {
+	font-family: 'Inter', sans-serif;
+	font-size: 0.72rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.55);
+}
+
+.crm__tab-name {
+	font-family: 'Inter', sans-serif;
+	font-size: 0.9rem;
+	font-weight: 700;
+}
+
+// ---- Panels ----
+.crm__panel {
+	display: none;
+	grid-template-columns: 1.1fr 1fr;
+	gap: 2.5rem;
+	align-items: center;
+	padding: 2rem 2.25rem;
+	background: #1a1a1a;
+	border: 3px solid #2b2b2b;
+	border-radius: 22px;
+
+	&.is-active {
+		display: grid;
+	}
+}
+
+.crm__panel-label {
+	display: block;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: #EC4600;
+	margin-bottom: 1.25rem;
+}
+
+.crm__panel-heading {
+	font-family: 'Inter', sans-serif;
+	font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+	font-weight: 700;
+	margin: 0 0 1.5rem;
+}
+
+.crm__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.9rem;
+
+	li {
+		position: relative;
+		padding-left: 1.6rem;
+		font-family: 'Inter', sans-serif;
+		font-size: 0.95rem;
+		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.75);
+
+		&::before {
+			content: "✓";
+			position: absolute;
+			left: 0;
+			color: #EC4600;
+			font-weight: 700;
+		}
+	}
+}
+
+.crm__panel-media {
+	aspect-ratio: 4 / 3;
+	border-radius: 16px;
+	overflow: hidden;
+	background: rgba(255, 255, 255, 0.05);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+}
+
+.crm__footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	margin-top: 1.75rem;
+}
+
+.crm__footnote {
+	margin: 0;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.9rem;
+	color: rgba(255, 255, 255, 0.55);
+}
+
+.crm__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.95rem;
+	color: #ff9a5c;
+	text-decoration: none;
+
+	&:hover {
+		color: #EC4600;
+	}
+}
+
+@media (max-width: 991px) {
+	.crm {
+		padding: 3.5rem 0;
+	}
+
+	.crm__header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.crm__tabs {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.crm__panel {
+		grid-template-columns: 1fr;
+		padding: 1.5rem;
+	}
+
+	.crm__footer {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
