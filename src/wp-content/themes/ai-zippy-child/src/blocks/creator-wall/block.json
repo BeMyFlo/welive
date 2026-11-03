@@ -1,0 +1,78 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/creator-wall",
+	"version": "1.0.0",
+	"title": "[Creator] Wall of Fame",
+	"category": "welive",
+	"icon": "awards",
+	"description": "Badge, heading, and a horizontal carousel of creator cards with arrow buttons.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"badge": {
+			"type": "string",
+			"default": "Bức tường danh vọng"
+		},
+		"title": {
+			"type": "string",
+			"default": "Vinh danh nhà sáng tạo"
+		},
+		"titleAccent": {
+			"type": "string",
+			"default": "WELIVE"
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"name": "LÊ HÒA",
+					"linkText": "Xem câu chuyện",
+					"linkUrl": "",
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"name": "THÚY DIỆU",
+					"linkText": "Xem câu chuyện",
+					"linkUrl": "",
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"name": "HNGLE",
+					"linkText": "Xem câu chuyện",
+					"linkUrl": "",
+					"imageId": 0,
+					"imageUrl": ""
+				}
+			]
+		},
+		"placeholderCount": {
+			"type": "number",
+			"default": 2
+		},
+		"placeholderTitle": {
+			"type": "string",
+			"default": "Câu chuyện tiếp theo"
+		},
+		"placeholderText": {
+			"type": "string",
+			"default": "Đang cập nhật"
+		},
+		"footnote": {
+			"type": "string",
+			"default": "Những gương mặt, những hành trình. Cuộn ngang để khám phá →"
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

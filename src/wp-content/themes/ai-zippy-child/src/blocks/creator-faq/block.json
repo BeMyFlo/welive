@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/creator-faq",
+	"version": "1.0.0",
+	"title": "[Creator] FAQ",
+	"category": "welive",
+	"icon": "editor-help",
+	"description": "Eyebrow, heading and description on the left, accordion questions on the right.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "TRƯỚC KHI BẮT ĐẦU"
+		},
+		"title": {
+			"type": "string",
+			"default": "Bạn đang"
+		},
+		"titleLine2": {
+			"type": "string",
+			"default": "băn khoăn điều gì?"
+		},
+		"description": {
+			"type": "string",
+			"default": "Một vài điều cần biết về hành trình cùng WELIVE."
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"q": "Lộ trình 45 ngày có giống nhau cho mọi người không?",
+					"a": "14 ngày đầu có khung chung để làm quen và xây nền tảng. Các chặng tiếp theo được soạn theo mục tiêu, khả năng và lịch của từng người."
+				},
+				{
+					"q": "Tôi mới bắt đầu LIVE thì học từ đâu?",
+					"a": "Bạn bắt đầu từ những điều cơ bản: thiết lập hồ sơ, góc quay, ánh sáng, âm thanh và cách chào hỏi, tương tác với người xem cùng manager."
+				},
+				{
+					"q": "Hỗ trợ tiếp cận LIVE, video và PK triển khai thế nào?",
+					"a": "Đội ngũ hỗ trợ đề xuất cách tăng tiếp cận cho LIVE và video, đồng thời kết nối các hoạt động PK nội địa và quốc tế."
+				},
+				{
+					"q": "Tôi cần chuẩn bị gì để trao đổi với WELIVE?",
+					"a": "Bạn chỉ cần chuẩn bị mục tiêu muốn hướng tới, thời gian có thể LIVE và các kênh hiện có. Phần còn lại sẽ được trao đổi cùng đội ngũ."
+				}
+			]
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

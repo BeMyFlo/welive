@@ -1,0 +1,108 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/creator-community",
+	"version": "1.0.0",
+	"title": "[Creator] Community",
+	"category": "welive",
+	"icon": "groups",
+	"description": "Community banner: image card with three photos on the left, text, check list, avatars and a button on the right.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "CỘNG ĐỒNG WELIVE"
+		},
+		"title": {
+			"type": "string",
+			"default": "Tham gia cộng đồng nhà sáng tạo"
+		},
+		"titleAccent": {
+			"type": "string",
+			"default": "WELIVE"
+		},
+		"bullets": {
+			"type": "array",
+			"default": [
+				"Giao lưu, chia sẻ kinh nghiệm cùng những nhà sáng tạo trong cộng đồng.",
+				"Kết nối PK nội địa, quốc tế và tham gia các hoạt động nội bộ của team."
+			]
+		},
+		"cardLabel": {
+			"type": "string",
+			"default": "CREATOR COMMUNITY"
+		},
+		"cardKicker": {
+			"type": "string",
+			"default": "KẾT NỐI CÙNG WELIVE"
+		},
+		"cardTitle": {
+			"type": "string",
+			"default": "Cùng sáng tạo."
+		},
+		"cardTitle2": {
+			"type": "string",
+			"default": "Cùng phát triển."
+		},
+		"logoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"logoId": {
+			"type": "number",
+			"default": 0
+		},
+		"photos": {
+			"type": "array",
+			"default": [
+				{
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"imageId": 0,
+					"imageUrl": ""
+				}
+			]
+		},
+		"avatars": {
+			"type": "array",
+			"default": [
+				{
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"imageId": 0,
+					"imageUrl": ""
+				}
+			]
+		},
+		"avatarText": {
+			"type": "string",
+			"default": "Cùng nhau phát triển"
+		},
+		"btnText": {
+			"type": "string",
+			"default": "Tham gia cộng đồng ngay"
+		},
+		"btnUrl": {
+			"type": "string",
+			"default": "#"
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

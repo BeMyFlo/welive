@@ -1,0 +1,121 @@
+// [Creator] FAQ — Frontend Styles
+
+.cfq {
+	width: 100%;
+	background-color: #0b0b0b;
+	color: #ffffff;
+	padding: 5rem 0;
+	box-sizing: border-box;
+}
+
+.cfq__container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	display: grid;
+	grid-template-columns: 0.8fr 1.2fr;
+	gap: 4rem;
+	align-items: start;
+	box-sizing: border-box;
+}
+
+.cfq__eyebrow {
+	display: block;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: #EC4600;
+	margin-bottom: 1.5rem;
+}
+
+.cfq__title {
+	font-family: 'Inter', sans-serif;
+	font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+	font-weight: 800;
+	line-height: 1.2;
+	letter-spacing: -0.01em;
+	margin: 0 0 1.25rem;
+}
+
+.cfq__desc {
+	max-width: 18rem;
+	margin: 0;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.9rem;
+	line-height: 1.7;
+	color: rgba(255, 255, 255, 0.55);
+}
+
+.cfq__item {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cfq__q {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1.5rem;
+	padding: 1.6rem 0;
+	cursor: pointer;
+	list-style: none;
+	font-family: 'Inter', sans-serif;
+	font-size: 1.05rem;
+	font-weight: 700;
+	color: #ffffff;
+
+	&::-webkit-details-marker {
+		display: none;
+	}
+
+	&:hover {
+		color: #ffb27a;
+	}
+}
+
+.cfq__icon {
+	position: relative;
+	flex-shrink: 0;
+	width: 16px;
+	height: 16px;
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: #EC4600;
+		transition: transform 0.3s ease;
+	}
+
+	&::after {
+		transform: rotate(90deg);
+	}
+}
+
+.cfq__item[open] .cfq__icon::after {
+	transform: rotate(0deg);
+}
+
+.cfq__a {
+	padding: 0 3rem 1.6rem 0;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.95rem;
+	line-height: 1.8;
+	color: rgba(255, 255, 255, 0.65);
+}
+
+@media (max-width: 991px) {
+	.cfq {
+		padding: 3.5rem 0;
+	}
+
+	.cfq__container {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+}

@@ -1,0 +1,241 @@
+// [Creator] Community — Frontend Styles
+
+.ccm {
+	width: 100%;
+	background-color: #151515;
+	color: #ffffff;
+	padding: 5rem 0;
+	box-sizing: border-box;
+}
+
+.ccm__container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	display: grid;
+	grid-template-columns: 0.9fr 1.1fr;
+	gap: 4rem;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+// ---- Image card ----
+.ccm__card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 1.5rem 1.5rem 2rem;
+	border: 1px solid rgba(236, 70, 0, 0.3);
+	border-radius: 20px;
+	background: linear-gradient(160deg, #3a2112 0%, #1b120c 55%, #120d0a 100%);
+	overflow: hidden;
+}
+
+.ccm__card-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.ccm__logo,
+.ccm__logo-picker img {
+	height: 28px;
+	width: auto;
+	display: block;
+}
+
+.ccm__card-label {
+	max-width: 7rem;
+	text-align: right;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.7rem;
+	letter-spacing: 0.18em;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.ccm__photos {
+	position: relative;
+	aspect-ratio: 5 / 4;
+	margin: 0.5rem 0 0;
+}
+
+.ccm__photo {
+	position: absolute;
+	top: 0;
+	width: 33%;
+	height: 92%;
+	border-radius: 10px;
+	overflow: hidden;
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+}
+
+.ccm__photo--1 { left: 2%; top: 6%; transform: rotate(-4deg); z-index: 1; }
+.ccm__photo--2 { left: 33%; top: 0; z-index: 3; }
+.ccm__photo--3 { left: 64%; top: 6%; transform: rotate(4deg); z-index: 2; }
+
+.ccm__card-text {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	margin-top: -1.5rem;
+	position: relative;
+	z-index: 4;
+}
+
+.ccm__kicker {
+	font-family: 'Inter', sans-serif;
+	font-size: 0.7rem;
+	letter-spacing: 0.18em;
+	color: #ffb27a;
+}
+
+.ccm__card-title {
+	font-family: 'Inter', sans-serif;
+	font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+	font-weight: 800;
+	line-height: 1.1;
+	text-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+}
+
+// ---- Text side ----
+.ccm__eyebrow {
+	display: block;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: #EC4600;
+	margin-bottom: 1.25rem;
+}
+
+.ccm__title {
+	font-family: 'Inter', sans-serif;
+	font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+	font-weight: 800;
+	line-height: 1.2;
+	letter-spacing: -0.01em;
+	margin: 0 0 1.75rem;
+}
+
+.ccm__title-accent {
+	color: #EC4600;
+}
+
+.ccm__list {
+	list-style: none;
+	margin: 0 0 2rem;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1.1rem;
+
+	li {
+		position: relative;
+		padding-left: 1.75rem;
+		font-family: 'Inter', sans-serif;
+		line-height: 1.7;
+		color: rgba(255, 255, 255, 0.75);
+
+		&::before {
+			content: "✓";
+			position: absolute;
+			left: 0;
+			color: #EC4600;
+			font-weight: 700;
+		}
+	}
+}
+
+.ccm__actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.ccm__people {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.ccm__avatars {
+	display: inline-flex;
+}
+
+.ccm__avatar {
+	width: 40px;
+	height: 40px;
+	margin-left: -8px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 2px solid #151515;
+	background: #3a2a22;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	&:first-child {
+		margin-left: 0;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.ccm__people-text {
+	max-width: 5.5rem;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.78rem;
+	line-height: 1.4;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.ccm__btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 1.1rem;
+	padding: 1.1rem 1.75rem;
+	border-radius: 12px;
+	background: #EC4600;
+	color: #ffffff;
+	font-family: 'Inter', sans-serif;
+	font-size: 0.95rem;
+	font-weight: 700;
+	text-decoration: none;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+	&:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 10px 26px rgba(236, 70, 0, 0.4);
+		color: #ffffff;
+	}
+}
+
+@media (max-width: 991px) {
+	.ccm {
+		padding: 3.5rem 0;
+	}
+
+	.ccm__container {
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+	}
+}
