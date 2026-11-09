@@ -1,0 +1,33 @@
+@use "../shared/home" as *;
+
+.cst__track {
+	flex-wrap: wrap;
+	overflow: visible;
+}
+.cst__card {
+	flex: 0 0 calc((100% - 54px) / 4);
+	aspect-ratio: auto;
+	min-height: 420px;
+	overflow: visible;
+}
+.cst__card .cst__photo {
+	position: relative;
+	aspect-ratio: 250 / 360;
+	overflow: hidden;
+	background: #1d1913;
+}
+.cst__card .cst__photo .hm-img-empty {
+	min-height: 0;
+}
+.cst__card .cst__overlay {
+	position: static;
+	padding: 10px 0 0;
+	background: none;
+}
+.cst__ctrl-mock {
+	display: flex;
+	gap: 10px;
+	font-size: 11px;
+	font-weight: 600;
+	color: #dfd8c9;
+}

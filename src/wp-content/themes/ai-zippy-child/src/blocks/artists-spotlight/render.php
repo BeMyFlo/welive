@@ -10,6 +10,97 @@ $artists    = $attributes['artists'] ?? [];
 $layout     = $attributes['layout'] ?? 'grid';
 $is_wall    = $layout === 'wall';
 
+if ($is_wall) {
+	$frame_url = get_stylesheet_directory_uri() . '/assets/images/creator-frame-';
+	$tier_of_i = static fn(int $i): string => [0 => 'top1', 1 => 'top2', 2 => 'top3'][$i] ?? 'rest';
+	$initials  = static function (string $name): string {
+		$words = preg_split('/\s+/u', trim(wp_strip_all_tags($name))) ?: [];
+		$out   = '';
+		foreach (array_slice($words, 0, 2) as $w) {
+			$out .= mb_strtoupper(mb_substr($w, 0, 1));
+		}
+		return $out;
+	};
+	$pending_text = $attributes['pendingText'] ?? '';
+	$link_labels  = ['tiktok' => 'TikTok', 'facebook' => 'Facebook', 'instagram' => 'Instagram', 'youtube' => 'YouTube', 'threads' => 'Threads'];
+
+	$card = static function (array $artist, int $index) use ($frame_url, $tier_of_i, $initials, $pending_text, $link_labels): string {
+		$tier  = $tier_of_i($index);
+		$name  = wp_strip_all_tags($artist['name'] ?? '');
+		$img   = $artist['imageUrl'] ?? '';
+		$pos   = $artist['position'] ?? '50% 42%';
+		$links = [];
+		foreach ($link_labels as $key => $label) {
+			if (!empty($artist['socials'][$key])) {
+				$links[] = ['label' => $label, 'url' => $artist['socials'][$key]];
+			}
+		}
+		$class = $index < 3 ? 'aw__card aw__podium-' . ($index + 1) : 'aw__card aw__standard';
+		ob_start(); ?>
+		<li class="<?php echo esc_attr($class); ?>">
+			<button type="button" class="aw__trigger" data-name="<?php echo esc_attr($name); ?>" data-image="<?php echo esc_url($img); ?>" data-position="<?php echo esc_attr($pos); ?>" data-initials="<?php echo esc_attr($initials($name)); ?>" data-bio="<?php echo esc_attr(wp_strip_all_tags($artist['bio'] ?? '')); ?>" data-links="<?php echo esc_attr(wp_json_encode($links)); ?>" aria-label="<?php echo esc_attr($name); ?>">
+				<span class="aw__frame">
+					<span class="aw__window">
+						<?php if ($img) : ?>
+							<img class="aw__portrait" src="<?php echo esc_url($img); ?>" alt="<?php echo esc_attr($name); ?>" style="object-position:<?php echo esc_attr($pos); ?>" loading="lazy" />
+						<?php else : ?>
+							<span class="aw__pending"><span class="aw__initials" aria-hidden="true"><?php echo esc_html($initials($name)); ?></span><small><?php echo esc_html($pending_text); ?></small></span>
+						<?php endif; ?>
+					</span>
+					<img class="aw__ornament" src="<?php echo esc_url($frame_url . $tier . '.png'); ?>" alt="" aria-hidden="true" />
+				</span>
+				<span class="aw__caption"><span class="aw__name"><?php echo esc_html($name); ?></span></span>
+			</button>
+		</li>
+		<?php
+		return (string) ob_get_clean();
+	};
+
+	$podium_order = [1, 0, 2]; // silver | gold (centre) | copper
+	$wrapper = get_block_wrapper_attributes(['class' => 'aw', 'id' => 'danh-vong']);
+	?>
+	<section <?php echo $wrapper; ?>>
+		<div class="aw__wrap">
+			<div class="aw__heading">
+				<h1 class="aw__title"><?php echo wp_kses_post($title); ?><?php echo !empty($attributes['titleAccent']) ? '<br><span>' . wp_kses_post($attributes['titleAccent']) . '</span>' : ''; ?></h1>
+				<?php if (!empty($attributes['description'])) : ?><p class="aw__desc"><?php echo wp_kses_post($attributes['description']); ?></p><?php endif; ?>
+			</div>
+
+			<ol class="aw__podium">
+				<?php foreach ($podium_order as $i) {
+					if (isset($artists[$i])) {
+						echo $card($artists[$i], $i);
+					}
+				} ?>
+			</ol>
+
+			<?php if (count($artists) > 3) : ?>
+				<?php if (!empty($attributes['dividerText'])) : ?><div class="aw__divider"><span><?php echo wp_kses_post($attributes['dividerText']); ?></span></div><?php endif; ?>
+				<ol class="aw__grid" start="4">
+					<?php foreach (array_slice($artists, 3, null, true) as $i => $artist) {
+						echo $card($artist, (int) $i);
+					} ?>
+				</ol>
+			<?php endif; ?>
+
+			<?php if (!empty($attributes['note'])) : ?><p class="aw__note"><?php echo wp_kses_post($attributes['note']); ?></p><?php endif; ?>
+		</div>
+
+		<dialog class="aw__dialog" data-fallback="<?php echo esc_attr($attributes['dialogFallback'] ?? ''); ?>" data-eyebrow="<?php echo esc_attr($attributes['dialogEyebrow'] ?? ''); ?>" data-pending="<?php echo esc_attr($pending_text); ?>" aria-label="<?php echo esc_attr__('Giới thiệu', 'ai-zippy-child'); ?>">
+			<button type="button" class="aw__close" aria-label="Đóng">×</button>
+			<div class="aw__visual"></div>
+			<div class="aw__content">
+				<p class="aw__eyebrow"></p>
+				<h2 class="aw__dname"></h2>
+				<p class="aw__bio"></p>
+				<div class="aw__links"></div>
+			</div>
+		</dialog>
+	</section>
+	<?php
+	return;
+}
+
 // Wall layout: rows of 3 · 4 · 3 (then 4 per row)
 $row_sizes = [3, 4, 3];
 $row_start = [];

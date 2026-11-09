@@ -1,3 +1,5 @@
+@use "../shared/home" as *;
+
 // Artists Spotlight Block — Frontend Styles
 
 .as {
@@ -647,5 +649,548 @@ $wall-tiers: (
 
 	.as__subheading-wrap {
 		justify-content: center;
+	}
+}
+
+
+// =============================================================================
+// Wall of Honor (layout "wall") — podium, framed portraits, profile dialog
+// =============================================================================
+$aw-bg: #10100f;
+
+.aw {
+	@include hm-section;
+	background: $aw-bg;
+	padding: 128px 0 65px; // top clears the overlay header
+
+	[hidden] {
+		display: none !important;
+	}
+	@include hm-from(1500px) {
+		padding-top: 140px;
+	}
+	@include hm-until(761px) {
+		padding: 100px 0 45px;
+	}
+}
+.aw__wrap {
+	@include hm-outer;
+	padding-inline: 32px;
+	@include hm-until(1101px) {
+		padding-inline: 22px;
+	}
+	@include hm-until(761px) {
+		padding-inline: 0;
+	}
+}
+.aw__heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	gap: 40px;
+	max-width: 1140px;
+	margin: 0 auto 36px;
+	@include hm-from(1500px) {
+		max-width: 1260px;
+	}
+	@include hm-until(761px) {
+		display: block;
+		margin-bottom: 27px;
+	}
+}
+.aw__title {
+	margin: 20px 0 0;
+	font-size: 52px;
+	font-weight: 800;
+	letter-spacing: -0.01em;
+	line-height: 1.15;
+	color: $hm-ink;
+
+	span {
+		color: #d1bc8b;
+	}
+	@include hm-from(1500px) {
+		font-size: 60px;
+	}
+	@include hm-until(1101px) {
+		font-size: 44px;
+	}
+	@include hm-until(761px) {
+		font-size: 40px;
+		margin-top: 18px;
+	}
+}
+.aw__desc {
+	margin: 0 0 4px;
+	font-size: 14px;
+	line-height: 1.9;
+	color: #a4a396;
+	@include hm-until(1101px) {
+		font-size: 12px;
+	}
+	@include hm-until(761px) {
+		margin: 20px 0 0;
+	}
+}
+
+.aw__podium,
+.aw__grid {
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+}
+.aw__podium {
+	display: grid;
+	grid-template-columns: 1fr 1.55fr 1fr;
+	gap: 27px;
+	max-width: 930px;
+	align-items: end;
+	@include hm-from(1500px) {
+		max-width: 1100px;
+		gap: 35px;
+	}
+	@include hm-until(1101px) {
+		gap: 18px;
+	}
+	@include hm-until(761px) {
+		gap: 5px;
+		grid-template-columns: 1fr 1.52fr 1fr;
+	}
+}
+.aw__card {
+	min-width: 0;
+	list-style: none;
+}
+.aw__trigger {
+	display: block;
+	width: 100%;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: inherit;
+	font-family: inherit;
+	text-align: left;
+	cursor: pointer;
+}
+.aw__frame {
+	position: relative;
+	display: block;
+	aspect-ratio: 640 / 939;
+	isolation: isolate;
+}
+.aw__window {
+	position: absolute;
+	inset: 3% 5%;
+	overflow: hidden;
+	border-radius: 24px;
+	background: #1e1b15;
+	@include hm-until(1101px) {
+		border-radius: 15px;
+	}
+}
+.aw__portrait {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.4s;
+}
+.aw__trigger:hover .aw__portrait {
+	transform: scale(1.025);
+}
+.aw__ornament {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	object-fit: fill;
+	pointer-events: none;
+	filter: saturate(0.45) brightness(0.87);
+}
+.aw__podium-1 {
+	margin-bottom: 40px;
+	@include hm-until(761px) {
+		margin-bottom: 18px;
+	}
+
+	.aw__frame {
+		aspect-ratio: 640 / 654;
+	}
+	.aw__window {
+		inset: 8.5% 22.2% 9%;
+		border-radius: 20px;
+		@include hm-until(761px) {
+			border-radius: 8px;
+		}
+	}
+	.aw__caption {
+		margin: 3px 22% 0;
+		@include hm-until(1101px) {
+			margin-inline: 16%;
+		}
+		@include hm-until(761px) {
+			margin: 6px 6% 0;
+			justify-content: center;
+		}
+	}
+	.aw__name {
+		color: #e9d5a7;
+	}
+}
+.aw__podium-2,
+.aw__podium-3 {
+	.aw__frame {
+		aspect-ratio: 640 / 970;
+	}
+	.aw__window {
+		inset: 9.5% 9% 11%;
+		border-radius: 23px;
+		@include hm-until(761px) {
+			border-radius: 8px;
+		}
+	}
+	.aw__caption {
+		margin: 3px 8% 0;
+		@include hm-until(761px) {
+			margin: 6px 0 0;
+			justify-content: center;
+		}
+	}
+}
+.aw__podium-2 {
+	.aw__pending {
+		background: radial-gradient(ellipse at 50% 25%, #343430, #1b1c19 70%);
+	}
+	.aw__initials {
+		color: #a7a596;
+	}
+	.aw__pending::before {
+		color: #8c8c7d;
+	}
+}
+.aw__caption {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	min-height: 28px;
+	margin: 14px 6px 0;
+	@include hm-until(761px) {
+		min-height: 22px;
+		gap: 4px;
+	}
+}
+.aw__name {
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	line-height: 1.4;
+	text-transform: uppercase;
+	color: $hm-ink;
+	@include hm-from(1500px) {
+		font-size: 18px;
+	}
+	@include hm-until(1101px) {
+		font-size: 12px;
+	}
+}
+.aw__podium .aw__name {
+	@include hm-until(761px) {
+		font-size: 10px;
+		letter-spacing: 0;
+	}
+}
+
+.aw__pending {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 14px;
+	width: 100%;
+	height: 100%;
+	background: radial-gradient(ellipse at 50% 25%, #3c3022 0%, #1c1914 65%);
+
+	&::before {
+		content: "WELIVE";
+		position: absolute;
+		top: 17px;
+		font-size: 7px;
+		letter-spacing: 0.22em;
+		color: #75644a;
+	}
+	small {
+		padding: 0 10px;
+		font-size: 8px;
+		line-height: 1.7;
+		text-align: center;
+		color: #958a75;
+	}
+	@include hm-from(1500px) {
+		small {
+			font-size: 10px;
+		}
+	}
+	@include hm-until(1101px) {
+		small {
+			font-size: 7px;
+		}
+	}
+}
+.aw__initials {
+	font-size: 62px;
+	font-weight: 800;
+	letter-spacing: -0.05em;
+	line-height: 1;
+	color: #837052;
+	opacity: 0.65;
+	@include hm-until(1101px) {
+		font-size: 48px;
+	}
+}
+.aw__podium .aw__pending {
+	@include hm-until(761px) {
+		gap: 5px;
+
+		small {
+			display: none;
+		}
+		&::before {
+			font-size: 4px;
+			top: 12px;
+		}
+	}
+	.aw__initials {
+		@include hm-until(761px) {
+			font-size: 29px;
+		}
+	}
+}
+
+.aw__divider {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	max-width: 930px;
+	margin: 49px auto 33px;
+	font-size: 8px;
+	font-weight: 600;
+	letter-spacing: 0.18em;
+	color: #aaa18b;
+	@include hm-from(1500px) {
+		max-width: 1100px;
+	}
+	@include hm-until(761px) {
+		margin: 28px 0 23px;
+		font-size: 7px;
+		gap: 12px;
+		letter-spacing: 0.1em;
+	}
+}
+.aw__grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 30px 24px;
+	max-width: 930px;
+	@include hm-from(1500px) {
+		max-width: 1100px;
+	}
+	@include hm-until(1101px) {
+		gap: 27px 18px;
+	}
+	@include hm-until(761px) {
+		gap: 24px 17px;
+		max-width: 420px;
+	}
+
+	.aw__standard {
+		flex: 0 0 calc((100% - 72px) / 4);
+		@include hm-until(1101px) {
+			flex-basis: calc((100% - 54px) / 4);
+		}
+		@include hm-until(761px) {
+			flex-basis: calc((100% - 17px) / 2);
+		}
+	}
+	.aw__window {
+		inset: 3% 5%;
+		border-radius: 20px;
+		@include hm-until(761px) {
+			border-radius: 14px;
+		}
+	}
+	.aw__initials {
+		font-size: 52px;
+		@include hm-until(1101px) {
+			font-size: 42px;
+		}
+		@include hm-until(761px) {
+			font-size: 45px;
+		}
+	}
+	.aw__name {
+		font-size: 13px;
+		@include hm-from(1500px) {
+			font-size: 16px;
+		}
+		@include hm-until(1101px) {
+			font-size: 11px;
+		}
+		@include hm-until(761px) {
+			font-size: 12px;
+		}
+	}
+	.aw__caption {
+		@include hm-until(1101px) {
+			margin-inline: 4px;
+		}
+		@include hm-until(761px) {
+			margin-top: 10px;
+		}
+	}
+}
+.aw__note {
+	margin: 35px auto 0;
+	font-size: 11px;
+	line-height: 1.8;
+	text-align: center;
+	color: #8e8b7d;
+	@include hm-until(761px) {
+		max-width: 280px;
+		margin-top: 28px;
+		font-size: 10px;
+	}
+}
+
+// ---- Profile dialog ----
+.aw__dialog {
+	width: min(860px, 94vw);
+	max-width: none;
+	max-height: 92vh;
+	padding: 0;
+	overflow: auto;
+	border: 0;
+	background: #191813;
+	color: $hm-ink;
+	font-family: "Inter", sans-serif;
+
+	&[open] {
+		display: grid;
+		grid-template-columns: 0.9fr 1.1fr;
+		@include hm-until(761px) {
+			display: block;
+		}
+	}
+	&::backdrop {
+		background: rgba(0, 0, 0, 0.87);
+		backdrop-filter: blur(5px);
+	}
+}
+.aw__close {
+	position: absolute;
+	top: 12px;
+	right: 14px;
+	z-index: 2;
+	width: 32px;
+	height: 32px;
+	border: 1px solid #77705f;
+	border-radius: 50%;
+	background: rgba(23, 21, 17, 0.85);
+	font-size: 22px;
+	line-height: 1;
+	color: #fff;
+	cursor: pointer;
+}
+.aw__visual {
+	position: relative;
+	min-height: 430px;
+	overflow: hidden;
+	background: #252017;
+
+	> img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	> .aw__pending {
+		min-height: 430px;
+	}
+	@include hm-until(761px) {
+		height: 300px;
+		min-height: 0;
+
+		> .aw__pending {
+			min-height: 300px;
+		}
+	}
+}
+.aw__content {
+	align-self: center;
+	padding: 48px 36px;
+	@include hm-until(1101px) {
+		padding: 45px 28px;
+	}
+	@include hm-until(761px) {
+		padding: 28px 24px 33px;
+	}
+}
+.aw__eyebrow {
+	margin: 0;
+	font-size: 8px;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	line-height: 1.8;
+	color: #b8a782;
+}
+.aw__dname {
+	margin: 17px 0 0;
+	font-size: 36px;
+	font-weight: 800;
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	color: $hm-ink;
+	@include hm-until(761px) {
+		font-size: 30px;
+	}
+}
+.aw__bio {
+	margin: 24px 0 0;
+	font-size: 14px;
+	line-height: 1.9;
+	color: #c4bfb2;
+	white-space: pre-line;
+	@include hm-until(761px) {
+		font-size: 13px;
+		margin-top: 18px;
+	}
+}
+.aw__links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 25px;
+
+	a {
+		padding: 9px 14px;
+		border: 1px solid #655b46;
+		border-radius: 22px;
+		font-size: 11px;
+		color: $hm-ink;
+
+		&:hover {
+			border-color: $hm-orange;
+			color: $hm-orange;
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.aw__portrait {
+		transition: none;
 	}
 }

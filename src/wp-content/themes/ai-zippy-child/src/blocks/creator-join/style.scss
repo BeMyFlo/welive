@@ -1,0 +1,120 @@
+@use "../shared/home" as *;
+
+.cjn {
+	@include hm-section;
+	background: #10100f;
+	padding-bottom: 60px;
+}
+.cjn__wrap {
+	@include hm-outer;
+	display: grid;
+	grid-template-columns: 1.1fr 1fr;
+	gap: 40px;
+	align-items: center;
+	overflow: hidden;
+	padding: 55px 50px;
+	background: $hm-orange;
+	color: #17130e;
+	@include hm-until(1101px) {
+		padding: 42px 35px;
+		gap: 30px;
+	}
+	@include hm-until(761px) {
+		display: block;
+		padding: 34px 24px 38px;
+	}
+}
+.cjn__eyebrow {
+	margin: 0;
+	font-size: 9px;
+	font-weight: 750;
+	letter-spacing: 0.16em;
+}
+.cjn__title {
+	margin: 23px 0 0;
+	font-size: 50px;
+	font-weight: 800;
+	letter-spacing: -0.01em;
+	line-height: 1.15;
+	color: #17130e;
+	@include hm-until(1101px) {
+		font-size: 40px;
+	}
+	@include hm-until(761px) {
+		font-size: 37px;
+		margin-top: 19px;
+	}
+}
+.cjn__text {
+	max-width: 390px;
+	margin: 24px 0 0;
+	font-size: 13px;
+	line-height: 1.9;
+	color: #17130e;
+	@include hm-until(761px) {
+		font-size: 12px;
+		margin-top: 20px;
+	}
+}
+.cjn__button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 45px;
+	margin-top: 27px;
+	padding: 15px 20px;
+	border-radius: 4px;
+	background: #171511;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 700;
+	transition: background 0.2s;
+
+	span {
+		font-family: "Inter", Arial, sans-serif;
+		font-size: 22px;
+		font-weight: 400;
+	}
+	&:hover {
+		background: #39241a;
+		color: #fff;
+	}
+	@include hm-until(761px) {
+		font-size: 11px;
+		gap: 28px;
+		margin-top: 25px;
+	}
+}
+.cjn__art {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 250px;
+	@include hm-until(761px) {
+		display: none;
+	}
+}
+.cjn__art-text {
+	font-size: 37px;
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	line-height: 1.17;
+	color: #fff2de;
+	@include hm-until(1101px) {
+		font-size: 30px;
+	}
+}
+.cjn__arrow {
+	position: absolute;
+	right: 0;
+	bottom: -35px;
+	font-family: "Inter", Arial, sans-serif;
+	font-size: 150px;
+	font-weight: 200;
+	line-height: 1;
+	color: rgba(23, 19, 14, 0.21);
+	@include hm-until(1101px) {
+		font-size: 120px;
+	}
+}

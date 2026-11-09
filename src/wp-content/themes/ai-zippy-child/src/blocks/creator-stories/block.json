@@ -1,0 +1,106 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/creator-stories",
+	"version": "1.0.0",
+	"title": "[Creator] Story row",
+	"category": "welive",
+	"icon": "slides",
+	"description": "Optional eyebrow, a row title with Prev/Next buttons and a horizontally scrolling row of story cards that open a profile dialog.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": "cau-chuyen"
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "OUR STORY"
+		},
+		"rowTitle": {
+			"type": "string",
+			"default": "Câu chuyện nghệ sĩ nổi bật"
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"name": "LÊ HÒA",
+					"linkText": "Xem câu chuyện",
+					"imageId": 0,
+					"imageUrl": "",
+					"position": "50% 40%",
+					"bio": "",
+					"tiktok": "",
+					"facebook": "",
+					"instagram": ""
+				},
+				{
+					"name": "THÚY DIỆU",
+					"linkText": "Xem câu chuyện",
+					"imageId": 0,
+					"imageUrl": "",
+					"position": "50% 40%",
+					"bio": "",
+					"tiktok": "",
+					"facebook": "",
+					"instagram": ""
+				},
+				{
+					"name": "HNGLE",
+					"linkText": "Xem câu chuyện",
+					"imageId": 0,
+					"imageUrl": "",
+					"position": "50% 40%",
+					"bio": "",
+					"tiktok": "",
+					"facebook": "",
+					"instagram": ""
+				}
+			]
+		},
+		"pendingCount": {
+			"type": "number",
+			"default": 2
+		},
+		"pendingTitle": {
+			"type": "string",
+			"default": "Câu chuyện tiếp theo"
+		},
+		"pendingText": {
+			"type": "string",
+			"default": "Đang cập nhật"
+		},
+		"prevText": {
+			"type": "string",
+			"default": "Trước"
+		},
+		"nextText": {
+			"type": "string",
+			"default": "Sau"
+		},
+		"previewNote": {
+			"type": "string",
+			"default": "Nội dung minh họa cho bố cục câu chuyện. Bài viết hoặc video đầy đủ sẽ được cập nhật sau."
+		},
+		"dialogFallback": {
+			"type": "string",
+			"default": "Câu chuyện và thông tin giới thiệu sẽ được cập nhật tại đây."
+		},
+		"isLast": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/creator-join",
+	"version": "1.0.0",
+	"title": "[Creator] Join CTA",
+	"category": "welive",
+	"icon": "megaphone",
+	"description": "Orange block: eyebrow, heading, text, dark button and a big art text with an arrow.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": "gia-nhap"
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "YOUR NEXT CHAPTER"
+		},
+		"title": {
+			"type": "string",
+			"default": "Gia nhập<br>cùng Welive."
+		},
+		"text": {
+			"type": "string",
+			"default": "Mang màu sắc của bạn đến với cộng đồng.<br>Cùng Welive bắt đầu hành trình sáng tạo của riêng mình."
+		},
+		"btnText": {
+			"type": "string",
+			"default": "Trò chuyện cùng Welive"
+		},
+		"btnUrl": {
+			"type": "string",
+			"default": "https://zalo.me/2311145967487700822"
+		},
+		"artText": {
+			"type": "string",
+			"default": "THE NEXT<br>STORY<br>IS YOURS."
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

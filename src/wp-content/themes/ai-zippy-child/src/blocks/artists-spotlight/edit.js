@@ -2,7 +2,7 @@ import { useBlockProps, RichText, MediaUpload, InspectorControls } from "@wordpr
 import { PanelBody, TextControl, Button, Dashicon, SelectControl, TextareaControl } from "@wordpress/components";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { title, subheading, artists, textAlign, layout } = attributes;
+	const { title, subheading, artists, textAlign, layout, titleAccent, description, dividerText, note, dialogEyebrow, pendingText } = attributes;
 	const blockProps = useBlockProps({ className: `as has-text-align-${textAlign || "left"}` });
 
 	const addArtist = () => {
@@ -54,11 +54,22 @@ export default function Edit({ attributes, setAttributes }) {
 						value={layout || "grid"}
 						options={[
 							{ label: "Grid", value: "grid" },
-							{ label: "Wall (3 · 4 · 3)", value: "wall" }
+							{ label: "Bức tường danh vọng (Wall of Honor)", value: "wall" }
 						]}
 						onChange={(val) => setAttributes({ layout: val })}
 					/>
 				</PanelBody>
+				{layout === "wall" && (
+					<PanelBody title="Bức tường danh vọng — chữ" initialOpen={true}>
+						<TextControl label="Tiêu đề (dòng 1)" value={title} onChange={(val) => setAttributes({ title: val })} />
+						<TextControl label="Tiêu đề (dòng 2, màu vàng)" value={titleAccent || ""} onChange={(val) => setAttributes({ titleAccent: val })} />
+						<TextareaControl label="Mô tả bên phải (dùng <br> để xuống dòng)" value={description || ""} onChange={(val) => setAttributes({ description: val })} rows={3} />
+						<TextControl label="Chữ phân cách" value={dividerText || ""} onChange={(val) => setAttributes({ dividerText: val })} />
+						<TextControl label="Dòng ghi chú cuối" value={note || ""} onChange={(val) => setAttributes({ note: val })} />
+						<TextControl label="Nhãn trong hộp giới thiệu" value={dialogEyebrow || ""} onChange={(val) => setAttributes({ dialogEyebrow: val })} />
+						<TextControl label="Chữ khi chưa có chân dung" value={pendingText || ""} onChange={(val) => setAttributes({ pendingText: val })} />
+					</PanelBody>
+				)}
 				<PanelBody title="Text Alignment" initialOpen={false}>
 					<SelectControl
 						label="Text Alignment"
@@ -81,6 +92,11 @@ export default function Edit({ attributes, setAttributes }) {
 									Remove
 								</Button>
 							</div>
+							<TextControl
+								label="Vị trí ảnh (object-position, vd 50% 42%)"
+								value={artist.position || ""}
+								onChange={(val) => updateArtist(index, "position", val)}
+							/>
 							<TextControl
 								label="Number"
 								value={artist.number}

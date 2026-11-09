@@ -6,7 +6,7 @@
 	"title": "Artists Spotlight",
 	"category": "welive",
 	"icon": "admin-users",
-	"description": "Artist showcase grid/slider with social link overlays on hover.",
+	"description": "Artist showcase. Layout 'grid' = hover cards; layout 'wall' = Wall of Honor (podium, framed portraits, profile dialog).",
 	"supports": {
 		"html": false,
 		"align": [
@@ -82,6 +82,34 @@
 		"layout": {
 			"type": "string",
 			"default": "grid"
+		},
+		"titleAccent": {
+			"type": "string",
+			"default": ""
+		},
+		"description": {
+			"type": "string",
+			"default": "Những gương mặt, những dấu ấn riêng.<br>Cùng Welive viết tiếp hành trình sáng tạo."
+		},
+		"dividerText": {
+			"type": "string",
+			"default": "NHỮNG DẤU ẤN TIẾP NỐI"
+		},
+		"note": {
+			"type": "string",
+			"default": "Mỗi gương mặt là một màu sắc. Mỗi dấu ấn làm nên Welive."
+		},
+		"dialogEyebrow": {
+			"type": "string",
+			"default": "BỨC TƯỜNG DANH VỌNG"
+		},
+		"pendingText": {
+			"type": "string",
+			"default": "Chân dung đang cập nhật"
+		},
+		"dialogFallback": {
+			"type": "string",
+			"default": "Câu chuyện và thông tin giới thiệu sẽ được cập nhật tại đây."
 		}
 	},
 	"textdomain": "ai-zippy-child",
