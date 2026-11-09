@@ -2,9 +2,9 @@ import { useBlockProps, RichText, InspectorControls, PanelColorSettings } from "
 import { PanelBody, TextControl, SelectControl } from "@wordpress/components";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { title, btnText, btnUrl, textAlign, backgroundColor } = attributes;
+	const { title, btnText, btnUrl, textAlign, backgroundColor, variant, kicker } = attributes;
 	const blockProps = useBlockProps({ 
-		className: `hju has-text-align-${textAlign || "center"}`,
+		className: `hju hju--${variant || "classic"} has-text-align-${textAlign || "center"}`,
 		style: { backgroundColor: backgroundColor || "#0b0b0b" }
 	});
 
@@ -35,6 +35,15 @@ export default function Edit({ attributes, setAttributes }) {
 						onChange={(val) => setAttributes({ btnText: val })}
 					/>
 					<SelectControl
+						label="Kiểu"
+						value={variant || "classic"}
+						options={[
+							{ label: "Classic (giữa, nền đen)", value: "classic" },
+							{ label: "Band (tiêu đề trái, nút phải)", value: "band" },
+						]}
+						onChange={(val) => setAttributes({ variant: val })}
+					/>
+					<SelectControl
 						label="Text Alignment"
 						value={textAlign || "center"}
 						options={[
@@ -50,13 +59,25 @@ export default function Edit({ attributes, setAttributes }) {
 
 			<div {...blockProps}>
 				<div className="hju__container">
-					<RichText
-						tagName="h2"
-						className="hju__title"
-						value={title}
-						onChange={(val) => setAttributes({ title: val })}
-						placeholder="JOIN US"
-					/>
+					<div className="hju__heading">
+						{variant === "band" && (
+							<RichText
+								tagName="p"
+								className="hju__kicker"
+								value={kicker}
+								onChange={(val) => setAttributes({ kicker: val })}
+								placeholder="Nhãn nhỏ"
+								allowedFormats={[]}
+							/>
+						)}
+						<RichText
+							tagName="h2"
+							className="hju__title"
+							value={title}
+							onChange={(val) => setAttributes({ title: val })}
+							placeholder="JOIN US"
+						/>
+					</div>
 					<div className="hju__btn-wrap">
 						<span className="hju__btn-mock">
 							{btnText || "GET STARTED WITH WELIVE"}

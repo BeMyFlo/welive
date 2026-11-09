@@ -6,7 +6,7 @@
 	"title": "Home Hero Slider",
 	"category": "welive",
 	"icon": "images-alt2",
-	"description": "Full screen cinematic slider of artists matching daomusic.com.",
+	"description": "Full screen fading slider of creators: kicker, big name, dot tabs, pause button and CTA.",
 	"supports": {
 		"html": false,
 		"align": [
@@ -20,7 +20,7 @@
 		},
 		"ctaText": {
 			"type": "string",
-			"default": "Khám phá nghệ sĩ"
+			"default": "Khám phá nhà sáng tạo"
 		},
 		"ctaUrl": {
 			"type": "string",
@@ -62,6 +62,10 @@
 		"textAlign": {
 			"type": "string",
 			"default": "left"
+		},
+		"kicker": {
+			"type": "string",
+			"default": "WELIVE CREATOR NETWORK"
 		}
 	},
 	"textdomain": "ai-zippy-child",

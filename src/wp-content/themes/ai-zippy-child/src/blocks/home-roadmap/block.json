@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/home-roadmap",
+	"version": "1.0.0",
+	"title": "[Home] Roadmap cards",
+	"category": "welive",
+	"icon": "excerpt-view",
+	"description": "Heading with 4 step cards linking to the roadmap page.",
+	"supports": { "html": false, "align": ["full"] },
+	"attributes": {
+		"anchor": { "type": "string", "default": "lo-trinh" },
+		"kicker": { "type": "string", "default": "BẮT ĐẦU CÙNG WELIVE" },
+		"title": { "type": "string", "default": "Lộ trình gia nhập." },
+		"intro": { "type": "string", "default": "45 ngày từ những bước đầu tiên đến kế hoạch phát triển dành riêng cho bạn." },
+		"ctaText": { "type": "string", "default": "Khám phá lộ trình" },
+		"ctaUrl": { "type": "string", "default": "/ke-hoach-45-ngay/" },
+		"cardCta": { "type": "string", "default": "Khám phá lộ trình" },
+		"cards": {
+			"type": "array",
+			"default": [
+				{ "index": "01", "days": "NGÀY 1–3", "title": "Làm quen<br>& thiết lập.", "detail": "Chuẩn bị hồ sơ, góc LIVE và những kỹ năng đầu tiên.", "url": "" },
+				{ "index": "02", "days": "NGÀY 4–7", "title": "Giữ nhịp<br>& ghép kỹ năng.", "detail": "Luyện tương tác và làm quen với nhịp phiên LIVE.", "url": "" },
+				{ "index": "03", "days": "NGÀY 8–14", "title": "Rèn luyện<br>& tự vận hành.", "detail": "Củng cố kỹ năng, cùng nhìn lại tiến bộ và kết quả.", "url": "" },
+				{ "index": "04", "days": "NGÀY 15–45", "title": "Phát triển<br>theo mục tiêu.", "detail": "Kế hoạch phù hợp với thế mạnh và lịch của bạn.", "url": "" }
+			]
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

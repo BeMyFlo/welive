@@ -1,0 +1,10 @@
+@use "../shared/home" as *;
+
+.hrm__pill-mock {
+	@include hm-pill;
+}
+.hrm__card-title,
+.hrm__detail,
+.hrm__days {
+	min-width: 0;
+}

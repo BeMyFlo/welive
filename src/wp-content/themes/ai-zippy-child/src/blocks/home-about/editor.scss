@@ -1,0 +1,12 @@
+@use "../shared/home" as *;
+
+.hab__collage .hm-img-empty {
+	min-height: 0;
+}
+.hab__pill-mock {
+	@include hm-pill;
+	margin-top: 29px;
+}
+.hab__metrics-edit p {
+	margin-top: 14px;
+}

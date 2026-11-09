@@ -3,7 +3,7 @@ import { useBlockProps, RichText, MediaUpload, InspectorControls } from "@wordpr
 import { PanelBody, TextControl, TextareaControl, Button, SelectControl } from "@wordpress/components";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { title, subtitle, slides, textAlign, ctaText, ctaUrl } = attributes;
+	const { title, subtitle, slides, textAlign, ctaText, ctaUrl, kicker } = attributes;
 	const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 	const blockProps = useBlockProps({ className: `hhs has-text-align-${textAlign || "left"}` });
 
@@ -90,12 +90,18 @@ export default function Edit({ attributes, setAttributes }) {
 								onChange={(val) => updateSlide(index, "link", val)}
 							/>
 							<TextControl
+								label="Vị trí ảnh (object-position)"
+								value={slide.position || ""}
+								onChange={(val) => updateSlide(index, "position", val)}
+								help='Ví dụ "50% 40%" — chỉnh nếu mặt bị cắt'
+							/>
+							<TextControl
 								label="Slide Title"
 								value={slide.title || ""}
 								onChange={(val) => updateSlide(index, "title", val)}
 							/>
 							<TextareaControl
-								label="Slide Subtitle"
+								label="Slide Subtitle (tuỳ chọn)"
 								value={slide.subtitle || ""}
 								onChange={(val) => updateSlide(index, "subtitle", val)}
 							/>
@@ -114,6 +120,14 @@ export default function Edit({ attributes, setAttributes }) {
 						<div style={{ marginBottom: 10, fontSize: 12, opacity: 0.6 }}>
 							Editing content for <strong>Slide #{activeSlideIndex + 1}: {slides[activeSlideIndex]?.artistName || "Unnamed"}</strong> (Click slide below to change)
 						</div>
+						<RichText
+							tagName="p"
+							className="hhs__kicker"
+							value={kicker}
+							onChange={(val) => setAttributes({ kicker: val })}
+							placeholder="WELIVE CREATOR NETWORK"
+							allowedFormats={[]}
+						/>
 						<RichText
 							tagName="h1"
 							className="hhs__title"

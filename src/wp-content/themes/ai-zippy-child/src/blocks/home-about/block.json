@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/home-about",
+	"version": "1.0.0",
+	"title": "[Home] About + Stats",
+	"category": "welive",
+	"icon": "groups",
+	"description": "Photo collage with intro text, button and an orange stats strip.",
+	"supports": { "html": false, "align": ["full"] },
+	"attributes": {
+		"title": { "type": "string", "default": "Về" },
+		"titleAccent": { "type": "string", "default": "Welive." },
+		"lead": { "type": "string", "default": "Bạn sáng tạo. Welive đồng hành." },
+		"text": { "type": "string", "default": "Từ BIGO đến TikTok LIVE, Welive kết nối những con người cùng đam mê sáng tạo. Có đội ngũ hỗ trợ, có lộ trình rõ ràng và có cộng đồng để cùng nhau đi xa." },
+		"ctaText": { "type": "string", "default": "Tìm hiểu thêm" },
+		"ctaUrl": { "type": "string", "default": "/about-welive/" },
+		"images": {
+			"type": "array",
+			"default": [
+				{ "imageId": 0, "imageUrl": "", "alt": "Cộng đồng nhà sáng tạo Welive" },
+				{ "imageId": 0, "imageUrl": "", "alt": "Welive tại TikTok LIVE Fest" },
+				{ "imageId": 0, "imageUrl": "", "alt": "Không gian hỗ trợ vận hành LIVE" }
+			]
+		},
+		"metrics": {
+			"type": "array",
+			"default": [
+				{ "value": "500+", "label": "NHÀ SÁNG TẠO TIKTOK LIVE" },
+				{ "value": "06", "label": "NĂM HÀNH TRÌNH · 2020–2026" },
+				{ "value": "03", "label": "DẤU ẤN AGENCY NỔI BẬT BIGO" },
+				{ "value": "02", "label": "NỀN TẢNG · BIGO & TIKTOK" }
+			]
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

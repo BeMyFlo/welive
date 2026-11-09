@@ -33,6 +33,14 @@
 		"backgroundColor": {
 			"type": "string",
 			"default": "#0b0b0b"
+		},
+		"variant": {
+			"type": "string",
+			"default": "classic"
+		},
+		"kicker": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"textdomain": "ai-zippy-child",

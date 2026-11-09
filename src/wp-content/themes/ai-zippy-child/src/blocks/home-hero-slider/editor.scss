@@ -98,3 +98,19 @@
 		}
 	}
 }
+
+.wp-block-ai-zippy-child-home-hero-slider {
+	height: auto;
+	max-height: none;
+
+	&::after {
+		display: none;
+	}
+	.hhs__kicker {
+		color: #fff;
+	}
+	.hhs__cta {
+		margin-top: 12px;
+		min-height: 0;
+	}
+}

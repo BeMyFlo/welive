@@ -1,0 +1,11 @@
+@use "../shared/home" as *;
+
+.hcr__photo .hm-img-empty {
+	min-height: 0;
+}
+.hcr__link-mock {
+	@include hm-simple-link;
+}
+.hcr__remove {
+	margin-top: 8px;
+}

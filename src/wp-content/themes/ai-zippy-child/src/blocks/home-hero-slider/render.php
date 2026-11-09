@@ -1,81 +1,68 @@
 <?php
-$text_align = $attributes['textAlign'] ?? 'left';
-
-
 defined('ABSPATH') || exit;
 
-// Enqueue Swiper JS and CSS from CDN for frontend slider
-wp_enqueue_style('swiper-cdn', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', [], '11.0.0');
-wp_enqueue_script('swiper-cdn', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', [], '11.0.0', true);
-
-$title    = $attributes['title'] ?? 'BOLD MUSIC BOLD FUTURE';
+$title    = $attributes['title'] ?? '';
 $subtitle = $attributes['subtitle'] ?? '';
-$slides   = $attributes['slides'] ?? [];
-$cta_text = $attributes['ctaText'] ?? 'Khám phá nghệ sĩ';
+$slides   = array_values($attributes['slides'] ?? []);
+$kicker   = $attributes['kicker'] ?? '';
+$cta_text = $attributes['ctaText'] ?? '';
 $cta_url  = $attributes['ctaUrl'] ?? '/artists/';
+$text_align = $attributes['textAlign'] ?? 'left';
+$total    = count($slides);
 
-$wrapper_attributes = get_block_wrapper_attributes(['class' => 'hhs has-text-align-' . $text_align]);
+$wrapper = get_block_wrapper_attributes([
+	'class'         => 'hhs has-text-align-' . $text_align,
+	'data-interval' => '6000',
+	'data-total'    => (string) $total,
+]);
 ?>
-<div <?php echo $wrapper_attributes; ?>>
-	<!-- Swiper Container -->
-	<div class="hhs__swiper swiper">
-		<div class="swiper-wrapper">
-			<?php if (!empty($slides)) : ?>
-				<?php foreach ($slides as $index => $slide) : 
-					$image_url   = $slide['imageUrl'] ?? '';
-					$artist_name = $slide['artistName'] ?? '';
-					$link        = $slide['link'] ?? '';
-				?>
-					<div class="hhs__swiper-slide swiper-slide">
-						<?php if ($image_url) : ?>
-							<img class="hhs__slide-img" src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($artist_name ?: $title); ?>" />
-						<?php endif; ?>
-						<div class="hhs__overlay"></div>
-					</div>
-				<?php endforeach; ?>
-			<?php else : ?>
-				<!-- Placeholder Slide if empty -->
-				<div class="hhs__swiper-slide swiper-slide">
-					<div class="hhs__overlay"></div>
-				</div>
-			<?php endif; ?>
-		</div>
+<section <?php echo $wrapper; ?> aria-roledescription="carousel" aria-label="<?php echo esc_attr(wp_strip_all_tags($kicker ?: 'Welive')); ?>">
+	<div class="hhs__pictures">
+		<?php foreach ($slides as $i => $slide) :
+			$id  = (int) ($slide['imageId'] ?? 0);
+			$src = ($id ? wp_get_attachment_image_url($id, 'full') : '') ?: ($slide['imageUrl'] ?? '');
+			$pos = $slide['position'] ?? '50% 40%';
+			$name = wp_strip_all_tags($slide['artistName'] ?? ''); ?>
+			<figure class="hhs__panel<?php echo $i === 0 ? ' is-active' : ''; ?>" id="hhs-panel-<?php echo (int) $i; ?>">
+				<?php if ($src) : ?>
+					<img class="hhs__slide-img" src="<?php echo esc_url($src); ?>" alt="<?php echo esc_attr($name ?: wp_strip_all_tags($title)); ?>" style="object-position:<?php echo esc_attr($pos); ?>"<?php echo $i === 0 ? ' fetchpriority="high"' : ' loading="lazy"'; ?> />
+				<?php endif; ?>
+			</figure>
+		<?php endforeach; ?>
+	</div>
 
-		<!-- Navigation Arrows -->
-		<div class="hhs__nav hhs__nav--prev">
-			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-			</svg>
-		</div>
-		<div class="hhs__nav hhs__nav--next">
-			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-			</svg>
-		</div>
-
-		<!-- Content Overlays (will update with Swiper slide change) -->
-		<div class="hhs__content">
-			<div class="hhs__content-left">
-				<?php foreach ($slides as $index => $slide) : 
+	<div class="hhs__content">
+		<div class="hhs__content-left">
+			<?php if ($kicker !== '') : ?><p class="hhs__kicker"><?php echo wp_kses_post($kicker); ?></p><?php endif; ?>
+			<div class="hhs__texts">
+				<?php foreach ($slides as $i => $slide) :
 					$slide_title    = !empty($slide['title']) ? $slide['title'] : $title;
-					$slide_subtitle = !empty($slide['subtitle']) ? $slide['subtitle'] : $subtitle;
-				?>
-					<div class="hhs__slide-text <?php echo $index === 0 ? 'is-active' : ''; ?>" data-slide-index="<?php echo $index; ?>">
+					$slide_subtitle = $slide['subtitle'] ?? ''; ?>
+					<div class="hhs__slide-text<?php echo $i === 0 ? ' is-active' : ''; ?>" data-slide-index="<?php echo (int) $i; ?>">
 						<h1 class="hhs__title"><?php echo wp_kses_post($slide_title); ?></h1>
-						<p class="hhs__subtitle"><?php echo wp_kses_post($slide_subtitle); ?></p>
+						<?php if ($slide_subtitle !== '') : ?><p class="hhs__subtitle"><?php echo wp_kses_post($slide_subtitle); ?></p><?php endif; ?>
 					</div>
 				<?php endforeach; ?>
 			</div>
+		</div>
 
-			<!-- CTA -->
-			<?php if ($cta_text !== '') : ?>
+		<?php if ($cta_text !== '') : ?>
 			<a class="hhs__cta" href="<?php echo esc_url(str_starts_with($cta_url, '/') ? home_url($cta_url) : $cta_url); ?>">
 				<span class="hhs__cta-label"><?php echo wp_kses_post($cta_text); ?></span>
-				<svg class="hhs__cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-					<path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-				</svg>
+				<span class="hhs__cta-icon" aria-hidden="true">↗</span>
 			</a>
-			<?php endif; ?>
-		</div>
+		<?php endif; ?>
 	</div>
-</div>
+
+	<?php if ($total > 1) : ?>
+		<div class="hhs__controls">
+			<div class="hhs__tabs" role="tablist" aria-label="Chọn slide">
+				<?php foreach ($slides as $i => $slide) : ?>
+					<button type="button" role="tab" class="hhs__tab" aria-label="<?php echo esc_attr(wp_strip_all_tags($slide['artistName'] ?? ('Slide ' . ($i + 1)))); ?>" aria-selected="<?php echo $i === 0 ? 'true' : 'false'; ?>" aria-controls="hhs-panel-<?php echo (int) $i; ?>" tabindex="<?php echo $i === 0 ? '0' : '-1'; ?>"><span></span></button>
+				<?php endforeach; ?>
+			</div>
+			<button type="button" class="hhs__pause" aria-label="Tạm dừng chuyển ảnh" aria-pressed="false">Ⅱ</button>
+			<span class="hhs__count" aria-hidden="true">01 / <?php echo esc_html(str_pad((string) $total, 2, '0', STR_PAD_LEFT)); ?></span>
+		</div>
+	<?php endif; ?>
+</section>

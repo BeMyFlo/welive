@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/home-creators",
+	"version": "1.0.0",
+	"title": "[Home] Creators grid",
+	"category": "welive",
+	"icon": "id-alt",
+	"description": "Heading plus a grid of creator photo cards with links.",
+	"supports": { "html": false, "align": ["full"] },
+	"attributes": {
+		"anchor": { "type": "string", "default": "nha-sang-tao" },
+		"title": { "type": "string", "default": "Nhà sáng tạo" },
+		"titleAccent": { "type": "string", "default": "Welive." },
+		"linkText": { "type": "string", "default": "Xem tất cả" },
+		"linkUrl": { "type": "string", "default": "/artists/" },
+		"creators": {
+			"type": "array",
+			"default": [
+				{ "name": "Lê Hòa", "cta": "Xem câu chuyện", "url": "", "imageId": 0, "imageUrl": "", "position": "50% 45%" },
+				{ "name": "Thúy Diệu", "cta": "Xem câu chuyện", "url": "", "imageId": 0, "imageUrl": "", "position": "51% 40%" },
+				{ "name": "Hngle", "cta": "Xem câu chuyện", "url": "", "imageId": 0, "imageUrl": "", "position": "50% 50%" },
+				{ "name": "Aric", "cta": "Khám phá nhà sáng tạo", "url": "", "imageId": 0, "imageUrl": "", "position": "50% 50%" }
+			]
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
