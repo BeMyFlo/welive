@@ -135,3 +135,17 @@ $hm-radius: 4px 4px 38px 4px;
 	border: 1px dashed rgba(255, 255, 255, 0.25);
 	cursor: pointer;
 }
+
+// Keep ↗ as a plain glyph instead of the blue emoji box some browsers substitute.
+.hhs__cta-icon,
+.hab__pill span,
+.hrm__pill span,
+.hrm__card-cta b,
+.hcr__link span,
+.hcr__card b,
+.hag__link span,
+.hag__card b,
+.hju__btn span {
+	font-family: "Inter", Arial, sans-serif;
+	font-variant-emoji: text;
+}

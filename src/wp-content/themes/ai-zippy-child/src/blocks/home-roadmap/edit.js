@@ -36,7 +36,7 @@ export default function Edit({ attributes, setAttributes }) {
 							<RichText tagName="h2" className="hrm__title" value={title} onChange={(v) => setAttributes({ title: v })} placeholder="Tiêu đề" />
 						</div>
 						<span className="hrm__pill-mock">
-							<RichText tagName="span" value={ctaText} onChange={(v) => setAttributes({ ctaText: v })} placeholder="Nút" allowedFormats={[]} /> ↗
+							<RichText tagName="span" value={ctaText} onChange={(v) => setAttributes({ ctaText: v })} placeholder="Nút" allowedFormats={[]} /> ↗︎
 						</span>
 					</div>
 					<RichText tagName="p" className="hrm__intro" value={intro} onChange={(v) => setAttributes({ intro: v })} placeholder="Mô tả ngắn" />
@@ -50,7 +50,7 @@ export default function Edit({ attributes, setAttributes }) {
 									<RichText tagName="span" className="hrm__detail" value={c.detail} onChange={(v) => setCard(i, { detail: v })} placeholder="Mô tả" />
 								</div>
 								<span className="hrm__card-cta">
-									{cardCta} <b>↗</b>
+									{cardCta} <b>↗︎</b>
 								</span>
 							</div>
 						))}

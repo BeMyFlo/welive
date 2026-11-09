@@ -34,7 +34,7 @@ $wrapper = get_block_wrapper_attributes(['class' => 'hag'] + ($anchor ? ['id' =>
 				<h2 class="hag__title"><?php echo wp_kses_post($attributes['title'] ?? ''); ?> <span><?php echo wp_kses_post($attributes['titleAccent'] ?? ''); ?></span></h2>
 			</div>
 			<?php if (!empty($attributes['linkText'])) : ?>
-				<a class="hag__link" href="<?php echo esc_url($default); ?>"><?php echo wp_kses_post($attributes['linkText']); ?> <span aria-hidden="true">↗</span></a>
+				<a class="hag__link" href="<?php echo esc_url($default); ?>"><?php echo wp_kses_post($attributes['linkText']); ?> <span aria-hidden="true">↗︎</span></a>
 			<?php endif; ?>
 		</div>
 		<div class="hag__grid">
@@ -46,7 +46,7 @@ $wrapper = get_block_wrapper_attributes(['class' => 'hag'] + ($anchor ? ['id' =>
 					<div>
 						<p><?php echo wp_kses_post($card['label'] ?? ''); ?></p>
 						<h3><?php echo wp_kses_post($card['title'] ?? ''); ?></h3>
-						<span><?php echo wp_kses_post($card['text'] ?? ''); ?> <b aria-hidden="true">↗</b></span>
+						<span><?php echo wp_kses_post($card['text'] ?? ''); ?> <b aria-hidden="true">↗︎</b></span>
 					</div>
 				</a>
 			<?php endforeach; ?>

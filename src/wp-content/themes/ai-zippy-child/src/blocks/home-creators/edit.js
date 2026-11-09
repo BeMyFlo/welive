@@ -32,7 +32,7 @@ export default function Edit({ attributes, setAttributes }) {
 							<RichText tagName="span" value={titleAccent} onChange={(v) => setAttributes({ titleAccent: v })} placeholder="Welive." />
 						</h2>
 						<span className="hcr__link-mock">
-							<RichText tagName="span" style={{ fontSize: "inherit" }} value={linkText} onChange={(v) => setAttributes({ linkText: v })} placeholder="Xem tất cả" allowedFormats={[]} /> ↗
+							<RichText tagName="span" style={{ fontSize: "inherit" }} value={linkText} onChange={(v) => setAttributes({ linkText: v })} placeholder="Xem tất cả" allowedFormats={[]} /> ↗︎
 						</span>
 					</div>
 					<div className="hcr__grid">

@@ -30,7 +30,7 @@ $wrapper  = get_block_wrapper_attributes(['class' => 'hcr'] + ($anchor ? ['id' =
 		<div class="hcr__top">
 			<h2 class="hcr__title"><?php echo wp_kses_post($attributes['title'] ?? ''); ?> <span><?php echo wp_kses_post($attributes['titleAccent'] ?? ''); ?></span></h2>
 			<?php if (!empty($attributes['linkText'])) : ?>
-				<a class="hcr__link" href="<?php echo esc_url(az_home_link($attributes['linkUrl'] ?? '')); ?>"><?php echo wp_kses_post($attributes['linkText']); ?> <span aria-hidden="true">↗</span></a>
+				<a class="hcr__link" href="<?php echo esc_url(az_home_link($attributes['linkUrl'] ?? '')); ?>"><?php echo wp_kses_post($attributes['linkText']); ?> <span aria-hidden="true">↗︎</span></a>
 			<?php endif; ?>
 		</div>
 		<div class="hcr__grid">
@@ -43,7 +43,7 @@ $wrapper  = get_block_wrapper_attributes(['class' => 'hcr'] + ($anchor ? ['id' =
 						<?php endif; ?>
 					</div>
 					<h3><?php echo wp_kses_post($c['name'] ?? ''); ?></h3>
-					<span><?php echo wp_kses_post($c['cta'] ?? ''); ?> <b aria-hidden="true">↗</b></span>
+					<span><?php echo wp_kses_post($c['cta'] ?? ''); ?> <b aria-hidden="true">↗︎</b></span>
 				</a>
 			<?php endforeach; ?>
 		</div>

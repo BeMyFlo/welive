@@ -39,7 +39,7 @@ export default function Edit({ attributes, setAttributes }) {
 							</h2>
 						</div>
 						<span className="hag__link-mock">
-							<RichText tagName="span" value={linkText} onChange={(v) => setAttributes({ linkText: v })} placeholder="Link" allowedFormats={[]} /> ↗
+							<RichText tagName="span" value={linkText} onChange={(v) => setAttributes({ linkText: v })} placeholder="Link" allowedFormats={[]} /> ↗︎
 						</span>
 					</div>
 					<div className="hag__grid">

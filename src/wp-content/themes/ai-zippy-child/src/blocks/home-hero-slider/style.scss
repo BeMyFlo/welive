@@ -136,13 +136,11 @@
 .hhs__cta {
 	@include hm-pill;
 	margin-bottom: 4px;
-	background: #fff;
-	color: #171714;
 	pointer-events: auto;
+	font-weight: 700;
 
-	&:hover {
-		background: #f5f2eb;
-		color: #171714;
+	.hhs__cta-label {
+		font-weight: 700;
 	}
 	@include hm-until(761px) {
 		margin-top: 23px;

@@ -44,7 +44,7 @@ $wrapper = get_block_wrapper_attributes(['class' => 'hab', 'id' => 'about-welive
 				<?php if (!empty($attributes['lead'])) : ?><p class="hab__lead"><?php echo wp_kses_post($attributes['lead']); ?></p><?php endif; ?>
 				<?php if (!empty($attributes['text'])) : ?><p class="hab__text"><?php echo wp_kses_post($attributes['text']); ?></p><?php endif; ?>
 				<?php if (!empty($attributes['ctaText'])) : ?>
-					<a class="hab__pill" href="<?php echo esc_url($cta_url); ?>"><?php echo wp_kses_post($attributes['ctaText']); ?> <span aria-hidden="true">↗</span></a>
+					<a class="hab__pill" href="<?php echo esc_url($cta_url); ?>"><?php echo wp_kses_post($attributes['ctaText']); ?> <span aria-hidden="true">↗︎</span></a>
 				<?php endif; ?>
 			</div>
 		</div>

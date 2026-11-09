@@ -26,7 +26,7 @@ $wrapper = get_block_wrapper_attributes([
 		<?php if ($btn_text) : ?>
 			<div class="hju__btn-wrap">
 				<a href="<?php echo esc_url(str_starts_with($btn_url, '/') ? home_url($btn_url) : $btn_url); ?>" class="hju__btn">
-					<?php echo esc_html($btn_text); ?><?php echo $variant === 'band' ? ' <span aria-hidden="true">↗</span>' : ''; ?>
+					<?php echo esc_html($btn_text); ?><?php echo $variant === 'band' ? ' <span aria-hidden="true">↗︎</span>' : ''; ?>
 				</a>
 			</div>
 		<?php endif; ?>

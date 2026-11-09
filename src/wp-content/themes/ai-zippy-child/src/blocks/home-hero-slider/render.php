@@ -49,7 +49,7 @@ $wrapper = get_block_wrapper_attributes([
 		<?php if ($cta_text !== '') : ?>
 			<a class="hhs__cta" href="<?php echo esc_url(str_starts_with($cta_url, '/') ? home_url($cta_url) : $cta_url); ?>">
 				<span class="hhs__cta-label"><?php echo wp_kses_post($cta_text); ?></span>
-				<span class="hhs__cta-icon" aria-hidden="true">↗</span>
+				<span class="hhs__cta-icon" aria-hidden="true">↗︎</span>
 			</a>
 		<?php endif; ?>
 	</div>

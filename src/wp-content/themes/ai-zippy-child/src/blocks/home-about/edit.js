@@ -55,7 +55,7 @@ export default function Edit({ attributes, setAttributes }) {
 							<RichText tagName="p" className="hab__lead" value={lead} onChange={(v) => setAttributes({ lead: v })} placeholder="Câu nhấn" />
 							<RichText tagName="p" className="hab__text" value={text} onChange={(v) => setAttributes({ text: v })} placeholder="Mô tả" />
 							<span className="hab__pill-mock">
-								<RichText tagName="span" value={ctaText} onChange={(v) => setAttributes({ ctaText: v })} placeholder="Nút" allowedFormats={[]} /> ↗
+								<RichText tagName="span" value={ctaText} onChange={(v) => setAttributes({ ctaText: v })} placeholder="Nút" allowedFormats={[]} /> ↗︎
 							</span>
 						</div>
 					</div>
