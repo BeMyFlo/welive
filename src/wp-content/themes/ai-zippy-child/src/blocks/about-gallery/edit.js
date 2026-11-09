@@ -14,6 +14,7 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				<PanelBody title="Hiển thị" initialOpen={true}>
+					<TextControl label="Anchor (id để link tới, vd #khoanh-khac)" value={attributes.anchor || ""} onChange={(v) => setAttributes({ anchor: v })} />
 					<RangeControl label="Số ảnh hiển thị ban đầu" value={perPage} min={3} max={12} onChange={(v) => setAttributes({ perPage: v })} />
 					<TextControl label="Nhãn nút 'Tất cả'" value={allLabel} onChange={(v) => setAttributes({ allLabel: v })} />
 					<TextControl label="Đơn vị đếm (vd: khoảnh khắc)" value={unit} onChange={(v) => setAttributes({ unit: v })} />

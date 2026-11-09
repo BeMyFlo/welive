@@ -85,11 +85,6 @@ export default function Edit({ attributes, setAttributes }) {
 								onChange={(val) => updateSlide(index, "artistName", val)}
 							/>
 							<TextControl
-								label="Link"
-								value={slide.link}
-								onChange={(val) => updateSlide(index, "link", val)}
-							/>
-							<TextControl
 								label="Vị trí ảnh (object-position)"
 								value={slide.position || ""}
 								onChange={(val) => updateSlide(index, "position", val)}

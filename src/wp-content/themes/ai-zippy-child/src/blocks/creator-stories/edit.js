@@ -11,6 +11,7 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				<PanelBody title="Hàng này" initialOpen={true}>
+					<TextControl label="Anchor (id để link tới, vd #cau-chuyen)" value={attributes.anchor || ""} onChange={(v) => setAttributes({ anchor: v })} />
 					<TextControl label="Nhãn nhỏ phía trên (để trống nếu là hàng thứ hai)" value={eyebrow} onChange={(v) => setAttributes({ eyebrow: v })} />
 					<ToggleControl label="Là hàng cuối (thêm khoảng cách dưới)" checked={!!isLast} onChange={(v) => setAttributes({ isLast: v })} />
 					<RangeControl label="Số thẻ 'đang cập nhật'" value={pendingCount} min={0} max={8} onChange={(v) => setAttributes({ pendingCount: v })} />

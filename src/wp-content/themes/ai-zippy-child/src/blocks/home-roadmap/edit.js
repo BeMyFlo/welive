@@ -10,6 +10,7 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				<PanelBody title="Nút chính" initialOpen={true}>
+					<TextControl label="Anchor (id để link tới, vd #lo-trinh)" value={attributes.anchor || ""} onChange={(v) => setAttributes({ anchor: v })} />
 					<TextControl label="Link (cũng là link mặc định của card)" value={ctaUrl} onChange={(v) => setAttributes({ ctaUrl: v })} />
 					<TextControl label="Chữ cuối mỗi card" value={cardCta} onChange={(v) => setAttributes({ cardCta: v })} />
 				</PanelBody>

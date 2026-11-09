@@ -2,7 +2,7 @@ import { useBlockProps, RichText, MediaUpload, InspectorControls } from "@wordpr
 import { PanelBody, TextControl, Button, Dashicon, SelectControl, TextareaControl } from "@wordpress/components";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { title, subheading, artists, textAlign, layout, titleAccent, description, dividerText, note, dialogEyebrow, pendingText } = attributes;
+	const { title, subheading, artists, textAlign, layout, titleAccent, description, dividerText, note, dialogEyebrow, pendingText, dialogFallback } = attributes;
 	const blockProps = useBlockProps({ className: `as has-text-align-${textAlign || "left"}` });
 
 	const addArtist = () => {
@@ -67,6 +67,7 @@ export default function Edit({ attributes, setAttributes }) {
 						<TextControl label="Chữ phân cách" value={dividerText || ""} onChange={(val) => setAttributes({ dividerText: val })} />
 						<TextControl label="Dòng ghi chú cuối" value={note || ""} onChange={(val) => setAttributes({ note: val })} />
 						<TextControl label="Nhãn trong hộp giới thiệu" value={dialogEyebrow || ""} onChange={(val) => setAttributes({ dialogEyebrow: val })} />
+						<TextControl label="Nội dung hộp giới thiệu khi chưa có bio" value={dialogFallback || ""} onChange={(val) => setAttributes({ dialogFallback: val })} />
 						<TextControl label="Chữ khi chưa có chân dung" value={pendingText || ""} onChange={(val) => setAttributes({ pendingText: val })} />
 					</PanelBody>
 				)}

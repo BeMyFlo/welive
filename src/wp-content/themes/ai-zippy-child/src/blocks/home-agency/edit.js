@@ -11,6 +11,7 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				<PanelBody title="Link mặc định" initialOpen={true}>
+					<TextControl label="Anchor (id để link tới, vd #agency)" value={attributes.anchor || ""} onChange={(v) => setAttributes({ anchor: v })} />
 					<TextControl label="Link 'Khám phá giải pháp' (và card nếu không có link riêng)" value={linkUrl} onChange={(v) => setAttributes({ linkUrl: v })} />
 				</PanelBody>
 				<PanelBody title="Link riêng từng card" initialOpen={false}>

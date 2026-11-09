@@ -11,6 +11,7 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				<PanelBody title="Link 'Xem tất cả'" initialOpen={true}>
+					<TextControl label="Anchor (id để link tới, vd #nha-sang-tao)" value={attributes.anchor || ""} onChange={(v) => setAttributes({ anchor: v })} />
 					<TextControl label="Link" value={linkUrl} onChange={(v) => setAttributes({ linkUrl: v })} />
 				</PanelBody>
 				<PanelBody title="Link & vị trí ảnh từng người" initialOpen={false}>
