@@ -281,6 +281,44 @@ function ai_zippy_child_run_migrations(): void
 }
 add_action('init', 'ai_zippy_child_run_migrations', 20);
 
+// -----------------------------------------------------------------------------
+// Demo images: the Home migration imports photos from migrations/assets/home into the
+// Media Library. If the database was copied to another site (e.g. local -> live) the
+// attachments exist but the files do not, so re-copy any missing file from the theme.
+// -----------------------------------------------------------------------------
+function ai_zippy_child_restore_demo_images(): void
+{
+	$key = 'az_demo_imgs_' . md5(home_url()); // per-domain, so a copied DB re-checks on the new site
+	if (get_transient($key)) {
+		return;
+	}
+
+	$ids = get_posts([
+		'post_type'   => 'attachment',
+		'post_status' => 'inherit',
+		'meta_key'    => '_az_demo_src',
+		'fields'      => 'ids',
+		'numberposts' => -1,
+	]);
+	foreach ($ids as $id) {
+		$file = get_attached_file($id);
+		if (!$file || file_exists($file)) {
+			continue;
+		}
+		$src = get_stylesheet_directory() . '/migrations/assets/home/' . basename((string) get_post_meta($id, '_az_demo_src', true));
+		if (!is_readable($src)) {
+			continue;
+		}
+		wp_mkdir_p(dirname($file));
+		if (copy($src, $file)) {
+			require_once ABSPATH . 'wp-admin/includes/image.php';
+			wp_update_attachment_metadata($id, wp_generate_attachment_metadata($id, $file));
+		}
+	}
+	set_transient($key, 1, HOUR_IN_SECONDS);
+}
+add_action('init', 'ai_zippy_child_restore_demo_images', 30);
+
 // Overlay header (transparent over the hero) on every page that uses the full-width template.
 add_filter('body_class', function (array $classes): array {
 	if (is_page_template('page-fullwidth') || is_page_template('page-fullwidth.html')) {
