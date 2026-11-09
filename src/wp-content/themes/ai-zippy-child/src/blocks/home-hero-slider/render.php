@@ -61,7 +61,7 @@ $wrapper = get_block_wrapper_attributes([
 					<button type="button" role="tab" class="hhs__tab" aria-label="<?php echo esc_attr(wp_strip_all_tags($slide['artistName'] ?? ('Slide ' . ($i + 1)))); ?>" aria-selected="<?php echo $i === 0 ? 'true' : 'false'; ?>" aria-controls="hhs-panel-<?php echo (int) $i; ?>" tabindex="<?php echo $i === 0 ? '0' : '-1'; ?>"><span></span></button>
 				<?php endforeach; ?>
 			</div>
-			<button type="button" class="hhs__pause" aria-label="Tạm dừng chuyển ảnh" aria-pressed="false">Ⅱ</button>
+			<button type="button" class="hhs__pause" aria-label="Tạm dừng chuyển ảnh" aria-pressed="false"><svg class="hhs__ico-pause" width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><rect x="2" y="1" width="3" height="10" rx="0.8"/><rect x="7" y="1" width="3" height="10" rx="0.8"/></svg><svg class="hhs__ico-play" width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 1.4v9.2a.6.6 0 0 0 .9.5l7.3-4.6a.6.6 0 0 0 0-1L3.9.9A.6.6 0 0 0 3 1.4z"/></svg></button>
 			<span class="hhs__count" aria-hidden="true">01 / <?php echo esc_html(str_pad((string) $total, 2, '0', STR_PAD_LEFT)); ?></span>
 		</div>
 	<?php endif; ?>

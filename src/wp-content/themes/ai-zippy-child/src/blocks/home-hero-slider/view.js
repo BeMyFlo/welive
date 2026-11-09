@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (pauseBtn) {
 				pauseBtn.setAttribute("aria-pressed", String(paused));
 				pauseBtn.setAttribute("aria-label", paused ? "Tiếp tục chuyển ảnh" : "Tạm dừng chuyển ảnh");
-				pauseBtn.textContent = paused ? "▶" : "Ⅱ";
 			}
 			if (!paused && !document.hidden) {
 				timer = setInterval(() => {

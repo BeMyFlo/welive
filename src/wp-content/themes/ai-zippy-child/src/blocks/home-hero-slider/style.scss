@@ -203,8 +203,28 @@
 	border-radius: 50%;
 	background: rgba(255, 255, 255, 0.13);
 	color: #fff;
-	font-size: 12px;
+	display: grid;
+	place-items: center;
 	cursor: pointer;
+	transition: background 0.2s;
+
+	&:hover {
+		background: rgba(255, 255, 255, 0.28);
+	}
+	svg {
+		display: block;
+	}
+	.hhs__ico-play {
+		display: none;
+	}
+	&[aria-pressed="true"] {
+		.hhs__ico-pause {
+			display: none;
+		}
+		.hhs__ico-play {
+			display: block;
+		}
+	}
 	@include hm-until(761px) {
 		width: 28px;
 		height: 28px;
