@@ -1,0 +1,24 @@
+@use "../shared/home" as *;
+
+.acm__photo > div {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+}
+.acm__photo .hm-img-empty {
+	min-height: 0;
+}
+.acm__caption {
+	z-index: 3;
+}
+.acm__button-mock {
+	display: inline-flex;
+	gap: 50px;
+	margin-top: 27px;
+	padding: 14px 21px;
+	border-radius: 4px;
+	background: #171511;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 700;
+}

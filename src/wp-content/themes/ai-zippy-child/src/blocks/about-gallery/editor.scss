@@ -1,0 +1,17 @@
+@use "../shared/home" as *;
+
+.agl__image .hm-img-empty {
+	min-height: 0;
+}
+.agl__item-edit .agl__caption {
+	display: block;
+}
+.agl__item-remove {
+	margin-top: 4px;
+}
+.agl__filter-pill {
+	padding: 8px 13px;
+	border-radius: 20px;
+	background: rgba(255, 255, 255, 0.12);
+	font-size: 10px;
+}

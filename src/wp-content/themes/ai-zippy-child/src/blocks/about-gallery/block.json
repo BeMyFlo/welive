@@ -1,0 +1,81 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/about-gallery",
+	"version": "1.0.0",
+	"title": "[About] Photo moments gallery",
+	"category": "welive",
+	"icon": "format-gallery",
+	"description": "Filterable photo grid with Show more and a lightbox.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": "khoanh-khac"
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "WELIVE TRONG TỪNG KHOẢNH KHẮC"
+		},
+		"title": {
+			"type": "string",
+			"default": "Cùng có mặt."
+		},
+		"titleAccent": {
+			"type": "string",
+			"default": "Cùng ghi dấu."
+		},
+		"intro": {
+			"type": "string",
+			"default": "Trên sân khấu, tại sự kiện hay trong những lần gặp gỡ. Hành trình của Welive còn được kể bằng những khoảnh khắc cùng nhau."
+		},
+		"allLabel": {
+			"type": "string",
+			"default": "Tất cả"
+		},
+		"moreText": {
+			"type": "string",
+			"default": "Xem thêm khoảnh khắc"
+		},
+		"unit": {
+			"type": "string",
+			"default": "khoảnh khắc"
+		},
+		"perPage": {
+			"type": "number",
+			"default": 6
+		},
+		"filters": {
+			"type": "array",
+			"default": [
+				{
+					"key": "tiktok",
+					"label": "TikTok"
+				},
+				{
+					"key": "bigo",
+					"label": "BIGO"
+				},
+				{
+					"key": "together",
+					"label": "Cùng Welive"
+				}
+			]
+		},
+		"items": {
+			"type": "array",
+			"default": []
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

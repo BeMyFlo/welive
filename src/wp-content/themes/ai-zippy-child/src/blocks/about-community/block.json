@@ -1,0 +1,67 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/about-community",
+	"version": "1.0.0",
+	"title": "[About] Community CTA",
+	"category": "welive",
+	"icon": "megaphone",
+	"description": "Orange block with a photo, heading, text and a dark button.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"anchor": {
+			"type": "string",
+			"default": "cong-dong"
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "YOUR NEXT CHAPTER"
+		},
+		"title": {
+			"type": "string",
+			"default": "Bạn sáng tạo.<br>Welive"
+		},
+		"titleAccent": {
+			"type": "string",
+			"default": "đồng hành."
+		},
+		"text": {
+			"type": "string",
+			"default": "Từ buổi LIVE đầu tiên đến những cột mốc tiếp theo. Bắt đầu hành trình của bạn cùng Welive."
+		},
+		"btnText": {
+			"type": "string",
+			"default": "Trò chuyện cùng Welive"
+		},
+		"btnUrl": {
+			"type": "string",
+			"default": "https://zalo.me/2311145967487700822"
+		},
+		"caption": {
+			"type": "string",
+			"default": "THE NEXT CHAPTER IS YOURS."
+		},
+		"alt": {
+			"type": "string",
+			"default": "Đội ngũ làm việc tại văn phòng Welive"
+		},
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,18 @@
+@use "../shared/home" as *;
+
+.abf__photo .hm-img-empty {
+	position: absolute;
+	inset: 0;
+	min-height: 0;
+}
+.abf__photo > div {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+}
+.abf__photo figcaption {
+	z-index: 3;
+}
+.abf__title span span {
+	display: inline;
+}

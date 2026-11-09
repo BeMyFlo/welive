@@ -1,0 +1,68 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/about-beliefs",
+	"version": "1.0.0",
+	"title": "[About] Beliefs",
+	"category": "welive",
+	"icon": "heart",
+	"description": "Photo with caption next to a heading and three numbered statements.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "GIÁ TRỊ CỐT LÕI / 01"
+		},
+		"title": {
+			"type": "string",
+			"default": "Điều Welive"
+		},
+		"titleAccent": {
+			"type": "string",
+			"default": "tin tưởng."
+		},
+		"caption": {
+			"type": "string",
+			"default": "NHỮNG CON NGƯỜI LÀM NÊN WELIVE."
+		},
+		"alt": {
+			"type": "string",
+			"default": "Các thành viên trong cộng đồng nhà sáng tạo Welive"
+		},
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"title": "Bắt đầu từ bạn.",
+					"text": "Lắng nghe điều bạn muốn làm, hiểu thế mạnh của bạn và cùng tìm hướng đi phù hợp."
+				},
+				{
+					"title": "Rõ ràng để tin nhau.",
+					"text": "Chính sách dễ hiểu, số liệu minh bạch. Có điều gì chưa rõ, chúng ta cùng trao đổi."
+				},
+				{
+					"title": "Cùng nhau đi xa.",
+					"text": "Từ buổi LIVE đầu tiên đến những cột mốc mới, bạn luôn có người cùng chia sẻ và đồng hành."
+				}
+			]
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

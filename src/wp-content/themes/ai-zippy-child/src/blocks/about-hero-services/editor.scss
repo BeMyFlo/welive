@@ -1,0 +1,22 @@
+@use "../shared/home" as *;
+
+.ahs__photo .hm-img-empty {
+	min-height: 0;
+}
+.ahs__button-mock {
+	display: inline-flex;
+	gap: 38px;
+	margin-top: 32px;
+	padding: 17px 24px;
+	border-radius: 4px;
+	background: $hm-orange;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 700;
+}
+.ahs__tag-edit {
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	z-index: 2;
+}

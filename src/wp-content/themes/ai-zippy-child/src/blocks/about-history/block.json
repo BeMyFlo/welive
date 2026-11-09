@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/about-history",
+	"version": "1.0.0",
+	"title": "[About] History timeline",
+	"category": "welive",
+	"icon": "clock",
+	"description": "Heading and a row of year milestones; the last one is highlighted.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "WELIVE / 02"
+		},
+		"title": {
+			"type": "string",
+			"default": "Lịch sử hình thành."
+		},
+		"anchor": {
+			"type": "string",
+			"default": "hanh-trinh"
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"year": "2020",
+					"text": "Bắt đầu hoạt động agency cùng BIGO."
+				},
+				{
+					"year": "2022",
+					"text": "Agency nổi bật BIGO."
+				},
+				{
+					"year": "2023",
+					"text": "Thành lập Welive VN cùng TikTok.<br>Agency nổi bật BIGO."
+				},
+				{
+					"year": "2024",
+					"text": "300 nhà sáng tạo trên TikTok.<br>Agency nổi bật BIGO."
+				},
+				{
+					"year": "2026",
+					"text": "<strong>500 nhà sáng tạo</strong><br>trên TikTok LIVE."
+				}
+			]
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

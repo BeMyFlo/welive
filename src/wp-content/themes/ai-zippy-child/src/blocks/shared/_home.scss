@@ -149,3 +149,11 @@ $hm-radius: 4px 4px 38px 4px;
 	font-family: "Inter", Arial, sans-serif;
 	font-variant-emoji: text;
 }
+
+// About page: demo uses 3.1% side margins instead of the Home fixed gutter.
+@mixin hm-outer {
+	margin-inline: 3.1%;
+	@include hm-until(761px) {
+		margin-inline: 20px;
+	}
+}

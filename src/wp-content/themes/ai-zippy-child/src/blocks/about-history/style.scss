@@ -1,0 +1,143 @@
+@use "../shared/home" as *;
+
+.ahy {
+	@include hm-section;
+	background: $hm-bg;
+	padding-block: 25px 75px;
+	@include hm-until(761px) {
+		padding-block: 8px 55px;
+	}
+}
+.ahy__wrap {
+	@include hm-outer;
+	padding-inline: 32px;
+	@include hm-until(1101px) {
+		padding-inline: 22px;
+	}
+	@include hm-until(761px) {
+		padding-inline: 0;
+	}
+}
+.ahy__eyebrow {
+	margin: 0 0 17px;
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	color: $hm-orange;
+	@include hm-until(761px) {
+		font-size: 8px;
+		margin-bottom: 15px;
+	}
+}
+.ahy__title {
+	margin: 0;
+	font-size: clamp(34px, 3.5vw, 52px);
+	font-weight: 800;
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	color: $hm-ink;
+	@include hm-until(761px) {
+		font-size: 34px;
+	}
+}
+.ahy__list {
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	gap: 24px;
+	margin: 42px 0 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		position: relative;
+		min-width: 0;
+	}
+	li::after {
+		content: "";
+		position: absolute;
+		top: 59px;
+		left: 0;
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: #8f9081;
+		box-shadow: 0 0 0 5px $hm-bg;
+	}
+	li:last-child::after {
+		background: $hm-orange;
+		box-shadow: 0 0 0 5px $hm-bg, 0 0 0 6px rgba(255, 80, 0, 0.21);
+	}
+	li:last-child .ahy__year {
+		color: $hm-orange;
+	}
+	p {
+		margin: 36px 0 0;
+		font-size: 13px;
+		font-weight: 400;
+		line-height: 1.85;
+		color: #babbaf;
+
+		strong {
+			font-weight: 600;
+			color: $hm-ink;
+		}
+	}
+	@include hm-from(1600px) {
+		li::after {
+			top: 65px;
+		}
+		p {
+			font-size: 15px;
+		}
+	}
+	@include hm-until(1101px) {
+		gap: 18px;
+
+		li::after {
+			top: 51px;
+		}
+		p {
+			font-size: 12px;
+			margin-top: 33px;
+		}
+	}
+	@include hm-until(761px) {
+		display: block;
+		margin-top: 30px;
+
+		li {
+			display: grid;
+			grid-template-columns: 66px 1fr;
+			gap: 18px;
+			padding: 0 0 29px 24px;
+		}
+		li:last-child {
+			padding-bottom: 0;
+		}
+		li::after {
+			top: 9px;
+		}
+		p {
+			margin: 0;
+			font-size: 13px;
+		}
+	}
+}
+.ahy__year {
+	display: block;
+	font-size: 40px;
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	line-height: 1.1;
+	color: $hm-ink;
+	@include hm-from(1600px) {
+		font-size: 46px;
+	}
+	@include hm-until(1101px) {
+		font-size: 33px;
+	}
+	@include hm-until(761px) {
+		font-size: 25px;
+		line-height: 1.25;
+	}
+}

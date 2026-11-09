@@ -1,0 +1,134 @@
+@use "../shared/home" as *;
+
+.acm {
+	@include hm-section;
+	background: $hm-bg;
+	padding-bottom: 60px;
+}
+.acm__wrap {
+	@include hm-outer;
+	display: grid;
+	grid-template-columns: 1fr 1.15fr;
+	min-height: 400px;
+	overflow: hidden;
+	background: $hm-orange;
+
+	@include hm-until(1101px) {
+		min-height: 0;
+	}
+	@include hm-until(761px) {
+		display: flex;
+		flex-direction: column;
+	}
+}
+.acm__photo {
+	position: relative;
+	min-height: 400px;
+	overflow: hidden;
+	background: #28221f;
+
+	img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: 50% 35%;
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(0deg, rgba(8, 8, 8, 0.69), transparent 50%);
+		pointer-events: none;
+	}
+	@include hm-until(761px) {
+		min-height: 290px;
+	}
+}
+.acm__caption {
+	position: absolute;
+	z-index: 1;
+	left: 28px;
+	bottom: 24px;
+	font-size: 9px;
+	letter-spacing: 0.15em;
+	color: #fff;
+
+	span {
+		font-family: "Inter", Arial, sans-serif;
+	}
+}
+.acm__copy {
+	align-self: center;
+	padding: 55px 50px;
+	color: #19130e;
+	@include hm-until(1101px) {
+		padding: 40px 30px;
+	}
+	@include hm-until(761px) {
+		padding: 35px 24px 39px;
+	}
+}
+.acm__eyebrow {
+	margin: 0;
+	font-size: 9px;
+	font-weight: 700;
+	letter-spacing: 0.16em;
+}
+.acm__title {
+	margin: 22px 0 0;
+	font-size: clamp(36px, 3.8vw, 58px);
+	font-weight: 800;
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	color: #19130e;
+
+	span {
+		color: #fff5e8;
+	}
+	@include hm-until(1101px) {
+		font-size: 38px;
+	}
+	@include hm-until(761px) {
+		font-size: 37px;
+	}
+}
+.acm__text {
+	max-width: 340px;
+	margin: 20px 0 0;
+	font-size: 13px;
+	line-height: 1.8;
+	color: #19130e;
+	@include hm-until(761px) {
+		font-size: 12px;
+	}
+}
+.acm__button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 50px;
+	margin-top: 27px;
+	padding: 14px 21px;
+	border-radius: 4px;
+	background: #171511;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 700;
+	transition: background 0.2s;
+
+	span {
+		font-family: "Inter", Arial, sans-serif;
+		font-size: 22px;
+		font-weight: 400;
+	}
+	&:hover {
+		background: #33251d;
+		color: #fff;
+	}
+	@include hm-until(761px) {
+		font-size: 11px;
+		gap: 28px;
+	}
+}

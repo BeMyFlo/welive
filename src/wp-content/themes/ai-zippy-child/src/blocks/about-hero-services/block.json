@@ -1,0 +1,93 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/about-hero-services",
+	"version": "1.0.0",
+	"title": "[About] Hero + services + stats",
+	"category": "welive",
+	"icon": "columns",
+	"description": "Eyebrow, big title, text, button, three orange service cards with photos and a stats row.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "WHAT WE DO"
+		},
+		"title": {
+			"type": "string",
+			"default": "WELIVE"
+		},
+		"description": {
+			"type": "string",
+			"default": "Lập kế hoạch vận hành cho nhà sáng tạo từ con số không. Phân tích số liệu – cải thiện doanh thu – <strong>bảo vệ tài khoản.</strong>"
+		},
+		"btnText": {
+			"type": "string",
+			"default": "Tham gia Welive"
+		},
+		"btnUrl": {
+			"type": "string",
+			"default": "https://zalo.me/2311145967487700822"
+		},
+		"services": {
+			"type": "array",
+			"default": [
+				{
+					"tag": "01 / START",
+					"title": "Vận hành từ số 0",
+					"text": "Lập kế hoạch và xây dựng nền tảng cho nhà sáng tạo.",
+					"alt": "",
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"tag": "02 / GROW",
+					"title": "Phân tích & tăng trưởng",
+					"text": "Theo dõi số liệu, tối ưu nội dung và cải thiện doanh thu.",
+					"alt": "",
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"tag": "03 / PROTECT",
+					"title": "Bảo vệ tài khoản",
+					"text": "Đồng hành, hỗ trợ và bảo vệ tài khoản nhà sáng tạo.",
+					"alt": "",
+					"imageId": 0,
+					"imageUrl": ""
+				}
+			]
+		},
+		"stats": {
+			"type": "array",
+			"default": [
+				{
+					"value": "500+",
+					"label": "NHÀ SÁNG TẠO TIKTOK LIVE"
+				},
+				{
+					"value": "06",
+					"label": "NĂM HÀNH TRÌNH · 2020–2026"
+				},
+				{
+					"value": "03",
+					"label": "DẤU ẤN AGENCY NỔI BẬT BIGO"
+				},
+				{
+					"value": "02",
+					"label": "NỀN TẢNG · BIGO & TIKTOK"
+				}
+			]
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
