@@ -140,7 +140,9 @@
 	font-weight: 700;
 
 	.hhs__cta-label {
+		font-size: inherit;
 		font-weight: 700;
+		line-height: 1;
 	}
 	@include hm-until(761px) {
 		margin-top: 23px;
