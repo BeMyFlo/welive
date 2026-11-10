@@ -8,7 +8,9 @@
 
 .cof__wrap {
 	@include ct-wrap;
+	max-width: 1040px;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
 	gap: 16px;
@@ -37,5 +39,26 @@
 		color: $ct-accent;
 		text-decoration: underline;
 		text-underline-offset: 4px;
+	}
+}
+
+.cof__map {
+	display: block;
+	flex: none;
+	width: 100%;
+	height: clamp(235px, 40vw, 360px);
+	margin-top: 4px;
+	border: 0;
+	border-radius: 4px 4px 36px 4px;
+	background: $ct-surface;
+
+	@include ag-until(650px) {
+		border-radius: 4px 4px 28px 4px;
+	}
+	&--edit {
+		display: grid;
+		place-items: center;
+		color: $ag-muted;
+		font-size: 13px;
 	}
 }
