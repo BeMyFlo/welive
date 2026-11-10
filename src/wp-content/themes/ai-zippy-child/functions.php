@@ -109,6 +109,9 @@ add_action('wp_enqueue_scripts', function (): void {
 // Floating Zalo chat button + its settings page (Zippy AI → Nút Zalo)
 require_once get_stylesheet_directory() . '/inc/zalo-button.php';
 
+// 45-day plan page sign-up form handler
+require_once get_stylesheet_directory() . '/inc/plan-join.php';
+
 // =============================================================================
 // Auto-register child theme blocks (wp-scripts build output)
 // =============================================================================
