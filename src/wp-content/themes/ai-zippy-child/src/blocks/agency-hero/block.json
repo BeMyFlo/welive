@@ -6,7 +6,7 @@
 	"title": "[Agency] Hero",
 	"category": "welive",
 	"icon": "groups",
-	"description": "Agency page hero: eyebrow, heading, description and a collage of four images.",
+	"description": "Agency page hero: eyebrow, heading, description and either a four-image collage or one large photo (layout \"split\").",
 	"supports": {
 		"html": false,
 		"align": [
@@ -46,6 +46,23 @@
 					"imageUrl": ""
 				}
 			]
+		},
+		"layout": {
+			"type": "string",
+			"default": "collage"
+		},
+		"titleAccent": {
+			"type": "string",
+			"default": ""
+		},
+		"image": {
+			"type": "object",
+			"default": {
+				"imageId": 0,
+				"imageUrl": "",
+				"alt": "",
+				"position": "50% 55%"
+			}
 		}
 	},
 	"textdomain": "ai-zippy-child",

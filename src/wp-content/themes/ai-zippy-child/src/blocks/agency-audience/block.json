@@ -6,7 +6,7 @@
 	"title": "[Agency] Audience Cards",
 	"category": "welive",
 	"icon": "columns",
-	"description": "Two call-to-action cards, each with title, subtitle, button and image.",
+	"description": "Two call-to-action cards. Tones dark/warm keep the old look with image; light/orange give the black-demo cards (eyebrow, title, text, dark pill button).",
 	"supports": {
 		"html": false,
 		"align": [
@@ -36,6 +36,10 @@
 					"imageUrl": ""
 				}
 			]
+		},
+		"anchor": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"textdomain": "ai-zippy-child",

@@ -5,6 +5,36 @@ $eyebrow     = $attributes['eyebrow'] ?? '';
 $title       = $attributes['title'] ?? '';
 $description = $attributes['description'] ?? '';
 $images      = $attributes['images'] ?? [];
+$layout      = ($attributes['layout'] ?? 'collage') === 'split' ? 'split' : 'collage';
+
+if ($layout === 'split') :
+	$accent   = $attributes['titleAccent'] ?? '';
+	$image    = is_array($attributes['image'] ?? null) ? $attributes['image'] : [];
+	$img_url  = !empty($image['imageId']) ? wp_get_attachment_image_url((int) $image['imageId'], 'full') : '';
+	$img_url  = $img_url ?: ($image['imageUrl'] ?? '');
+	$img_alt  = (string) ($image['alt'] ?? '');
+	$img_pos  = preg_match('/^[0-9.%\s a-z-]{1,30}$/i', (string) ($image['position'] ?? '')) ? $image['position'] : '50% 55%';
+	$wrapper  = get_block_wrapper_attributes(['class' => 'agh agh--split']);
+	?>
+	<section <?php echo $wrapper; ?>>
+		<div class="agh__s-wrap">
+			<div class="agh__s-copy">
+				<?php if ($eyebrow !== '') : ?>
+					<p class="agh__s-eyebrow"><?php echo wp_kses_post($eyebrow); ?></p>
+				<?php endif; ?>
+				<h1 class="agh__s-title"><?php echo wp_kses_post($title); ?><?php if ($accent !== '') : ?> <span><?php echo wp_kses_post($accent); ?></span><?php endif; ?></h1>
+				<?php if ($description !== '') : ?>
+					<p class="agh__s-desc"><?php echo wp_kses_post($description); ?></p>
+				<?php endif; ?>
+			</div>
+			<?php if ($img_url) : ?>
+				<img class="agh__s-photo" src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_alt); ?>" style="object-position:<?php echo esc_attr($img_pos); ?>" fetchpriority="high" />
+			<?php endif; ?>
+		</div>
+	</section>
+	<?php
+	return;
+endif;
 
 $wrapper = get_block_wrapper_attributes(['class' => 'agh']);
 ?>

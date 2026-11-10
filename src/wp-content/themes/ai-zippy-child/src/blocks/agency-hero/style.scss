@@ -1,4 +1,5 @@
 // [Agency] Hero — Frontend Styles
+@use "../shared/agency" as *;
 
 .agh {
 	width: 100%;
@@ -88,5 +89,96 @@
 	.agh__container {
 		grid-template-columns: 1fr;
 		gap: 2.5rem;
+	}
+}
+
+// ---- Layout "split": copy + one large photo (client's black demo) ----
+.agh.agh--split {
+	@include ag-section;
+	padding: clamp(104px, 9vw, 140px) 0 clamp(35px, 5vw, 70px);
+	overflow: visible;
+	scroll-margin-top: 24px;
+}
+
+.agh__s-wrap {
+	@include ag-wrap;
+	display: grid;
+	grid-template-columns: 1fr 1.04fr;
+	gap: clamp(24px, 4vw, 64px);
+	align-items: center;
+
+	@include ag-until(700px) {
+		grid-template-columns: 1fr;
+		gap: 24px;
+	}
+}
+
+.agh__s-eyebrow {
+	font-size: 12px;
+	line-height: 1.5;
+	font-weight: 780;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: $ag-accent;
+}
+
+.agh__s-title,
+.agh__s-accent {
+	margin-top: 16px;
+	font-size: clamp(43px, 5.35vw, 79px);
+	font-weight: 810;
+	letter-spacing: -0.066em;
+	line-height: 0.99;
+
+	@include ag-until(920px) {
+		font-size: clamp(38px, 6.1vw, 58px);
+	}
+	@include ag-until(700px) {
+		font-size: clamp(36px, 9.7vw, 63px);
+	}
+}
+
+.agh__s-title span {
+	display: block;
+	color: $ag-accent;
+}
+
+// Editor only: the accent line is its own field there.
+.agh__s-accent {
+	margin-top: 0;
+	color: $ag-accent;
+}
+
+.agh__s-desc {
+	max-width: 440px;
+	margin-top: 25px;
+	color: $ag-muted;
+	font-size: clamp(16px, 1.45vw, 19px);
+
+	@include ag-until(700px) {
+		margin-top: 16px;
+	}
+}
+
+.agh__s-photo,
+.agh__s-photo-edit {
+	@include ag-radius;
+	display: block;
+	width: 100%;
+	height: clamp(340px, 33vw, 430px);
+	object-fit: cover;
+	object-position: 50% 55%;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	@include ag-until(920px) {
+		height: 345px;
+	}
+	@include ag-until(700px) {
+		height: clamp(205px, 60vw, 350px);
 	}
 }

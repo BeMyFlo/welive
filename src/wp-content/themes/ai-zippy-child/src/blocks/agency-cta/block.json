@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/agency-cta",
+	"version": "1.0.0",
+	"title": "[Agency] Contact Band",
+	"category": "welive",
+	"icon": "megaphone",
+	"description": "Full-width orange band: heading, text and a dark pill button (e.g. Zalo).",
+	"supports": {
+		"html": false,
+		"align": ["full"]
+	},
+	"attributes": {
+		"anchor": { "type": "string", "default": "lien-he" },
+		"title": { "type": "string", "default": "Trao đổi cùng Welive" },
+		"text": { "type": "string", "default": "Chia sẻ với Welive về đội ngũ bạn muốn mở rộng hoặc agency bạn đang ấp ủ. Hai bên sẽ cùng trao đổi bước tiếp theo." },
+		"btnText": { "type": "string", "default": "Nhắn Welive qua Zalo" },
+		"btnUrl": { "type": "string", "default": "https://zalo.me/2311145967487700822" },
+		"newTab": { "type": "boolean", "default": true }
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

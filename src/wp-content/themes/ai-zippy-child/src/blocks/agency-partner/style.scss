@@ -1,0 +1,54 @@
+// [Agency] Partnership — photo + copy (client's black demo)
+@use "../shared/agency" as *;
+
+.agp {
+	@include ag-section;
+	padding: clamp(54px, 7vw, 102px) 0;
+	scroll-margin-top: 24px;
+}
+
+.agp__wrap {
+	@include ag-wrap;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	gap: clamp(24px, 5vw, 72px);
+
+	@include ag-until(700px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.agp__photo {
+	@include ag-radius;
+	display: block;
+	width: 100%;
+	aspect-ratio: 1.25;
+	height: auto;
+	object-fit: cover;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	@include ag-until(700px) {
+		aspect-ratio: 1.45;
+	}
+}
+
+.agp__title {
+	@include ag-h2;
+	color: $ag-text;
+}
+
+.agp__copy p {
+	margin-top: 15px;
+	color: $ag-muted;
+}
+
+.agp__btn {
+	@include ag-btn($ag-orange, $ag-ink, #ff8350);
+	margin-top: 24px;
+}

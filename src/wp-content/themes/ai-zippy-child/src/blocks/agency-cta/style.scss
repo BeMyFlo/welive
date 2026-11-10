@@ -1,0 +1,43 @@
+// [Agency] Contact Band — orange full-width CTA (client's black demo)
+@use "../shared/agency" as *;
+
+.agc {
+	@include ag-section;
+	background: $ag-orange;
+	color: $ag-ink;
+	scroll-margin-top: 24px;
+}
+
+.agc__wrap {
+	@include ag-wrap;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px 48px;
+	padding-block: clamp(38px, 5vw, 70px);
+
+	@include ag-until(700px) {
+		display: block;
+	}
+}
+
+.agc__title {
+	@include ag-h2;
+	color: $ag-ink;
+}
+
+.agc__copy p {
+	max-width: 56ch;
+	margin-top: 13px;
+	color: $ag-ink;
+}
+
+.agc__btn {
+	@include ag-btn($ag-ink, $ag-text, #35322f);
+	flex: none;
+	align-self: center;
+
+	@include ag-until(700px) {
+		margin-top: 22px;
+	}
+}

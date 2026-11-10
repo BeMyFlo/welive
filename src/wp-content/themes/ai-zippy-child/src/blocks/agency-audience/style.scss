@@ -1,4 +1,5 @@
 // [Agency] Audience Cards — Frontend Styles
+@use "../shared/agency" as *;
 
 .aga {
 	width: 100%;
@@ -114,5 +115,95 @@
 
 	.aga__media {
 		min-height: 180px;
+	}
+}
+
+// ---- Black demo cards (tone light / orange) ----
+.aga.aga--demo {
+	@include ag-section;
+	padding: 0 0 72px;
+
+	@include ag-until(700px) {
+		padding-bottom: 50px;
+	}
+
+	.aga__container {
+		@include ag-wrap;
+		max-width: none;
+		padding: 0;
+		gap: 18px;
+
+		@include ag-until(920px) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.aga__card {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		min-height: 0;
+		padding: clamp(22px, 3.3vw, 44px);
+		gap: 0;
+		border: 0;
+		color: $ag-ink;
+		@include ag-radius;
+	}
+	.aga__card--light {
+		background: $ag-paper;
+	}
+	.aga__card--orange {
+		background: $ag-orange;
+	}
+
+	.aga__body {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		align-items: flex-start;
+		align-self: stretch;
+		padding: 0;
+	}
+
+	.aga__eyebrow {
+		font-size: 12px;
+		line-height: 1.5;
+		font-weight: 780;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: $ag-ink;
+	}
+	.aga__card--light .aga__eyebrow {
+		color: #4b3429;
+	}
+
+	.aga__title {
+		margin: 12px 0 14px;
+		font-size: clamp(25px, 3.15vw, 45px);
+		font-weight: 790;
+		letter-spacing: -0.05em;
+		line-height: 1.1;
+		color: $ag-ink;
+	}
+
+	.aga__text {
+		max-width: 48ch;
+		margin: 0 0 24px;
+		font-size: 16px;
+		line-height: 1.65;
+		color: $ag-ink;
+	}
+
+	.aga__btn {
+		@include ag-btn($ag-ink, $ag-text, #35322f);
+		margin-top: auto;
+		gap: 0;
+		box-shadow: none;
+		transform: none;
+
+		&:hover {
+			box-shadow: none;
+			transform: none;
+		}
 	}
 }

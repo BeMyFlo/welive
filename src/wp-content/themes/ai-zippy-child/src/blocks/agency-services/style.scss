@@ -1,4 +1,5 @@
 // [Agency] Services — Frontend Styles
+@use "../shared/agency" as *;
 
 .ags {
 	width: 100%;
@@ -142,4 +143,73 @@
 	.ags__grid {
 		grid-template-columns: 1fr;
 	}
+}
+
+// ---- Layout "steps" (client's black demo) ----
+.ags.ags--steps {
+	@include ag-section;
+	background: $ag-surface;
+	padding: clamp(54px, 7vw, 102px) 0;
+	scroll-margin-top: 24px;
+}
+
+.ags__s-wrap {
+	@include ag-wrap;
+	display: flex;
+	flex-direction: column;
+}
+
+.ags__s-intro {
+	display: grid;
+	grid-template-columns: 1.1fr 1fr;
+	align-items: end;
+	gap: 24px 55px;
+	margin-bottom: 32px;
+
+	@include ag-until(700px) {
+		grid-template-columns: 1fr;
+		gap: 22px;
+		margin-bottom: 22px;
+	}
+}
+
+.ags__s-title {
+	@include ag-h2;
+	color: $ag-text;
+}
+
+.ags__s-desc {
+	color: $ag-muted;
+}
+
+.ags__s-steps {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 18px;
+	margin-bottom: 28px;
+
+	@include ag-until(700px) {
+		grid-template-columns: 1fr;
+		gap: 12px;
+	}
+}
+
+.ags__s-step {
+	padding: clamp(20px, 2.5vw, 32px);
+	background: $ag-raised;
+	@include ag-radius;
+
+	h3 {
+		margin-bottom: 10px;
+		font-size: 20px;
+		line-height: 1.1;
+		color: $ag-accent;
+	}
+	p {
+		color: $ag-muted;
+	}
+}
+
+.ags__s-btn {
+	@include ag-btn($ag-orange, $ag-ink, #ff8350);
 }

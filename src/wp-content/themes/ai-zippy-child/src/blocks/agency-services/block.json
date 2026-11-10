@@ -6,7 +6,7 @@
 	"title": "[Agency] Services",
 	"category": "welive",
 	"icon": "screenoptions",
-	"description": "Heading, three service cards with icon, text and image, and a centred button.",
+	"description": "Heading, three cards and a button. Layout \"cards\" = icon + image cards (old); layout \"steps\" = black-demo intro with three text steps.",
 	"supports": {
 		"html": false,
 		"align": [
@@ -62,6 +62,10 @@
 		"btnUrl": {
 			"type": "string",
 			"default": "#lien-he"
+		},
+		"layout": {
+			"type": "string",
+			"default": "cards"
 		}
 	},
 	"textdomain": "ai-zippy-child",

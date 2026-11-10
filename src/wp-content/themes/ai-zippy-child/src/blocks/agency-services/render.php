@@ -22,7 +22,36 @@ $cards       = $attributes['cards'] ?? [];
 $btn_text    = $attributes['btnText'] ?? '';
 $btn_url     = $attributes['btnUrl'] ?? '';
 
-$wrapper = get_block_wrapper_attributes(['class' => 'ags'] + ($anchor ? ['id' => $anchor] : []));
+$is_steps = ($attributes['layout'] ?? 'cards') === 'steps';
+
+$wrapper = get_block_wrapper_attributes(['class' => 'ags' . ($is_steps ? ' ags--steps' : '')] + ($anchor ? ['id' => $anchor] : []));
+
+if ($is_steps) :
+	?>
+	<section <?php echo $wrapper; ?>>
+		<div class="ags__s-wrap">
+			<div class="ags__s-intro">
+				<h2 class="ags__s-title"><?php echo wp_kses_post($title); ?></h2>
+				<?php if ($description !== '') : ?>
+					<p class="ags__s-desc"><?php echo wp_kses_post($description); ?></p>
+				<?php endif; ?>
+			</div>
+			<div class="ags__s-steps">
+				<?php foreach ($cards as $card) : ?>
+					<article class="ags__s-step">
+						<h3><?php echo wp_kses_post($card['title'] ?? ''); ?></h3>
+						<p><?php echo wp_kses_post($card['text'] ?? ''); ?></p>
+					</article>
+				<?php endforeach; ?>
+			</div>
+			<?php if ($btn_text !== '') : ?>
+				<a class="ags__s-btn" href="<?php echo esc_url($btn_url ?: '#'); ?>"><?php echo esc_html($btn_text); ?></a>
+			<?php endif; ?>
+		</div>
+	</section>
+	<?php
+	return;
+endif;
 ?>
 <div <?php echo $wrapper; ?>>
 	<div class="ags__container">
