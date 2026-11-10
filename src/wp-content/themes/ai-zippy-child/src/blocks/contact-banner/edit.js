@@ -3,7 +3,7 @@ import { PanelBody, TextControl, Button } from "@wordpress/components";
 
 export default function Edit({ attributes, setAttributes }) {
 	const { image, title, titleAccent, btnText, btnUrl } = attributes;
-	const blockProps = useBlockProps({ className: "cbn" });
+	const blockProps = useBlockProps({ className: "ctb" });
 	const photo = image || {};
 	const updatePhoto = (patch) => setAttributes({ image: { ...photo, ...patch } });
 
@@ -32,13 +32,13 @@ export default function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 			</InspectorControls>
 			<section {...blockProps}>
-				{photo.imageUrl && <img className="cbn__image" src={photo.imageUrl} alt="" style={{ objectPosition: photo.position || "54% 48%" }} />}
-				<div className="cbn__wrap">
-					<div className="cbn__heading">
-						<RichText tagName="h1" className="cbn__title" value={title} onChange={(v) => setAttributes({ title: v })} placeholder="Tiêu đề" allowedFormats={[]} />
-						<RichText tagName="p" className="cbn__accent" value={titleAccent} onChange={(v) => setAttributes({ titleAccent: v })} placeholder="Chữ màu cam" allowedFormats={[]} />
+				{photo.imageUrl && <img className="ctb__image" src={photo.imageUrl} alt="" style={{ objectPosition: photo.position || "54% 48%" }} />}
+				<div className="ctb__wrap">
+					<div className="ctb__heading">
+						<RichText tagName="h1" className="ctb__title" value={title} onChange={(v) => setAttributes({ title: v })} placeholder="Tiêu đề" allowedFormats={[]} />
+						<RichText tagName="p" className="ctb__accent" value={titleAccent} onChange={(v) => setAttributes({ titleAccent: v })} placeholder="Chữ màu cam" allowedFormats={[]} />
 					</div>
-					<span className="cbn__btn">
+					<span className="ctb__btn">
 						<RichText tagName="span" value={btnText} onChange={(v) => setAttributes({ btnText: v })} placeholder="Chữ nút" allowedFormats={[]} />
 					</span>
 				</div>

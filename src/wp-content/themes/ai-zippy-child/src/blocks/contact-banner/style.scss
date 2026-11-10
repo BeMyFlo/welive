@@ -1,7 +1,7 @@
 // [Contact] Photo Banner (client's black demo)
 @use "../shared/contact" as *;
 
-.cbn {
+.ctb {
 	@include ag-section;
 	position: relative;
 	isolation: isolate;
@@ -26,7 +26,7 @@
 	}
 }
 
-.cbn__image {
+.ctb__image {
 	position: absolute;
 	inset: 0;
 	z-index: -2;
@@ -36,7 +36,7 @@
 	object-position: 54% 48%;
 }
 
-.cbn__wrap {
+.ctb__wrap {
 	@include ct-wrap;
 	display: flex;
 	align-items: flex-end;
@@ -49,8 +49,8 @@
 	}
 }
 
-.cbn__title,
-.cbn__accent {
+.ctb__title,
+.ctb__accent {
 	font-size: clamp(46px, 7.2vw, 102px);
 	font-weight: 810;
 	line-height: 0.98;
@@ -61,19 +61,19 @@
 	}
 }
 
-.cbn__title span,
-.cbn__accent {
+.ctb__title span,
+.ctb__accent {
 	color: $ct-accent;
 }
 
 // Editor only: the accent is a separate field there, stacked under the title.
-.cbn__heading {
-	.cbn__accent {
+.ctb__heading {
+	.ctb__accent {
 		margin: 0;
 	}
 }
 
-.cbn__btn {
+.ctb__btn {
 	@include ag-btn($ag-paper, $ag-ink, #fff);
 	flex: none;
 	min-height: 44px;

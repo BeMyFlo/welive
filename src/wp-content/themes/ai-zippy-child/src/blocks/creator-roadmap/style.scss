@@ -241,3 +241,70 @@
 		align-items: flex-start;
 	}
 }
+
+// ---- Cream palette (client's updated 45-day plan page) ----
+.crm {
+	background-color: #f1e6db;
+	color: #201813;
+
+	.crm__badge {
+		border: 0;
+		background: #e2c5b0;
+		color: #71341e;
+	}
+	.crm__title {
+		color: #201813;
+	}
+	.crm__title-accent {
+		color: #963b1b;
+	}
+	.crm__desc,
+	.crm__footnote {
+		color: #5b4439;
+	}
+	.crm__tab {
+		border: 0;
+		border-radius: 4px 4px 20px 4px;
+		background: #ead7c5;
+		color: #5b4439;
+
+		&:hover {
+			background: #e4cdb8;
+		}
+		&.is-active {
+			background: #7a3a27;
+			color: #fff;
+
+			.crm__tab-label {
+				color: #ffd2b6;
+			}
+		}
+	}
+	.crm__tab-label {
+		color: #8c5a43;
+	}
+	.crm__panel {
+		border: 0;
+		border-radius: 4px 4px 28px 4px;
+		background: #fff9f2;
+		color: #201813;
+	}
+	.crm__panel-label,
+	.crm__link {
+		color: #963b1b;
+	}
+	.crm__panel-media {
+		border-radius: 4px 4px 22px 4px;
+	}
+}
+.crm .crm__panel h3,
+.crm .crm__panel-title {
+	color: #201813;
+}
+.crm .crm__panel li,
+.crm .crm__panel ul {
+	color: #5b4439;
+}
+.crm .crm__panel li::before {
+	color: #963b1b;
+}

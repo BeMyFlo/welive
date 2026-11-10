@@ -12,16 +12,16 @@ $accent  = $attributes['titleAccent'] ?? '';
 $btn     = $attributes['btnText'] ?? '';
 $btn_url = $attributes['btnUrl'] ?? '';
 
-$wrapper = get_block_wrapper_attributes(['class' => 'cbn'] + ($anchor ? ['id' => $anchor] : []));
+$wrapper = get_block_wrapper_attributes(['class' => 'ctb'] + ($anchor ? ['id' => $anchor] : []));
 ?>
 <section <?php echo $wrapper; ?>>
 	<?php if ($img_url) : ?>
-		<img class="cbn__image" src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_alt); ?>" style="object-position:<?php echo esc_attr($img_pos); ?>" fetchpriority="high" />
+		<img class="ctb__image" src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_alt); ?>" style="object-position:<?php echo esc_attr($img_pos); ?>" fetchpriority="high" />
 	<?php endif; ?>
-	<div class="cbn__wrap">
-		<h1 class="cbn__title"><?php echo wp_kses_post($title); ?><?php if ($accent !== '') : ?> <span><?php echo wp_kses_post($accent); ?></span><?php endif; ?></h1>
+	<div class="ctb__wrap">
+		<h1 class="ctb__title"><?php echo wp_kses_post($title); ?><?php if ($accent !== '') : ?> <span><?php echo wp_kses_post($accent); ?></span><?php endif; ?></h1>
 		<?php if ($btn !== '') : ?>
-			<a class="cbn__btn" href="<?php echo esc_url($btn_url ?: '#'); ?>"><?php echo esc_html($btn); ?></a>
+			<a class="ctb__btn" href="<?php echo esc_url($btn_url ?: '#'); ?>"><?php echo esc_html($btn); ?></a>
 		<?php endif; ?>
 	</div>
 </section>

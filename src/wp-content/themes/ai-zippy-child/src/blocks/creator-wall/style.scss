@@ -205,3 +205,79 @@
 		flex-basis: 70%;
 	}
 }
+
+// Client's mobile design: three compact portraits per row with the name under each photo.
+@media (max-width: 760px) {
+	.cwl .cwl__container {
+		padding-inline: 18px;
+	}
+	.cwl .cwl__header {
+		gap: 10px;
+		margin-bottom: 18px;
+	}
+	.cwl .cwl__title {
+		font-size: 26px;
+	}
+	.cwl .cwl__badge {
+		padding: 7px 10px;
+		font-size: 9px;
+	}
+	.cwl .cwl__track {
+		gap: 10px;
+		padding-bottom: 8px;
+	}
+	.cwl .cwl__card {
+		flex: 0 0 calc(33.3333% - 6.66667px);
+		aspect-ratio: auto;
+		min-width: 0;
+		border: 0;
+		background: transparent;
+		overflow: visible;
+		color: #f8f3ec;
+	}
+	.cwl .cwl__card::after {
+		display: none;
+	}
+	.cwl .cwl__card-img,
+	.cwl .cwl__card--placeholder .cwl__mark {
+		position: static;
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 3 / 4;
+		border-radius: 4px 4px 24px 4px;
+		object-fit: cover;
+		object-position: center;
+	}
+	.cwl .cwl__card--placeholder {
+		display: block;
+	}
+	.cwl .cwl__card--placeholder .cwl__mark {
+		display: grid;
+		place-items: center;
+		transform: none;
+		background: radial-gradient(at 50% 20%, #34251b, #191815);
+		font-size: clamp(26px, 8vw, 55px);
+	}
+	.cwl .cwl__card-info {
+		position: static;
+		display: block;
+		margin-top: 7px;
+		padding: 0;
+		background: none;
+	}
+	.cwl .cwl__card-name,
+	.cwl .cwl__card--placeholder .cwl__card-name {
+		font-size: clamp(11px, 3.25vw, 17px);
+		line-height: 1.2;
+	}
+	.cwl .cwl__card-name,
+	.cwl .cwl__card-link {
+		display: block;
+	}
+	.cwl .cwl__card-link {
+		margin-top: 4px;
+		font-size: 12px;
+		line-height: 1.4;
+	}
+}

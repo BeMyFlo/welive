@@ -1,0 +1,175 @@
+// [Plan] Join Form (client's 45-day plan page, black "wf" design)
+@use "../shared/agency" as *;
+
+.pjn {
+	@include ag-section;
+	background: #1b1510;
+	color: $pl-ink;
+	padding: 66px 0;
+	scroll-margin-top: 24px;
+
+	@include ag-until(760px) {
+		padding: 48px 0;
+	}
+	@include ag-until(600px) {
+		padding: 36px 0;
+	}
+}
+.pjn__wrap {
+	@include pl-wrap;
+	display: grid;
+	grid-template-columns: 1fr 1.1fr;
+	gap: 52px;
+
+	@include ag-until(760px) {
+		gap: 26px;
+	}
+	@include ag-until(600px) {
+		grid-template-columns: 1fr;
+		gap: 28px;
+	}
+}
+.pjn__pill {
+	@include pl-pill;
+}
+.pjn__title,
+.pjn__accent {
+	margin-top: 18px;
+	font-size: 38px;
+	font-weight: 700;
+	line-height: 1.15;
+	letter-spacing: -1px;
+
+	@include ag-until(760px) {
+		font-size: 32px;
+	}
+	@include ag-until(600px) {
+		font-size: 36px;
+	}
+}
+.pjn__title span,
+.pjn__accent {
+	color: $pl-orange;
+}
+.pjn__accent {
+	margin-top: 0;
+}
+.pjn__text {
+	max-width: 350px;
+	margin-top: 20px;
+	color: #a5a299;
+	font-size: 13px;
+	line-height: 1.8;
+
+	@include ag-until(600px) {
+		max-width: none;
+	}
+}
+.pjn__note {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 25px;
+	color: #e1b48b;
+	font-size: 11px;
+	line-height: 1.7;
+}
+.pjn__form {
+	padding: 25px;
+	border: 1px solid #4a3829;
+	border-radius: $pl-radius;
+	background: #151310;
+
+	@include ag-until(760px) {
+		padding: 20px;
+	}
+	@include ag-until(600px) {
+		padding: 22px;
+	}
+
+	label {
+		display: block;
+		margin-bottom: 0;
+		color: #e1d8cb;
+		font-size: 11px;
+		line-height: 1.6;
+
+		@include ag-until(600px) {
+			font-size: 12px;
+		}
+		span {
+			color: #ff9c5c;
+		}
+	}
+	input,
+	textarea {
+		display: block;
+		width: 100%;
+		min-width: 0;
+		margin: 7px 0 17px;
+		padding: 11px 12px;
+		border: 1px solid #4b4031;
+		border-radius: 4px;
+		background: #24201a;
+		color: #f4eee4;
+		font: inherit;
+		font-size: 13px;
+		line-height: 1.5;
+
+		&::placeholder {
+			color: #a39888;
+			opacity: 1;
+		}
+		@include ag-until(600px) {
+			font-size: 16px;
+		}
+	}
+	textarea {
+		min-height: 96px;
+		resize: vertical;
+	}
+}
+.pjn__hp {
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+.pjn__row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 14px;
+
+	@include ag-until(600px) {
+		grid-template-columns: 1fr;
+		gap: 0;
+	}
+}
+.pjn__submit {
+	@include pl-cta;
+	width: 100%;
+	margin-top: 2px;
+}
+.pjn__form-note {
+	margin-top: 12px;
+	color: #a89a87;
+	font-size: 10px;
+	line-height: 1.7;
+}
+.pjn__feedback {
+	margin-top: 15px;
+	padding: 13px;
+	border: 1px solid #745031;
+	border-radius: 4px;
+	background: #332315;
+	color: #ffd0ab;
+	font-size: 12px;
+	line-height: 1.75;
+
+	&.is-error {
+		border-color: #8a2f2f;
+		background: #3a1717;
+		color: #ffc4c4;
+	}
+}

@@ -85,3 +85,72 @@ $ag-accent: #ff7333;
 		color: $color;
 	}
 }
+
+// ---- 45-day plan page ("wf" design from the client's mobile mockup) ----
+$pl-bg: #0e0e0e;
+$pl-ink: #f7f6f2;
+$pl-muted: #b5b2ab;
+$pl-orange: #ff5000;
+$pl-radius: 4px 4px 28px 4px;
+
+@mixin pl-wrap {
+	box-sizing: border-box;
+	padding-inline: 42px;
+	max-width: 1440px;
+	margin-inline: auto;
+
+	@media (min-width: 1200px) {
+		padding-inline: 7%;
+	}
+	@include ag-until(760px) {
+		padding-inline: 25px;
+	}
+}
+@mixin pl-pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	border: 1px solid rgba(255, 103, 43, 0.27);
+	border-radius: 999px;
+	padding: 8px 12px;
+	background: #241a13;
+	color: #ffa36b;
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 0.7px;
+	line-height: 1.3;
+	text-transform: uppercase;
+
+	svg {
+		width: 13px;
+		height: 13px;
+		flex: 0 0 auto;
+	}
+}
+@mixin pl-cta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	min-height: 44px;
+	padding: 13px 18px;
+	border: 1px solid transparent;
+	border-radius: 50px;
+	background: $pl-orange;
+	color: #fff;
+	font: inherit;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1.4;
+	text-align: center;
+	cursor: pointer;
+
+	&:hover {
+		background: #ff6a26;
+		color: #fff;
+	}
+	@include ag-until(760px) {
+		font-size: 11px;
+		padding: 12px 14px;
+	}
+}
