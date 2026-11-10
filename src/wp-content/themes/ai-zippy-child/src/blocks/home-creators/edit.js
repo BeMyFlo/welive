@@ -1,5 +1,5 @@
 import { useBlockProps, RichText, InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TextControl, Button } from "@wordpress/components";
+import { PanelBody, TextControl, Button, SelectControl } from "@wordpress/components";
 import ImagePicker from "../shared/ImagePicker.js";
 
 export default function Edit({ attributes, setAttributes }) {
@@ -12,6 +12,25 @@ export default function Edit({ attributes, setAttributes }) {
 			<InspectorControls>
 				<PanelBody title="Link 'Xem tất cả'" initialOpen={true}>
 					<TextControl label="Anchor (id để link tới, vd #nha-sang-tao)" value={attributes.anchor || ""} onChange={(v) => setAttributes({ anchor: v })} />
+					<SelectControl
+						label="Kiểu nút cạnh tiêu đề"
+						value={attributes.linkStyle || "link"}
+						options={[
+							{ label: "Pill nâu có icon (mới)", value: "tag" },
+							{ label: "Link chữ + mũi tên (cũ)", value: "link" },
+						]}
+						onChange={(v) => setAttributes({ linkStyle: v })}
+					/>
+					<SelectControl
+						label="Icon trong pill"
+						value={attributes.linkIcon || "none"}
+						options={[
+							{ label: "Không", value: "none" },
+							{ label: "Vương miện", value: "crown" },
+							{ label: "Cặp tài liệu", value: "briefcase" },
+						]}
+						onChange={(v) => setAttributes({ linkIcon: v })}
+					/>
 					<TextControl label="Link" value={linkUrl} onChange={(v) => setAttributes({ linkUrl: v })} />
 				</PanelBody>
 				<PanelBody title="Link & vị trí ảnh từng người" initialOpen={false}>

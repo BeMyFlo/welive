@@ -123,6 +123,30 @@ $hm-radius: 4px 4px 38px 4px;
 	color: $hm-muted;
 }
 
+// Brown pill used by the "Bức tường danh vọng" / "Khám phá giải pháp" header tags.
+@mixin hm-tag {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	min-height: 44px;
+	padding: 8px 15px;
+	border-radius: 999px;
+	background: linear-gradient(110deg, #593421, #36241b);
+	color: #ffdb9e;
+	font-size: 13px;
+	font-weight: 700;
+	white-space: nowrap;
+
+	&:hover {
+		background: #623d27;
+		color: #ffdb9e;
+	}
+	svg {
+		flex: none;
+		color: #ffc86f;
+	}
+}
+
 // Editor helpers
 .hm-img-empty {
 	display: grid;

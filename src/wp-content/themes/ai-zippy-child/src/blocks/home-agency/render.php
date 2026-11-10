@@ -14,6 +14,16 @@ if (!function_exists('az_home_img')) :
 		return (string) ($item['imageUrl'] ?? '');
 	}
 endif;
+if (!function_exists('az_home_tag_icon')) :
+	function az_home_tag_icon(string $name): string
+	{
+		$paths = [
+			'crown'     => '<path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5L3 8z"/>',
+			'briefcase' => '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',
+		];
+		return isset($paths[$name]) ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' . $paths[$name] . '</svg>' : '';
+	}
+endif;
 if (!function_exists('az_home_link')) :
 	function az_home_link(string $url): string
 	{
@@ -34,7 +44,9 @@ $wrapper = get_block_wrapper_attributes(['class' => 'hag'] + ($anchor ? ['id' =>
 				<h2 class="hag__title"><?php echo wp_kses_post($attributes['title'] ?? ''); ?> <span><?php echo wp_kses_post($attributes['titleAccent'] ?? ''); ?></span></h2>
 			</div>
 			<?php if (!empty($attributes['linkText'])) : ?>
-				<a class="hag__link" href="<?php echo esc_url($default); ?>"><?php echo wp_kses_post($attributes['linkText']); ?> <span aria-hidden="true">↗︎</span></a>
+				<?php $tag = ($attributes['linkStyle'] ?? 'link') === 'tag'; ?>
+				<a class="hag__link<?php echo $tag ? ' hag__link--tag' : ''; ?>" href="<?php echo esc_url($default); ?>"><?php if ($tag) { echo az_home_tag_icon((string) ($attributes['linkIcon'] ?? 'none')); // phpcs:ignore WordPress.Security.EscapeOutput
+				} ?><?php echo wp_kses_post($attributes['linkText']); ?><?php if (!$tag) : ?> <span aria-hidden="true">↗︎</span><?php endif; ?></a>
 			<?php endif; ?>
 		</div>
 		<div class="hag__grid">

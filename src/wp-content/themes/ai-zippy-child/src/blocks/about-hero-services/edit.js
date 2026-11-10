@@ -1,16 +1,28 @@
 import { useBlockProps, RichText, InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TextControl, Button } from "@wordpress/components";
+import { PanelBody, TextControl, Button, SelectControl } from "@wordpress/components";
 import ImagePicker from "../shared/ImagePicker.js";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { eyebrow, title, description, btnText, btnUrl, services = [], stats = [] } = attributes;
-	const blockProps = useBlockProps({ className: "ahs" });
+	const { eyebrow, title, titleAccent, description, btnText, btnUrl, services = [], stats = [], variant } = attributes;
+	const compact = variant === "compact";
+	const blockProps = useBlockProps({ className: compact ? "ahs ahs--compact" : "ahs" });
 	const setService = (i, patch) => setAttributes({ services: services.map((s, k) => (k === i ? { ...s, ...patch } : s)) });
 	const setStat = (i, patch) => setAttributes({ stats: stats.map((s, k) => (k === i ? { ...s, ...patch } : s)) });
 
 	return (
 		<>
 			<InspectorControls>
+				<PanelBody title="Layout" initialOpen={true}>
+					<SelectControl
+						label="Kiểu hiển thị"
+						value={compact ? "compact" : "classic"}
+						options={[
+							{ label: "Gọn, thẻ tối (mới)", value: "compact" },
+							{ label: "Thẻ cam (cũ)", value: "classic" },
+						]}
+						onChange={(v) => setAttributes({ variant: v })}
+					/>
+				</PanelBody>
 				<PanelBody title="Nút" initialOpen={true}>
 					<TextControl label="Link" value={btnUrl} onChange={(v) => setAttributes({ btnUrl: v })} />
 				</PanelBody>
@@ -48,6 +60,7 @@ export default function Edit({ attributes, setAttributes }) {
 						<div className="ahs__copy">
 							<RichText tagName="p" className="ahs__eyebrow" value={eyebrow} onChange={(v) => setAttributes({ eyebrow: v })} placeholder="Nhãn" allowedFormats={[]} />
 							<RichText tagName="h1" className="ahs__title" value={title} onChange={(v) => setAttributes({ title: v })} placeholder="Tiêu đề" allowedFormats={[]} />
+							{compact && <RichText tagName="p" className="ahs__accent" value={titleAccent} onChange={(v) => setAttributes({ titleAccent: v })} placeholder="Chữ màu cam" allowedFormats={[]} />}
 							<RichText tagName="p" className="ahs__desc" value={description} onChange={(v) => setAttributes({ description: v })} placeholder="Mô tả" />
 							<span className="ahs__button-mock">
 								<RichText tagName="span" value={btnText} onChange={(v) => setAttributes({ btnText: v })} placeholder="Nút" allowedFormats={[]} /> ↗︎

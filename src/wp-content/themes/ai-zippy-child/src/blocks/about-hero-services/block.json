@@ -83,6 +83,14 @@
 					"label": "NỀN TẢNG · BIGO & TIKTOK"
 				}
 			]
+		},
+		"variant": {
+			"type": "string",
+			"default": "classic"
+		},
+		"titleAccent": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"textdomain": "ai-zippy-child",

@@ -23,9 +23,14 @@
 		text-decoration: none;
 	}
 	@include hm-until(761px) {
-		height: 88svh;
-		min-height: 600px;
-		max-height: 880px;
+		// Client's mobile hero is a shorter banner; + 72px because our header overlays the image.
+		height: calc(clamp(330px, 55svh, 480px) + 72px);
+		min-height: 0;
+		max-height: none;
+
+		&::after {
+			background: linear-gradient(0deg, #110e0cee, #110e0c50 42%, transparent 70%);
+		}
 	}
 }
 
@@ -71,7 +76,7 @@
 	}
 	@include hm-until(761px) {
 		display: block;
-		bottom: 100px;
+		bottom: 60px;
 	}
 }
 .hhs__content-left {
@@ -89,7 +94,7 @@
 	@include hm-until(761px) {
 		font-size: 8px;
 		letter-spacing: 0.12em;
-		margin-bottom: 14px;
+		margin-bottom: 8px;
 	}
 }
 .hhs__texts {
@@ -122,7 +127,7 @@
 		font-size: 90px;
 	}
 	@include hm-until(761px) {
-		font-size: clamp(56px, 14vw, 88px);
+		font-size: clamp(41px, 10vw, 64px);
 	}
 }
 .hhs__subtitle {
@@ -145,7 +150,7 @@
 		line-height: 1;
 	}
 	@include hm-until(761px) {
-		margin-top: 23px;
+		margin-top: 13px;
 		min-height: 44px;
 		padding: 12px 20px;
 		font-size: 11px;
@@ -164,7 +169,7 @@
 	gap: 17px;
 
 	@include hm-until(761px) {
-		bottom: 27px;
+		bottom: 12px;
 		gap: 12px;
 	}
 }

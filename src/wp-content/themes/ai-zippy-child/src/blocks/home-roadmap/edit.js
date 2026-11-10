@@ -1,14 +1,50 @@
 import { useBlockProps, RichText, InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TextControl, Button } from "@wordpress/components";
+import { PanelBody, TextControl, Button, SelectControl } from "@wordpress/components";
+import { useState } from "@wordpress/element";
+import ImagePicker from "../shared/ImagePicker.js";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { kicker, title, intro, ctaText, ctaUrl, cardCta, cards = [] } = attributes;
-	const blockProps = useBlockProps({ className: "hrm" });
+	const { kicker, title, intro, ctaText, ctaUrl, cardCta, cards = [], layout, tabs = [], image, note } = attributes;
+	const isTabs = layout === "tabs";
+	const [active, setActive] = useState(0);
+	const blockProps = useBlockProps({ className: isTabs ? "hrm hrm--tabs" : "hrm" });
+	const photo = image || {};
+	const setTab = (i, patch) => setAttributes({ tabs: tabs.map((t, k) => (k === i ? { ...t, ...patch } : t)) });
+	const setBullet = (i, j, v) => setTab(i, { bullets: (tabs[i].bullets || []).map((b, k) => (k === j ? v : b)) });
+	const cur = tabs[Math.min(active, Math.max(tabs.length - 1, 0))];
+	const curIndex = Math.min(active, Math.max(tabs.length - 1, 0));
 	const setCard = (i, patch) => setAttributes({ cards: cards.map((c, k) => (k === i ? { ...c, ...patch } : c)) });
 
 	return (
 		<>
 			<InspectorControls>
+				<PanelBody title="Layout" initialOpen={true}>
+					<SelectControl
+						label="Layout"
+						value={isTabs ? "tabs" : "cards"}
+						options={[
+							{ label: "Tab ngày + khung chi tiết (mới)", value: "tabs" },
+							{ label: "4 card (cũ)", value: "cards" },
+						]}
+						onChange={(v) => setAttributes({ layout: v })}
+					/>
+					{isTabs && <TextControl label="Alt ảnh" value={photo.alt || ""} onChange={(v) => setAttributes({ image: { ...photo, alt: v } })} />}
+				</PanelBody>
+				{isTabs && (
+					<PanelBody title="Ý trong khung chi tiết" initialOpen={false}>
+						{tabs.map((t, i) => (
+							<div key={i} style={{ marginBottom: 12 }}>
+								<strong>{t.days}</strong>
+								<div style={{ display: "flex", gap: 8, marginTop: 6 }}>
+									<Button variant="secondary" onClick={() => setTab(i, { bullets: [...(t.bullets || []), ""] })}>+ Thêm ý</Button>
+									{(t.bullets || []).length > 0 && (
+										<Button isDestructive variant="link" onClick={() => setTab(i, { bullets: t.bullets.slice(0, -1) })}>Xoá ý cuối</Button>
+									)}
+								</div>
+							</div>
+						))}
+					</PanelBody>
+				)}
 				<PanelBody title="Nút chính" initialOpen={true}>
 					<TextControl label="Anchor (id để link tới, vd #lo-trinh)" value={attributes.anchor || ""} onChange={(v) => setAttributes({ anchor: v })} />
 					<TextControl label="Link (cũng là link mặc định của card)" value={ctaUrl} onChange={(v) => setAttributes({ ctaUrl: v })} />
@@ -41,6 +77,34 @@ export default function Edit({ attributes, setAttributes }) {
 						</span>
 					</div>
 					<RichText tagName="p" className="hrm__intro" value={intro} onChange={(v) => setAttributes({ intro: v })} placeholder="Mô tả ngắn" />
+					{isTabs ? (
+						<>
+							<div className="hrm__tabs">
+								{tabs.map((t, i) => (
+									<div key={i} className="hrm__tab" role="button" tabIndex={0} aria-selected={i === curIndex ? "true" : "false"} onClick={() => setActive(i)}>
+										<RichText tagName="span" className="hrm__days" value={t.days} onChange={(v) => setTab(i, { days: v })} placeholder="NGÀY 1–3" allowedFormats={[]} />
+										<RichText tagName="strong" value={t.label} onChange={(v) => setTab(i, { label: v })} placeholder="Tên chặng" allowedFormats={[]} />
+									</div>
+								))}
+							</div>
+							<div className="hrm__detail-box">
+								{cur && (
+									<div className="hrm__panel">
+										<RichText tagName="h3" value={cur.panelTitle} onChange={(v) => setTab(curIndex, { panelTitle: v })} placeholder="Tiêu đề chi tiết" allowedFormats={[]} />
+										<ul>
+											{(cur.bullets || []).map((b, j) => (
+												<li key={j}>
+													<RichText tagName="span" value={b} onChange={(v) => setBullet(curIndex, j, v)} placeholder="Ý chính" allowedFormats={[]} />
+												</li>
+											))}
+										</ul>
+									</div>
+								)}
+								<ImagePicker className="hrm__photo" imageId={photo.imageId} imageUrl={photo.imageUrl} onSelect={(patch) => setAttributes({ image: { ...photo, ...patch } })} />
+							</div>
+							<RichText tagName="p" className="hrm__note" value={note} onChange={(v) => setAttributes({ note: v })} placeholder="Ghi chú nhỏ" allowedFormats={[]} />
+						</>
+					) : (
 					<div className="hrm__cards">
 						{cards.map((c, i) => (
 							<div className="hrm__card" key={i}>
@@ -56,6 +120,7 @@ export default function Edit({ attributes, setAttributes }) {
 							</div>
 						))}
 					</div>
+					)}
 				</div>
 			</section>
 		</>

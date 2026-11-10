@@ -1002,8 +1002,9 @@ $aw-bg: #10100f;
 		gap: 27px 18px;
 	}
 	@include hm-until(761px) {
-		gap: 24px 17px;
-		max-width: 420px;
+		// Client's mobile design: four small portraits per row, last row centred.
+		gap: 22px 0;
+		max-width: 510px;
 	}
 
 	.aw__standard {
@@ -1012,14 +1013,15 @@ $aw-bg: #10100f;
 			flex-basis: calc((100% - 54px) / 4);
 		}
 		@include hm-until(761px) {
-			flex-basis: calc((100% - 17px) / 2);
+			flex-basis: 25%;
+			padding-inline: 4px;
 		}
 	}
 	.aw__window {
 		inset: 3% 5%;
 		border-radius: 20px;
 		@include hm-until(761px) {
-			border-radius: 14px;
+			border-radius: 8px;
 		}
 	}
 	.aw__initials {
@@ -1028,7 +1030,7 @@ $aw-bg: #10100f;
 			font-size: 42px;
 		}
 		@include hm-until(761px) {
-			font-size: 45px;
+			font-size: 29px;
 		}
 	}
 	.aw__name {
@@ -1040,7 +1042,9 @@ $aw-bg: #10100f;
 			font-size: 11px;
 		}
 		@include hm-until(761px) {
-			font-size: 12px;
+			font-size: 10px;
+			letter-spacing: 0;
+			text-align: center;
 		}
 	}
 	.aw__caption {
@@ -1048,7 +1052,22 @@ $aw-bg: #10100f;
 			margin-inline: 4px;
 		}
 		@include hm-until(761px) {
-			margin-top: 10px;
+			margin: 6px 0 0;
+			justify-content: center;
+		}
+	}
+	.aw__pending {
+		@include hm-until(761px) {
+			gap: 5px;
+
+			small {
+				padding-inline: 5px;
+				font-size: 7px;
+			}
+			&::before {
+				top: 12px;
+				font-size: 4px;
+			}
 		}
 	}
 }

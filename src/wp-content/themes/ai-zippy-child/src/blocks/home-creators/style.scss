@@ -19,7 +19,7 @@
 	@include hm-until(761px) {
 		flex-wrap: wrap;
 		align-items: center;
-		gap: 18px;
+		gap: 10px;
 	}
 }
 .hcr__title {
@@ -27,6 +27,11 @@
 }
 .hcr__link {
 	@include hm-simple-link;
+
+	&--tag {
+		@include hm-tag;
+		padding-block: 8px;
+	}
 }
 .hcr__grid {
 	display: grid;
@@ -37,12 +42,23 @@
 		gap: 17px;
 	}
 	@include hm-until(761px) {
-		grid-template-columns: 1fr 1fr;
-		gap: 27px 14px;
+		// Client's mobile design: one swipeable row, three cards visible.
+		display: flex;
+		gap: 10px;
 		margin-top: 25px;
+		padding-block: 3px 8px;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: thin;
+		scrollbar-color: #5c4840 transparent;
 	}
 }
 .hcr__card {
+	@include hm-until(761px) {
+		flex: 0 0 calc((100% - 20px) / 3);
+		min-width: 0;
+		scroll-snap-align: start;
+	}
 	display: block;
 	color: $hm-ink;
 
@@ -57,8 +73,8 @@
 		letter-spacing: -0.035em;
 		color: $hm-ink;
 		@include hm-until(761px) {
-			font-size: 20px;
-			margin-top: 13px;
+			font-size: clamp(13px, 3.6vw, 18px);
+			margin-top: 9px;
 		}
 	}
 	> span {
@@ -71,6 +87,7 @@
 		color: $hm-muted;
 		@include hm-until(761px) {
 			font-size: 10px;
+			line-height: 1.35;
 			margin-top: 6px;
 		}
 	}
@@ -78,6 +95,9 @@
 		font-size: 18px;
 		font-weight: 400;
 		color: $hm-orange;
+		@include hm-until(761px) {
+			display: none;
+		}
 	}
 }
 .hcr__photo {
@@ -98,7 +118,7 @@
 	}
 	@include hm-until(761px) {
 		aspect-ratio: 0.75;
-		border-radius: 3px 3px 28px 3px;
+		border-radius: 4px 4px 24px 4px;
 	}
 }
 .hcr__card:hover .hcr__photo img {

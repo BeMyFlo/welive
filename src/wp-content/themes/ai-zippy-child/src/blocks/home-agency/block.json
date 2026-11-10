@@ -7,20 +7,65 @@
 	"category": "welive",
 	"icon": "networking",
 	"description": "Heading plus two large image cards with overlay text and links.",
-	"supports": { "html": false, "align": ["full"] },
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
 	"attributes": {
-		"anchor": { "type": "string", "default": "agency" },
-		"kicker": { "type": "string", "default": "CÙNG NHAU PHÁT TRIỂN" },
-		"title": { "type": "string", "default": "Giải pháp" },
-		"titleAccent": { "type": "string", "default": "Agency." },
-		"linkText": { "type": "string", "default": "Khám phá giải pháp" },
-		"linkUrl": { "type": "string", "default": "/agency/" },
+		"anchor": {
+			"type": "string",
+			"default": "agency"
+		},
+		"kicker": {
+			"type": "string",
+			"default": "CÙNG NHAU PHÁT TRIỂN"
+		},
+		"title": {
+			"type": "string",
+			"default": "Giải pháp"
+		},
+		"titleAccent": {
+			"type": "string",
+			"default": "Agency."
+		},
+		"linkText": {
+			"type": "string",
+			"default": "Khám phá giải pháp"
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": "/agency/"
+		},
 		"cards": {
 			"type": "array",
 			"default": [
-				{ "label": "DÀNH CHO AGENCY", "title": "Bạn đang<br>vận hành agency.", "text": "Tìm kiếm nhà sáng tạo phù hợp và mở rộng đội ngũ.", "url": "", "imageId": 0, "imageUrl": "" },
-				{ "label": "BẮT ĐẦU HÀNH TRÌNH MỚI", "title": "Bạn muốn<br>trở thành agency.", "text": "Trao đổi những bước đầu để xây dựng đội ngũ nhà sáng tạo.", "url": "", "imageId": 0, "imageUrl": "" }
+				{
+					"label": "DÀNH CHO AGENCY",
+					"title": "Bạn đang<br>vận hành agency.",
+					"text": "Tìm kiếm nhà sáng tạo phù hợp và mở rộng đội ngũ.",
+					"url": "",
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"label": "BẮT ĐẦU HÀNH TRÌNH MỚI",
+					"title": "Bạn muốn<br>trở thành agency.",
+					"text": "Trao đổi những bước đầu để xây dựng đội ngũ nhà sáng tạo.",
+					"url": "",
+					"imageId": 0,
+					"imageUrl": ""
+				}
 			]
+		},
+		"linkStyle": {
+			"type": "string",
+			"default": "link"
+		},
+		"linkIcon": {
+			"type": "string",
+			"default": "none"
 		}
 	},
 	"textdomain": "ai-zippy-child",

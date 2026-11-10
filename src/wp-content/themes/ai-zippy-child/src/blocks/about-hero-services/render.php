@@ -25,17 +25,18 @@ $services = $attributes['services'] ?? [];
 $stats    = $attributes['stats'] ?? [];
 $btn_url  = az_home_link($attributes['btnUrl'] ?? '');
 $external = !str_starts_with($btn_url, home_url());
-$wrapper  = get_block_wrapper_attributes(['class' => 'ahs']);
+$compact  = ($attributes['variant'] ?? 'classic') === 'compact';
+$wrapper  = get_block_wrapper_attributes(['class' => 'ahs' . ($compact ? ' ahs--compact' : '')]);
 ?>
 <section <?php echo $wrapper; ?>>
 	<div class="ahs__wrap">
 		<div class="ahs__main">
 			<div class="ahs__copy">
 				<?php if (!empty($attributes['eyebrow'])) : ?><p class="ahs__eyebrow"><span aria-hidden="true">↗︎</span> <?php echo wp_kses_post($attributes['eyebrow']); ?></p><?php endif; ?>
-				<h1 class="ahs__title"><?php echo wp_kses_post($attributes['title'] ?? ''); ?></h1>
+				<h1 class="ahs__title"><?php echo wp_kses_post($attributes['title'] ?? ''); ?><?php if (!empty($attributes['titleAccent'])) : ?> <span><?php echo wp_kses_post($attributes['titleAccent']); ?></span><?php endif; ?></h1>
 				<?php if (!empty($attributes['description'])) : ?><p class="ahs__desc"><?php echo wp_kses_post($attributes['description']); ?></p><?php endif; ?>
 				<?php if (!empty($attributes['btnText'])) : ?>
-					<a class="ahs__button" href="<?php echo esc_url($btn_url); ?>"<?php echo $external ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>><?php echo wp_kses_post($attributes['btnText']); ?> <span aria-hidden="true">↗︎</span></a>
+					<a class="ahs__button" href="<?php echo esc_url($btn_url); ?>"<?php echo $external ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>><?php echo wp_kses_post($attributes['btnText']); ?><?php if (!$compact) : ?> <span aria-hidden="true">↗︎</span><?php endif; ?></a>
 				<?php endif; ?>
 			</div>
 			<div class="ahs__services">

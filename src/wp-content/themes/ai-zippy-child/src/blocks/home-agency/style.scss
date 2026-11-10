@@ -30,6 +30,11 @@
 }
 .hag__link {
 	@include hm-simple-link;
+
+	&--tag {
+		@include hm-tag;
+		padding-block: 8px;
+	}
 }
 .hag__grid {
 	display: grid;
@@ -37,8 +42,9 @@
 	gap: 25px;
 	margin-top: 32px;
 	@include hm-until(761px) {
-		grid-template-columns: 1fr;
-		gap: 18px;
+		// Client's mobile design: two compact cards side by side.
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 10px;
 		margin-top: 23px;
 	}
 }
@@ -107,18 +113,38 @@
 		color: #fff;
 	}
 	@include hm-until(761px) {
-		aspect-ratio: 1.1;
-		border-radius: 3px 3px 38px 3px;
+		display: flex;
+		align-items: flex-end;
+		min-height: clamp(174px, 52vw, 248px);
+		aspect-ratio: auto;
+		border-radius: 4px 4px 28px 4px;
 
+		> img {
+			position: absolute;
+			inset: 0;
+		}
 		> div {
-			inset: auto 23px 25px;
+			position: relative;
+			inset: auto;
+			width: 100%;
+			padding: 12px;
+		}
+		p {
+			font-size: 8px;
+			line-height: 1.4;
 		}
 		h3 {
-			font-size: 34px;
+			margin-top: 8px;
+			font-size: clamp(15px, 4vw, 22px);
 		}
 		span {
-			max-width: 280px;
-			gap: 15px;
+			max-width: none;
+			margin-top: 8px;
+			font-size: 11px;
+			line-height: 1.45;
+		}
+		b {
+			display: none;
 		}
 	}
 }

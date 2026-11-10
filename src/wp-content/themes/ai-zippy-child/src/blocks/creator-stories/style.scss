@@ -167,8 +167,9 @@ $cst-bg: #10100f;
 		flex-basis: calc((100% - 45px) / 4);
 	}
 	@include hm-until(761px) {
-		flex-basis: 70%;
-		aspect-ratio: 250 / 400;
+		// Client's mobile design: ~2.3 compact, almost square cards per row.
+		flex-basis: calc((100% - 10px) / 3.52 * 1.52);
+		aspect-ratio: 640 / 654;
 	}
 }
 .cst__overlay {
@@ -185,8 +186,8 @@ $cst-bg: #10100f;
 		padding: 0 11px 17px;
 	}
 	@include hm-until(761px) {
-		gap: 15px;
-		padding: 0 19px 24px;
+		gap: 3px;
+		padding: 0 10px 10px;
 	}
 }
 .cst__name {
@@ -201,7 +202,7 @@ $cst-bg: #10100f;
 		font-size: 15px;
 	}
 	@include hm-until(761px) {
-		font-size: 22px;
+		font-size: 14px;
 	}
 }
 .cst__link {
@@ -212,7 +213,7 @@ $cst-bg: #10100f;
 		font-size: 11px;
 	}
 	@include hm-until(761px) {
-		font-size: 15px;
+		font-size: 11px;
 	}
 }
 .cst__card--pending {
@@ -247,13 +248,14 @@ $cst-bg: #10100f;
 		}
 	}
 	@include hm-until(761px) {
-		padding: 24px 20px;
+		padding: 10px;
 
 		h4 {
-			font-size: 20px;
+			font-size: 13px;
 		}
 		p {
-			font-size: 15px;
+			margin-top: 4px;
+			font-size: 11px;
 		}
 	}
 }
@@ -274,7 +276,8 @@ $cst-bg: #10100f;
 		font-size: 48px;
 	}
 	@include hm-until(761px) {
-		font-size: 78px;
+		top: 34%;
+		font-size: clamp(25px, 7vw, 47px);
 	}
 }
 

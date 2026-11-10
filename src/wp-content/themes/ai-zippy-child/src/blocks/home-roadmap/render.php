@@ -12,7 +12,14 @@ $cards    = $attributes['cards'] ?? [];
 $cta_url  = az_home_link($attributes['ctaUrl'] ?? '');
 $card_cta = $attributes['cardCta'] ?? '';
 $anchor   = $attributes['anchor'] ?? '';
-$wrapper  = get_block_wrapper_attributes(['class' => 'hrm'] + ($anchor ? ['id' => $anchor] : []));
+$is_tabs  = ($attributes['layout'] ?? 'cards') === 'tabs';
+$wrapper  = get_block_wrapper_attributes(['class' => 'hrm' . ($is_tabs ? ' hrm--tabs' : '')] + ($anchor ? ['id' => $anchor] : []));
+$tabs     = $attributes['tabs'] ?? [];
+$photo    = is_array($attributes['image'] ?? null) ? $attributes['image'] : [];
+$photo_id = (int) ($photo['imageId'] ?? 0);
+$photo_url = $photo_id ? wp_get_attachment_image_url($photo_id, 'large') : '';
+$photo_url = $photo_url ?: ($photo['imageUrl'] ?? '');
+$uid      = 'hrm-' . wp_unique_id();
 ?>
 <section <?php echo $wrapper; ?>>
 	<div class="hrm__wrap">
@@ -26,6 +33,35 @@ $wrapper  = get_block_wrapper_attributes(['class' => 'hrm'] + ($anchor ? ['id' =
 			<?php endif; ?>
 		</div>
 		<?php if (!empty($attributes['intro'])) : ?><p class="hrm__intro"><?php echo wp_kses_post($attributes['intro']); ?></p><?php endif; ?>
+		<?php if ($is_tabs) : ?>
+			<div class="hrm__tabs" role="tablist" aria-label="<?php echo esc_attr(wp_strip_all_tags($attributes['title'] ?? '')); ?>">
+				<?php foreach ($tabs as $i => $tab) : ?>
+					<button class="hrm__tab" type="button" role="tab" id="<?php echo esc_attr($uid . '-tab-' . $i); ?>" aria-controls="<?php echo esc_attr($uid . '-panel-' . $i); ?>" aria-selected="<?php echo $i === 0 ? 'true' : 'false'; ?>"<?php echo $i === 0 ? '' : ' tabindex="-1"'; ?>>
+						<span class="hrm__days"><?php echo wp_kses_post($tab['days'] ?? ''); ?></span>
+						<strong><?php echo wp_kses_post($tab['label'] ?? ''); ?></strong>
+					</button>
+				<?php endforeach; ?>
+			</div>
+			<div class="hrm__detail-box">
+				<div class="hrm__panels">
+					<?php foreach ($tabs as $i => $tab) : ?>
+						<div class="hrm__panel" id="<?php echo esc_attr($uid . '-panel-' . $i); ?>" role="tabpanel" aria-labelledby="<?php echo esc_attr($uid . '-tab-' . $i); ?>" tabindex="0"<?php echo $i === 0 ? '' : ' hidden'; ?>>
+							<p class="hrm__days"><?php echo wp_kses_post($tab['days'] ?? ''); ?></p>
+							<h3><?php echo wp_kses_post($tab['panelTitle'] ?? ''); ?></h3>
+							<ul>
+								<?php foreach (($tab['bullets'] ?? []) as $li) : ?>
+									<li><?php echo wp_kses_post($li); ?></li>
+								<?php endforeach; ?>
+							</ul>
+						</div>
+					<?php endforeach; ?>
+				</div>
+				<?php if ($photo_url) : ?>
+					<img class="hrm__photo" src="<?php echo esc_url($photo_url); ?>" alt="<?php echo esc_attr($photo['alt'] ?? ''); ?>" loading="lazy" />
+				<?php endif; ?>
+			</div>
+			<?php if (!empty($attributes['note'])) : ?><p class="hrm__note"><?php echo wp_kses_post($attributes['note']); ?></p><?php endif; ?>
+		<?php else : ?>
 		<div class="hrm__cards">
 			<?php foreach ($cards as $card) : ?>
 				<a class="hrm__card" href="<?php echo esc_url(az_home_link($card['url'] ?: ($attributes['ctaUrl'] ?? ''))); ?>">
@@ -39,5 +75,6 @@ $wrapper  = get_block_wrapper_attributes(['class' => 'hrm'] + ($anchor ? ['id' =
 				</a>
 			<?php endforeach; ?>
 		</div>
+		<?php endif; ?>
 	</div>
 </section>
