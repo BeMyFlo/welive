@@ -1,0 +1,18 @@
+// Shared tokens + pieces for the Contact page (black demo version).
+@forward "agency";
+@use "agency" as *;
+
+$ct-accent: #ff783d;
+$ct-surface: #211f1e;
+
+@mixin ct-wrap {
+	width: min(1160px, calc(100% - 88px));
+	margin-inline: auto;
+
+	@include ag-until(800px) {
+		width: calc(100% - 44px);
+	}
+	@include ag-until(650px) {
+		width: calc(100% - 36px);
+	}
+}

@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/contact-banner",
+	"version": "1.0.0",
+	"title": "[Contact] Photo Banner",
+	"category": "welive",
+	"icon": "cover-image",
+	"description": "Full-width photo with a dark gradient, big heading (with orange accent) and a light pill button.",
+	"supports": { "html": false, "align": ["full"] },
+	"attributes": {
+		"anchor": { "type": "string", "default": "" },
+		"image": { "type": "object", "default": { "imageId": 0, "imageUrl": "", "alt": "", "position": "54% 48%" } },
+		"title": { "type": "string", "default": "Liên hệ" },
+		"titleAccent": { "type": "string", "default": "Welive." },
+		"btnText": { "type": "string", "default": "Thông tin liên hệ" },
+		"btnUrl": { "type": "string", "default": "#thong-tin-lien-he" }
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

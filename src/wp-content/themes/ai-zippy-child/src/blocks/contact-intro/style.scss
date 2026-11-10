@@ -1,0 +1,63 @@
+// [Contact] Intro + Zalo Phone (client's black demo)
+@use "../shared/contact" as *;
+
+.cin {
+	@include ag-section;
+	scroll-margin-top: 24px;
+}
+
+.cin__wrap {
+	@include ct-wrap;
+	display: grid;
+	grid-template-columns: 1.45fr 1fr;
+	align-items: center;
+	gap: 28px 48px;
+	padding-block: clamp(28px, 4vw, 56px) clamp(40px, 6vw, 76px);
+
+	@include ag-until(800px) {
+		gap: 25px;
+	}
+	@include ag-until(650px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.cin__text p {
+	max-width: 46ch;
+	color: $ag-muted;
+	font-size: clamp(16px, 1.5vw, 19px);
+}
+
+.cin__phone {
+	padding: clamp(22px, 3vw, 38px);
+	background: $ag-orange;
+	color: $ag-ink;
+	@include ag-radius;
+
+	h2 {
+		font-size: clamp(15px, 1.6vw, 20px);
+		font-weight: 760;
+		line-height: 1.12;
+		color: $ag-ink;
+	}
+}
+
+.cin__value {
+	display: block;
+	margin-block: 10px 8px;
+	font-size: clamp(27px, 3.3vw, 44px);
+	font-weight: 810;
+	line-height: 1.13;
+	letter-spacing: -0.05em;
+	overflow-wrap: anywhere;
+	color: $ag-ink;
+}
+
+a.cin__value:hover {
+	text-decoration: underline;
+}
+
+.cin__note {
+	font-size: 14px;
+	color: $ag-ink;
+}

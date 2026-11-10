@@ -1,0 +1,125 @@
+// [Contact] QR Channels (client's black demo)
+@use "../shared/contact" as *;
+
+.cch {
+	@include ag-section;
+	scroll-margin-top: 24px;
+}
+
+.cch__wrap {
+	@include ct-wrap;
+	max-width: 1040px;
+}
+
+.cch__heading {
+	margin-bottom: 20px;
+
+	h2 {
+		font-size: clamp(28px, 3.6vw, 40px);
+		font-weight: 780;
+		letter-spacing: -0.05em;
+		line-height: 1.12;
+		color: $ag-text;
+	}
+	p {
+		margin-top: 6px;
+		color: $ag-muted;
+		font-size: 14px;
+	}
+}
+
+.cch__grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+
+	@include ag-until(800px) {
+		gap: 12px;
+	}
+	@include ag-until(650px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.cch__card {
+	display: grid;
+	align-content: start;
+	justify-items: center;
+	gap: 18px;
+	padding: 22px;
+	background: #222224;
+	text-align: center;
+	@include ag-radius;
+
+	@include ag-until(650px) {
+		gap: 16px;
+		padding: 18px;
+	}
+}
+
+.cch__card--featured {
+	background: #2b211c;
+
+	h3 {
+		color: $ct-accent;
+	}
+}
+
+.cch__card--community {
+	background: #24211f;
+}
+
+.cch__copy {
+	h3 {
+		font-size: clamp(18px, 1.8vw, 21px);
+		font-weight: 720;
+		letter-spacing: -0.025em;
+		line-height: 1.12;
+		text-wrap: balance;
+		color: $ag-text;
+	}
+	p {
+		max-width: 31ch;
+		margin: 7px auto 0;
+		color: $ag-muted;
+		font-size: 14px;
+	}
+}
+
+.cch__nowrap {
+	white-space: nowrap;
+}
+
+.cch__badge {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	vertical-align: -0.14em;
+}
+
+.cch__qr {
+	display: grid;
+	order: -1;
+	place-items: center;
+	width: min(196px, 100%);
+	aspect-ratio: 1;
+	border-radius: 6px;
+	overflow: hidden;
+	background: #fff;
+	color: #54473f;
+
+	img {
+		width: 100%;
+		height: 100%;
+		padding: 12px;
+		object-fit: contain;
+	}
+}
+
+.cch__wait {
+	display: grid;
+	justify-items: center;
+	gap: 8px;
+	font-size: 13px;
+	font-weight: 660;
+}

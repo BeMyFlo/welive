@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/contact-office",
+	"version": "1.0.0",
+	"title": "[Contact] Office Strip",
+	"category": "welive",
+	"icon": "location",
+	"description": "Office name and address on the left, an orange underlined link (e.g. directions) on the right.",
+	"supports": { "html": false, "align": ["full"] },
+	"attributes": {
+		"anchor": { "type": "string", "default": "" },
+		"title": { "type": "string", "default": "Văn phòng Welive" },
+		"address": { "type": "string", "default": "44 Đường D, Khu đô thị, Bình Trưng, TP. Hồ Chí Minh" },
+		"linkText": { "type": "string", "default": "Xem chỉ đường" },
+		"linkUrl": { "type": "string", "default": "https://www.google.com/maps/search/?api=1&query=44%20%C4%90%C6%B0%E1%BB%9Dng%20D%2C%20B%C3%ACnh%20Tr%C6%B0ng%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh" }
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

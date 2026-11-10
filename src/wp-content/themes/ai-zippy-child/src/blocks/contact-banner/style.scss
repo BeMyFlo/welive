@@ -1,0 +1,83 @@
+// [Contact] Photo Banner (client's black demo)
+@use "../shared/contact" as *;
+
+.cbn {
+	@include ag-section;
+	position: relative;
+	isolation: isolate;
+	display: flex;
+	align-items: flex-end;
+	min-height: clamp(460px, 86svh, 820px);
+	padding: 110px 0 clamp(32px, 5vw, 68px);
+	background: #24170f;
+	overflow: hidden;
+
+	@include ag-until(650px) {
+		min-height: clamp(360px, 57svh, 500px);
+	}
+
+	&::after {
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		content: "";
+		background: linear-gradient(180deg, #100b08a6, transparent 29%, transparent 51%, #100b08dd);
+		pointer-events: none;
+	}
+}
+
+.cbn__image {
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: 54% 48%;
+}
+
+.cbn__wrap {
+	@include ct-wrap;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 20px 30px;
+
+	@include ag-until(650px) {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+}
+
+.cbn__title,
+.cbn__accent {
+	font-size: clamp(46px, 7.2vw, 102px);
+	font-weight: 810;
+	line-height: 0.98;
+	letter-spacing: -0.07em;
+
+	@include ag-until(650px) {
+		font-size: clamp(43px, 10.5vw, 64px);
+	}
+}
+
+.cbn__title span,
+.cbn__accent {
+	color: $ct-accent;
+}
+
+// Editor only: the accent is a separate field there, stacked under the title.
+.cbn__heading {
+	.cbn__accent {
+		margin: 0;
+	}
+}
+
+.cbn__btn {
+	@include ag-btn($ag-paper, $ag-ink, #fff);
+	flex: none;
+	min-height: 44px;
+	padding: 8px 18px;
+	font-weight: 700;
+	line-height: 1.25;
+}

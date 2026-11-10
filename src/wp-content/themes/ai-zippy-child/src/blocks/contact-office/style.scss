@@ -1,0 +1,41 @@
+// [Contact] Office Strip (client's black demo)
+@use "../shared/contact" as *;
+
+.cof {
+	@include ag-section;
+	padding-top: 18px;
+}
+
+.cof__wrap {
+	@include ct-wrap;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	min-height: 78px;
+	padding-block: 32px;
+	color: $ag-muted;
+	font-size: 14px;
+
+	@include ag-until(650px) {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	h2 {
+		margin-bottom: 3px;
+		font-size: 15px;
+		line-height: 1.12;
+		color: $ag-text;
+	}
+	address {
+		font-style: normal;
+	}
+	a,
+	.cof__link {
+		flex: none;
+		color: $ct-accent;
+		text-decoration: underline;
+		text-underline-offset: 4px;
+	}
+}
