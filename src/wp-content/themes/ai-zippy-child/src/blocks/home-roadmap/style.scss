@@ -193,10 +193,6 @@
 	}
 }
 .hrm__detail-box {
-	display: grid;
-	grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-	align-items: center;
-	gap: 20px 36px;
 	margin-top: 15px;
 	padding: clamp(18px, 3vw, 32px);
 	border-radius: 4px 4px 36px 4px;
@@ -204,11 +200,22 @@
 	color: $hm-ink;
 
 	@include hm-until(761px) {
-		grid-template-columns: minmax(0, 1fr);
 		border-bottom-right-radius: 28px;
 	}
 }
 .hrm__panel {
+	display: grid;
+	grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+	align-items: center;
+	gap: 20px 36px;
+
+	&[hidden] {
+		display: none;
+	}
+	@include hm-until(761px) {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
 	h3 {
 		margin: 9px 0 0;
 		font-size: clamp(21px, 2.6vw, 33px);

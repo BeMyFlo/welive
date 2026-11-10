@@ -43,22 +43,28 @@ $uid      = 'hrm-' . wp_unique_id();
 				<?php endforeach; ?>
 			</div>
 			<div class="hrm__detail-box">
-				<div class="hrm__panels">
-					<?php foreach ($tabs as $i => $tab) : ?>
-						<div class="hrm__panel" id="<?php echo esc_attr($uid . '-panel-' . $i); ?>" role="tabpanel" aria-labelledby="<?php echo esc_attr($uid . '-tab-' . $i); ?>" tabindex="0"<?php echo $i === 0 ? '' : ' hidden'; ?>>
+				<?php foreach ($tabs as $i => $tab) :
+					$tab_img_id  = (int) ($tab['imageId'] ?? 0);
+					$tab_img_url = $tab_img_id ? wp_get_attachment_image_url($tab_img_id, 'large') : '';
+					$tab_img_url = $tab_img_url ?: ($tab['imageUrl'] ?? '');
+					$tab_img_url = $tab_img_url ?: $photo_url; // old pages: one shared photo
+					$tab_img_alt = ($tab['alt'] ?? '') !== '' ? $tab['alt'] : ($photo['alt'] ?? '');
+				?>
+					<div class="hrm__panel" id="<?php echo esc_attr($uid . '-panel-' . $i); ?>" role="tabpanel" aria-labelledby="<?php echo esc_attr($uid . '-tab-' . $i); ?>" tabindex="0"<?php echo $i === 0 ? '' : ' hidden'; ?>>
+						<div class="hrm__panel-text">
 							<p class="hrm__days"><?php echo wp_kses_post($tab['days'] ?? ''); ?></p>
 							<h3><?php echo wp_kses_post($tab['panelTitle'] ?? ''); ?></h3>
 							<ul>
-								<?php foreach (($tab['bullets'] ?? []) as $li) : ?>
+								<?php foreach (array_filter((array) ($tab['bullets'] ?? []), static fn($li) => trim((string) $li) !== '') as $li) : ?>
 									<li><?php echo wp_kses_post($li); ?></li>
 								<?php endforeach; ?>
 							</ul>
 						</div>
-					<?php endforeach; ?>
-				</div>
-				<?php if ($photo_url) : ?>
-					<img class="hrm__photo" src="<?php echo esc_url($photo_url); ?>" alt="<?php echo esc_attr($photo['alt'] ?? ''); ?>" loading="lazy" />
-				<?php endif; ?>
+						<?php if ($tab_img_url) : ?>
+							<img class="hrm__photo" src="<?php echo esc_url($tab_img_url); ?>" alt="<?php echo esc_attr($tab_img_alt); ?>" loading="lazy" />
+						<?php endif; ?>
+					</div>
+				<?php endforeach; ?>
 			</div>
 			<?php if (!empty($attributes['note'])) : ?><p class="hrm__note"><?php echo wp_kses_post($attributes['note']); ?></p><?php endif; ?>
 		<?php else : ?>
