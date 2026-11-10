@@ -1,0 +1,105 @@
+/* Floating Zalo chat button */
+.az-zalo {
+	position: fixed;
+	right: 16px;
+	bottom: 20px;
+	z-index: 90;
+	display: grid;
+	place-items: center;
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	background: #0068ff;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+	color: #fff;
+	text-decoration: none;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.az-zalo::before {
+	position: absolute;
+	inset: 0;
+	border-radius: 50%;
+	background: #0068ff;
+	content: "";
+	opacity: 0.45;
+	z-index: -1;
+	animation: az-zalo-ring 2.4s ease-out infinite;
+}
+
+.az-zalo:hover,
+.az-zalo:focus-visible {
+	transform: translateY(-2px) scale(1.05);
+	box-shadow: 0 10px 24px rgba(0, 104, 255, 0.45);
+	color: #fff;
+}
+
+.az-zalo:focus-visible {
+	outline: 2px solid #fff;
+	outline-offset: 3px;
+}
+
+.az-zalo__icon {
+	display: block;
+	width: 30px;
+	height: 30px;
+}
+
+.az-zalo__tip {
+	position: absolute;
+	right: calc(100% + 10px);
+	padding: 6px 12px;
+	border-radius: 999px;
+	background: #171714;
+	color: #f6f3ee;
+	font: 600 13px/1.2 "Inter", Arial, sans-serif;
+	white-space: nowrap;
+	opacity: 0;
+	pointer-events: none;
+	transform: translateX(6px);
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.az-zalo:hover .az-zalo__tip,
+.az-zalo:focus-visible .az-zalo__tip {
+	opacity: 1;
+	transform: none;
+}
+
+@keyframes az-zalo-ring {
+	0% {
+		transform: scale(1);
+		opacity: 0.45;
+	}
+	100% {
+		transform: scale(1.7);
+		opacity: 0;
+	}
+}
+
+@media (max-width: 700px) {
+	.az-zalo {
+		right: 12px;
+		bottom: 16px;
+		width: 46px;
+		height: 46px;
+	}
+	.az-zalo__icon {
+		width: 27px;
+		height: 27px;
+	}
+	.az-zalo__tip {
+		display: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.az-zalo::before {
+		animation: none;
+		opacity: 0;
+	}
+	.az-zalo,
+	.az-zalo__tip {
+		transition: none;
+	}
+}

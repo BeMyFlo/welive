@@ -106,6 +106,9 @@ add_action('wp_enqueue_scripts', function (): void {
     ai_zippy_child_enqueue_vite('ai-zippy-child-style', $base . '/scss/style.scss');
 }, 20);
 
+// Floating Zalo chat button + its settings page (Zippy AI → Nút Zalo)
+require_once get_stylesheet_directory() . '/inc/zalo-button.php';
+
 // =============================================================================
 // Auto-register child theme blocks (wp-scripts build output)
 // =============================================================================
