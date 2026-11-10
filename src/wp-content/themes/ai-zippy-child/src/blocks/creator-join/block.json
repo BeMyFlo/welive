@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/creator-join",
 	"version": "1.0.0",
-	"title": "[Creator] Join CTA",
+	"title": "Nhà sáng tạo · Kêu gọi gia nhập",
 	"category": "welive",
 	"icon": "megaphone",
-	"description": "Orange block: eyebrow, heading, text, dark button and a big art text with an arrow.",
+	"description": "Khối màu cam: tiêu đề, mô tả, nút và chữ lớn kèm mũi tên.",
 	"supports": {
 		"html": false,
 		"align": [

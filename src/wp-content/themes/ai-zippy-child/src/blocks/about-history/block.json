@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/about-history",
 	"version": "1.0.0",
-	"title": "[About] History timeline",
+	"title": "Giới thiệu · Lịch sử hình thành",
 	"category": "welive",
 	"icon": "clock",
-	"description": "Heading and a row of year milestones; the last one is highlighted.",
+	"description": "Tiêu đề và các mốc theo năm; mốc cuối được tô màu.",
 	"supports": {
 		"html": false,
 		"align": [

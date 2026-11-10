@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/about-beliefs",
 	"version": "1.0.0",
-	"title": "[About] Beliefs",
+	"title": "Giới thiệu · Giá trị cốt lõi",
 	"category": "welive",
 	"icon": "heart",
-	"description": "Photo with caption next to a heading and three numbered statements.",
+	"description": "Ảnh có chú thích bên cạnh tiêu đề và các giá trị đánh số.",
 	"supports": {
 		"html": false,
 		"align": [

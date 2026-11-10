@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/agency-services",
 	"version": "1.0.0",
-	"title": "[Agency] Services",
+	"title": "Agency · Gói kết nối (3 bước)",
 	"category": "welive",
 	"icon": "screenoptions",
-	"description": "Heading, three cards and a button. Layout \"cards\" = icon + image cards (old); layout \"steps\" = black-demo intro with three text steps.",
+	"description": "Tiêu đề, mô tả, 3 thẻ bước (hoặc thẻ có icon và ảnh kiểu cũ) và một nút.",
 	"supports": {
 		"html": false,
 		"align": [

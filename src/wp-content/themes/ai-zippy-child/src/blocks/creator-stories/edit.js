@@ -32,9 +32,9 @@ export default function Edit({ attributes, setAttributes }) {
 							<strong>#{i + 1} {it.name}</strong>
 							<TextControl label="Vị trí ảnh (vd 50% 40%)" value={it.position || ""} onChange={(v) => setItem(i, { position: v })} />
 							<TextareaControl label="Giới thiệu" value={it.bio || ""} onChange={(v) => setItem(i, { bio: v })} rows={4} />
-							<TextControl label="TikTok URL" value={it.tiktok || ""} onChange={(v) => setItem(i, { tiktok: v })} />
-							<TextControl label="Facebook URL" value={it.facebook || ""} onChange={(v) => setItem(i, { facebook: v })} />
-							<TextControl label="Instagram URL" value={it.instagram || ""} onChange={(v) => setItem(i, { instagram: v })} />
+							<TextControl label="Link TikTok" value={it.tiktok || ""} onChange={(v) => setItem(i, { tiktok: v })} />
+							<TextControl label="Link Facebook" value={it.facebook || ""} onChange={(v) => setItem(i, { facebook: v })} />
+							<TextControl label="Link Instagram" value={it.instagram || ""} onChange={(v) => setItem(i, { instagram: v })} />
 							<Button isDestructive variant="link" onClick={() => setAttributes({ items: items.filter((_, k) => k !== i) })}>
 								Xoá
 							</Button>

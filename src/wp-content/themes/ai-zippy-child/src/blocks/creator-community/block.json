@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/creator-community",
 	"version": "1.0.0",
-	"title": "[Creator] Community",
+	"title": "Lộ trình 45 ngày · Cộng đồng",
 	"category": "welive",
 	"icon": "groups",
-	"description": "Community banner: image card with three photos on the left, text, check list, avatars and a button on the right.",
+	"description": "Thẻ tối có ảnh chân dung ở bên trái, các ý và nút tham gia ở bên phải.",
 	"supports": {
 		"html": false,
 		"align": [

@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/home-agency",
 	"version": "1.0.0",
-	"title": "[Home] Agency cards",
+	"title": "Trang chủ · Giải pháp Agency",
 	"category": "welive",
 	"icon": "networking",
-	"description": "Heading plus two large image cards with overlay text and links.",
+	"description": "Tiêu đề và các thẻ ảnh lớn dẫn tới trang Agency.",
 	"supports": {
 		"html": false,
 		"align": [

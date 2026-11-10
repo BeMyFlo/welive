@@ -3,25 +3,74 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/plan-hero",
 	"version": "1.0.0",
-	"title": "[Plan] Hero",
+	"title": "Lộ trình 45 ngày · Banner đầu trang",
 	"category": "welive",
 	"icon": "cover-image",
-	"description": "45-day plan hero: pill, heading with orange line, text, two actions, note and a photo with a caption box.",
-	"supports": { "html": false, "align": ["full"] },
+	"description": "Nhãn, tiêu đề có dòng màu cam, mô tả, hai nút, ghi chú và ảnh kèm chú thích.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
 	"attributes": {
-		"anchor": { "type": "string", "default": "" },
-		"pill": { "type": "string", "default": "DÀNH CHO NHÀ SÁNG TẠO" },
-		"title": { "type": "string", "default": "Bạn sáng tạo." },
-		"titleAccent": { "type": "string", "default": "WELIVE đồng hành." },
-		"text": { "type": "string", "default": "Từ phiên LIVE đầu tiên đến hành trình phát triển nội dung. Có đội ngũ hỗ trợ và kế hoạch đào tạo 45 ngày phù hợp với mục tiêu của bạn." },
-		"ctaText": { "type": "string", "default": "Nhận kế hoạch 45 ngày" },
-		"ctaUrl": { "type": "string", "default": "#dang-ky" },
-		"linkText": { "type": "string", "default": "Khám phá quyền lợi" },
-		"linkUrl": { "type": "string", "default": "#quyen-loi" },
-		"note": { "type": "string", "default": "14 ngày xây nền tảng · Chặng tiếp theo theo mục tiêu" },
-		"image": { "type": "object", "default": { "imageId": 0, "imageUrl": "", "alt": "", "position": "50% 40%" } },
-		"captionTitle": { "type": "string", "default": "Mỗi mục tiêu, một kế hoạch riêng." },
-		"captionText": { "type": "string", "default": "Khởi đầu từ khả năng và điều bạn muốn hướng tới." }
+		"anchor": {
+			"type": "string",
+			"default": ""
+		},
+		"pill": {
+			"type": "string",
+			"default": "DÀNH CHO NHÀ SÁNG TẠO"
+		},
+		"title": {
+			"type": "string",
+			"default": "Bạn sáng tạo."
+		},
+		"titleAccent": {
+			"type": "string",
+			"default": "WELIVE đồng hành."
+		},
+		"text": {
+			"type": "string",
+			"default": "Từ phiên LIVE đầu tiên đến hành trình phát triển nội dung. Có đội ngũ hỗ trợ và kế hoạch đào tạo 45 ngày phù hợp với mục tiêu của bạn."
+		},
+		"ctaText": {
+			"type": "string",
+			"default": "Nhận kế hoạch 45 ngày"
+		},
+		"ctaUrl": {
+			"type": "string",
+			"default": "#dang-ky"
+		},
+		"linkText": {
+			"type": "string",
+			"default": "Khám phá quyền lợi"
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": "#quyen-loi"
+		},
+		"note": {
+			"type": "string",
+			"default": "14 ngày xây nền tảng · Chặng tiếp theo theo mục tiêu"
+		},
+		"image": {
+			"type": "object",
+			"default": {
+				"imageId": 0,
+				"imageUrl": "",
+				"alt": "",
+				"position": "50% 40%"
+			}
+		},
+		"captionTitle": {
+			"type": "string",
+			"default": "Mỗi mục tiêu, một kế hoạch riêng."
+		},
+		"captionText": {
+			"type": "string",
+			"default": "Khởi đầu từ khả năng và điều bạn muốn hướng tới."
+		}
 	},
 	"textdomain": "ai-zippy-child",
 	"editorScript": "file:./index.js",

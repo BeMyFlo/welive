@@ -3,23 +3,67 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/contact-channels",
 	"version": "1.0.0",
-	"title": "[Contact] QR Channels",
+	"title": "Liên hệ · Kênh kết nối (mã QR)",
 	"category": "welive",
 	"icon": "smartphone",
-	"description": "Heading and three cards, each with a QR code (or a \"waiting for QR\" placeholder), title and text. One card can carry the verified-Zalo badge.",
-	"supports": { "html": false, "align": ["full"] },
+	"description": "Ba thẻ kênh kèm mã QR, tiêu đề và mô tả. Quản lý thẻ ở thanh bên phải.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
 	"attributes": {
-		"anchor": { "type": "string", "default": "" },
-		"title": { "type": "string", "default": "Kênh kết nối" },
-		"subtitle": { "type": "string", "default": "Quét mã QR để mở kênh trên điện thoại." },
-		"placeholderText": { "type": "string", "default": "Chờ mã QR" },
-		"verifiedLabel": { "type": "string", "default": "Đã xác thực trên Zalo" },
+		"anchor": {
+			"type": "string",
+			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"default": "Kênh kết nối"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Quét mã QR để mở kênh trên điện thoại."
+		},
+		"placeholderText": {
+			"type": "string",
+			"default": "Chờ mã QR"
+		},
+		"verifiedLabel": {
+			"type": "string",
+			"default": "Đã xác thực trên Zalo"
+		},
 		"items": {
 			"type": "array",
 			"default": [
-				{ "tone": "featured", "verified": true, "title": "Zalo OA Welive", "text": "Theo dõi thông báo từ Welive và nhắn tin qua tài khoản Zalo chính thức.", "imageId": 0, "imageUrl": "", "alt": "Mã QR Zalo OA Welive Media" },
-				{ "tone": "community", "verified": false, "title": "Cộng đồng nhà sáng tạo Welive", "text": "Tham gia nhóm Zalo để gặp gỡ và trao đổi kinh nghiệm LIVE cùng các nhà sáng tạo.", "imageId": 0, "imageUrl": "", "alt": "Mã QR nhóm Zalo Cộng đồng nhà sáng tạo Welive" },
-				{ "tone": "plain", "verified": false, "title": "TikTok Welive", "text": "Theo dõi trang TikTok chính thức của Welive để xem video và cập nhật hoạt động.", "imageId": 0, "imageUrl": "", "alt": "Mã QR trang TikTok chính thức của Welive" }
+				{
+					"tone": "featured",
+					"verified": true,
+					"title": "Zalo OA Welive",
+					"text": "Theo dõi thông báo từ Welive và nhắn tin qua tài khoản Zalo chính thức.",
+					"imageId": 0,
+					"imageUrl": "",
+					"alt": "Mã QR Zalo OA Welive Media"
+				},
+				{
+					"tone": "community",
+					"verified": false,
+					"title": "Cộng đồng nhà sáng tạo Welive",
+					"text": "Tham gia nhóm Zalo để gặp gỡ và trao đổi kinh nghiệm LIVE cùng các nhà sáng tạo.",
+					"imageId": 0,
+					"imageUrl": "",
+					"alt": "Mã QR nhóm Zalo Cộng đồng nhà sáng tạo Welive"
+				},
+				{
+					"tone": "plain",
+					"verified": false,
+					"title": "TikTok Welive",
+					"text": "Theo dõi trang TikTok chính thức của Welive để xem video và cập nhật hoạt động.",
+					"imageId": 0,
+					"imageUrl": "",
+					"alt": "Mã QR trang TikTok chính thức của Welive"
+				}
 			]
 		}
 	},

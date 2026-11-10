@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/home-roadmap",
 	"version": "1.0.0",
-	"title": "[Home] Roadmap cards",
+	"title": "Trang chủ · Lộ trình gia nhập",
 	"category": "welive",
 	"icon": "excerpt-view",
-	"description": "Heading with 4 step cards linking to the roadmap page (layout \"cards\"), or 4 clickable day tabs with a detail panel, bullets and photo (layout \"tabs\").",
+	"description": "Tiêu đề và 4 tab ngày, mỗi tab có khung chi tiết với các ý và ảnh riêng (hoặc 4 thẻ kiểu cũ).",
 	"supports": {
 		"html": false,
 		"align": [

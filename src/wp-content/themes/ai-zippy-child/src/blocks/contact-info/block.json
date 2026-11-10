@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/contact-info",
 	"version": "1.0.0",
-	"title": "Contact Info Cards",
+	"title": "Liên hệ · Thẻ thông tin (cũ)",
 	"category": "welive",
 	"icon": "phone",
-	"description": "Displays custom contact info cards (e.g. Email, Location, Phone).",
+	"description": "Khối cũ: các thẻ email, địa chỉ, điện thoại.",
 	"supports": {
 		"html": false,
 		"align": [

@@ -3,13 +3,15 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/contact-form",
 	"version": "1.0.0",
-	"title": "Contact Inquiry Form",
+	"title": "Liên hệ · Form gửi tin + bản đồ (cũ)",
 	"category": "welive",
 	"icon": "feedback",
-	"description": "Contact form with custom Google Map iframe support and AJAX email dispatch.",
+	"description": "Khối cũ: form liên hệ kèm bản đồ.",
 	"supports": {
 		"html": false,
-		"align": ["full"]
+		"align": [
+			"full"
+		]
 	},
 	"attributes": {
 		"title": {

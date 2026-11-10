@@ -12,7 +12,7 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Layout" initialOpen={true}>
+				<PanelBody title="Kiểu hiển thị" initialOpen={true}>
 					<SelectControl
 						label="Kiểu hiển thị"
 						value={compact ? "compact" : "classic"}

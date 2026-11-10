@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/about-hero-services",
 	"version": "1.0.0",
-	"title": "[About] Hero + services + stats",
+	"title": "Giới thiệu · Mở đầu + dịch vụ",
 	"category": "welive",
 	"icon": "columns",
-	"description": "Eyebrow, big title, text, button, three orange service cards with photos and a stats row.",
+	"description": "Tiêu đề, nút, 3 thẻ dịch vụ kèm ảnh và dải số liệu.",
 	"supports": {
 		"html": false,
 		"align": [

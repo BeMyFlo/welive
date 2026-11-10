@@ -1,27 +1,31 @@
 import { useBlockProps, RichText, InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TextControl, Button } from "@wordpress/components";
+import { PanelBody, TextControl } from "@wordpress/components";
+import ItemsPanel, { Html, dec } from "../shared/ItemsPanel.js";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { eyebrow, title, anchor, items = [] } = attributes;
+	const { eyebrow, title, items = [] } = attributes;
 	const blockProps = useBlockProps({ className: "ahy" });
-	const setItem = (i, patch) => setAttributes({ items: items.map((it, k) => (k === i ? { ...it, ...patch } : it)) });
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Mốc thời gian" initialOpen={true}>
-					<TextControl label="Anchor (id)" value={anchor || ""} onChange={(v) => setAttributes({ anchor: v })} />
-					<Button variant="secondary" onClick={() => setAttributes({ items: [...items, { year: "", text: "" }] })}>
-						+ Thêm mốc
-					</Button>
-					{items.length > 0 && (
-						<Button isDestructive variant="link" style={{ marginLeft: 12 }} onClick={() => setAttributes({ items: items.slice(0, -1) })}>
-							Xoá mốc cuối
-						</Button>
-					)}
+				<ItemsPanel
+					title="Các mốc thời gian"
+					hint="Mốc cuối cùng được tô màu cam. Thêm, xoá, đổi thứ tự ở đây."
+					items={items}
+					setItems={(v) => setAttributes({ items: v })}
+					itemLabel={(it) => `${dec(it.year)} — ${dec(it.text).slice(0, 40)}`}
+					makeItem={() => ({ year: "2027", text: "" })}
+					addLabel="+ Thêm mốc"
+					fields={[
+						{ key: "year", label: "Năm" },
+						{ key: "text", label: "Nội dung", type: "textarea", rows: 3 },
+					]}
+				/>
+				<PanelBody title="Liên kết" initialOpen={false}>
+					<TextControl label="Anchor (id để link tới, vd #hanh-trinh)" value={attributes.anchor || ""} onChange={(v) => setAttributes({ anchor: v })} />
 				</PanelBody>
 			</InspectorControls>
-
 			<section {...blockProps}>
 				<div className="ahy__wrap">
 					<RichText tagName="p" className="ahy__eyebrow" value={eyebrow} onChange={(v) => setAttributes({ eyebrow: v })} placeholder="Nhãn" allowedFormats={[]} />
@@ -29,8 +33,8 @@ export default function Edit({ attributes, setAttributes }) {
 					<ol className="ahy__list">
 						{items.map((it, i) => (
 							<li key={i}>
-								<RichText tagName="span" className="ahy__year" value={it.year} onChange={(v) => setItem(i, { year: v })} placeholder="2026" allowedFormats={[]} />
-								<RichText tagName="p" value={it.text} onChange={(v) => setItem(i, { text: v })} placeholder="Nội dung (Shift+Enter xuống dòng)" />
+								<Html className="ahy__year" value={it.year} />
+								<Html tag="p" value={it.text} />
 							</li>
 						))}
 					</ol>

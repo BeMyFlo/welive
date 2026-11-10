@@ -13,12 +13,12 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				<PanelBody title="Section" initialOpen={false}>
-					<TextControl label="Anchor (id for #links)" value={anchor} onChange={(val) => setAttributes({ anchor: val })} />
-					<TextControl label="Button link" value={btnUrl} onChange={(val) => setAttributes({ btnUrl: val })} />
+					<TextControl label="Anchor (id để link tới)" value={anchor} onChange={(val) => setAttributes({ anchor: val })} />
+					<TextControl label="Link nút" value={btnUrl} onChange={(val) => setAttributes({ btnUrl: val })} />
 				</PanelBody>
-				<PanelBody title="Layout" initialOpen={true}>
+				<PanelBody title="Kiểu hiển thị" initialOpen={true}>
 					<SelectControl
-						label="Layout"
+						label="Kiểu hiển thị"
 						value={isSteps ? "steps" : "cards"}
 						options={[
 							{ label: "3 bước chữ (demo mới)", value: "steps" },
@@ -29,7 +29,7 @@ export default function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 				<PanelBody title="Card icons" initialOpen={!isSteps}>
 					{!isSteps && cards.map((card, index) => (
-						<SelectControl key={index} label={`Card #${index + 1}`} value={card.icon} options={ICON_OPTIONS.services} onChange={(val) => update(index, { icon: val })} />
+						<SelectControl key={index} label={`Thẻ ${index + 1}`} value={card.icon} options={ICON_OPTIONS.services} onChange={(val) => update(index, { icon: val })} />
 					))}
 				</PanelBody>
 			</InspectorControls>

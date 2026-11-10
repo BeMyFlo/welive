@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/about-intro-grid",
 	"version": "1.0.0",
-	"title": "[About Us] Intro Grid",
+	"title": "Giới thiệu · Lưới ảnh giới thiệu (cũ)",
 	"category": "welive",
 	"icon": "grid-view",
-	"description": "About page description columns and partners/artists photo collage grid.",
+	"description": "Khối cũ: lưới ảnh kèm lời giới thiệu.",
 	"supports": {
 		"html": false,
 		"align": [

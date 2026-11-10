@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/contact-hero",
 	"version": "1.0.0",
-	"title": "Contact Hero",
+	"title": "Liên hệ · Tiêu đề trang (cũ)",
 	"category": "welive",
 	"icon": "heading",
-	"description": "Simple hero header block for the Contact page.",
+	"description": "Khối cũ: tiêu đề đầu trang liên hệ.",
 	"supports": {
 		"html": false,
 		"align": [

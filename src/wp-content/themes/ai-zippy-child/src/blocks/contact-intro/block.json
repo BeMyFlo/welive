@@ -3,18 +3,41 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/contact-intro",
 	"version": "1.0.0",
-	"title": "[Contact] Intro + Zalo Phone",
+	"title": "Liên hệ · Giới thiệu + số Zalo",
 	"category": "welive",
 	"icon": "phone",
-	"description": "Intro sentence on the left and an orange card with the Zalo phone number on the right.",
-	"supports": { "html": false, "align": ["full"] },
+	"description": "Câu giới thiệu bên trái và thẻ cam hiển thị số điện thoại Zalo.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
 	"attributes": {
-		"anchor": { "type": "string", "default": "thong-tin-lien-he" },
-		"text": { "type": "string", "default": "Bạn muốn gia nhập, cần hỗ trợ livestream hoặc có ý tưởng hợp tác? Chọn kênh phù hợp để kết nối với Welive." },
-		"phoneTitle": { "type": "string", "default": "Số điện thoại Zalo Welive" },
-		"phone": { "type": "string", "default": "" },
-		"phonePlaceholder": { "type": "string", "default": "Đang cập nhật" },
-		"phoneNote": { "type": "string", "default": "Dùng số này để tìm Welive trên Zalo." }
+		"anchor": {
+			"type": "string",
+			"default": "thong-tin-lien-he"
+		},
+		"text": {
+			"type": "string",
+			"default": "Bạn muốn gia nhập, cần hỗ trợ livestream hoặc có ý tưởng hợp tác? Chọn kênh phù hợp để kết nối với Welive."
+		},
+		"phoneTitle": {
+			"type": "string",
+			"default": "Số điện thoại Zalo Welive"
+		},
+		"phone": {
+			"type": "string",
+			"default": ""
+		},
+		"phonePlaceholder": {
+			"type": "string",
+			"default": "Đang cập nhật"
+		},
+		"phoneNote": {
+			"type": "string",
+			"default": "Dùng số này để tìm Welive trên Zalo."
+		}
 	},
 	"textdomain": "ai-zippy-child",
 	"editorScript": "file:./index.js",

@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/about-partner",
 	"version": "1.0.0",
-	"title": "About Partner",
+	"title": "Giới thiệu · Đối tác (cũ)",
 	"category": "welive",
 	"icon": "welcome-widgets-menus",
-	"description": "About section with 360-degree solutions text and visual space banner.",
+	"description": "Khối cũ: giới thiệu đối tác.",
 	"supports": {
 		"html": false,
 		"align": [

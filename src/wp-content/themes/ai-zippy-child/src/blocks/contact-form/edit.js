@@ -18,7 +18,7 @@ export default function Edit({ attributes, setAttributes }) {
 						label="Google Maps Iframe HTML"
 						value={mapIframe}
 						onChange={(val) => setAttributes({ mapIframe: val })}
-						help="Copy & paste the iframe embed HTML from Google Maps."
+						help="Dán mã nhúng (iframe) từ Google Maps."
 						rows={8}
 					/>
 				</PanelBody>

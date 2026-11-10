@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/solutions-grid",
 	"version": "1.0.0",
-	"title": "Solutions Grid",
+	"title": "Lưới giải pháp (cũ)",
 	"category": "welive",
 	"icon": "grid-view",
-	"description": "Grid of 360-degree service solution cards with flip and hover image overlays.",
+	"description": "Khối cũ: lưới các giải pháp.",
 	"supports": {
 		"html": false,
 		"align": [

@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/agency-contact",
 	"version": "1.0.0",
-	"title": "[Agency] Contact",
+	"title": "Agency · Thông tin liên hệ (cũ)",
 	"category": "welive",
 	"icon": "email",
-	"description": "Heading and three contact cards with icon, label and value.",
+	"description": "Khối cũ: 3 thẻ liên hệ có icon.",
 	"supports": {
 		"html": false,
 		"align": [

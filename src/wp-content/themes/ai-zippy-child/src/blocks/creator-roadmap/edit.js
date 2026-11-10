@@ -1,76 +1,83 @@
-import { useState } from "@wordpress/element";
 import { useBlockProps, RichText, InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TextControl, Button } from "@wordpress/components";
-import ImagePicker from "../shared/ImagePicker.js";
-import BulletsEditor from "../shared/BulletsEditor.js";
+import { PanelBody, TextControl } from "@wordpress/components";
+import { useState } from "@wordpress/element";
+import ItemsPanel, { Html, dec } from "../shared/ItemsPanel.js";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { anchor, badge, title, titleAccent, description, tabs, footnote, linkText, linkUrl } = attributes;
+	const { badge, title, titleAccent, description, tabs = [], footnote, linkText, linkUrl } = attributes;
 	const [active, setActive] = useState(0);
 	const blockProps = useBlockProps({ className: "crm" });
-	const set = (key) => (val) => setAttributes({ [key]: val });
+	const set = (key) => (v) => setAttributes({ [key]: v });
 	const current = Math.min(active, Math.max(tabs.length - 1, 0));
-	const update = (index, patch) => setAttributes({ tabs: tabs.map((t, i) => (i === index ? { ...t, ...patch } : t)) });
-	const add = () => {
-		setAttributes({ tabs: [...tabs, { label: "NGÀY", name: "Giai đoạn mới", heading: "Tiêu đề", bullets: ["Nội dung"], imageId: 0, imageUrl: "" }] });
-		setActive(tabs.length);
-	};
-	const remove = () => {
-		setAttributes({ tabs: tabs.filter((_, i) => i !== current) });
-		setActive(0);
-	};
-	const tab = tabs[current];
+	const cur = tabs[current];
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Section" initialOpen={true}>
-					<TextControl label="Anchor (id for #links)" value={anchor} onChange={set("anchor")} />
-					<TextControl label="Footer link URL" value={linkUrl} onChange={set("linkUrl")} help='Dùng "/duong-dan/" cho trang trong site.' />
+				<ItemsPanel
+					title="Các tab lộ trình"
+					hint="Bấm tab trên canvas để xem trước, sửa nội dung từng tab ở đây."
+					items={tabs}
+					setItems={(v) => setAttributes({ tabs: v })}
+					active={current}
+					setActive={setActive}
+					itemLabel={(t) => `${dec(t.label)} ${dec(t.name)}`}
+					makeItem={() => ({ label: "NGÀY ", name: "Tab mới", heading: "", bullets: [""], imageId: 0, imageUrl: "" })}
+					addLabel="+ Thêm tab"
+					fields={[
+						{ key: "label", label: "Ngày (nhãn nhỏ)" },
+						{ key: "name", label: "Tên tab" },
+						{ key: "heading", label: "Tiêu đề trong khung" },
+						{ key: "bullets", label: "Các ý", type: "lines" },
+						{ key: "imageId", type: "image", label: "Ảnh của tab này" },
+					]}
+				/>
+				<PanelBody title="Liên kết" initialOpen={false}>
+					<TextControl label="Anchor (id để link tới, vd #lo-trinh)" value={attributes.anchor || ""} onChange={set("anchor")} />
+					<TextControl label="Link cuối khối" value={linkUrl} onChange={set("linkUrl")} help='Dùng "/duong-dan/" cho trang trong site.' />
 				</PanelBody>
 			</InspectorControls>
 			<div {...blockProps}>
 				<div className="crm__container">
 					<div className="crm__header">
 						<div className="crm__intro">
-							<span className="crm__badge"><RichText tagName="span" value={badge} onChange={set("badge")} placeholder="Badge..." allowedFormats={[]} /></span>
-							<h2 className="crm__title">
-								<RichText tagName="span" value={title} onChange={set("title")} placeholder="Title..." allowedFormats={[]} />
-								<RichText tagName="span" className="crm__title-accent" value={titleAccent} onChange={set("titleAccent")} placeholder="Accent..." allowedFormats={[]} />
-							</h2>
+							<RichText tagName="span" className="crm__badge" value={badge} onChange={set("badge")} placeholder="Nhãn" allowedFormats={[]} />
+							<RichText tagName="h2" className="crm__title" value={title} onChange={set("title")} placeholder="Tiêu đề" allowedFormats={[]} />
+							<RichText tagName="p" className="crm__title crm__title-accent" value={titleAccent} onChange={set("titleAccent")} placeholder="Tiêu đề (dòng màu)" allowedFormats={[]} />
 						</div>
-						<RichText tagName="p" className="crm__desc" value={description} onChange={set("description")} placeholder="Description..." allowedFormats={[]} />
+						<RichText tagName="p" className="crm__desc" value={description} onChange={set("description")} placeholder="Mô tả" />
 					</div>
-
-					<div className="crm__tabs">
-						{tabs.map((t, index) => (
-							<div key={index} className={`crm__tab${index === current ? " is-active" : ""}`} onClick={() => setActive(index)} role="button" tabIndex={0}>
-								<RichText tagName="span" className="crm__tab-label" value={t.label} onChange={(val) => update(index, { label: val })} placeholder="NGÀY..." allowedFormats={[]} />
-								<RichText tagName="span" className="crm__tab-name" value={t.name} onChange={(val) => update(index, { name: val })} placeholder="Tên giai đoạn" allowedFormats={[]} />
+					<div className="crm__tabs" role="tablist">
+						{tabs.map((t, i) => (
+							<div key={i} role="button" tabIndex={0} className={`crm__tab${i === current ? " is-active" : ""}`} onClick={() => setActive(i)} onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setActive(i)}>
+								<Html className="crm__tab-label" value={t.label} />
+								<Html className="crm__tab-name" value={t.name} />
 							</div>
 						))}
 					</div>
-
-					{tab && (
-						<div className="crm__panels">
+					<div className="crm__panels">
+						{cur ? (
 							<div className="crm__panel is-active">
 								<div className="crm__panel-text">
-									<RichText tagName="span" className="crm__panel-label" value={tab.label} onChange={(val) => update(current, { label: val })} placeholder="NGÀY..." allowedFormats={[]} />
-									<RichText tagName="h3" className="crm__panel-heading" value={tab.heading} onChange={(val) => update(current, { heading: val })} placeholder="Heading" allowedFormats={[]} />
-									<BulletsEditor items={tab.bullets} onChange={(val) => update(current, { bullets: val })} listClass="crm__list" />
+									<Html className="crm__panel-label" value={cur.label} />
+									<Html tag="h3" className="crm__panel-heading" value={cur.heading} />
+									<ul className="crm__list">
+										{(cur.bullets || []).filter((b) => b.trim() !== "").map((b, j) => (
+											<Html key={j} tag="li" value={b} />
+										))}
+									</ul>
 								</div>
-								<ImagePicker className="crm__panel-media" imageId={tab.imageId} imageUrl={tab.imageUrl} onSelect={(patch) => update(current, patch)} />
+								<div className="crm__panel-media">{cur.imageUrl ? <img src={cur.imageUrl} alt="" /> : <span className="hm-img-empty">Chưa có ảnh — chọn ở thanh bên phải</span>}</div>
 							</div>
-						</div>
-					)}
-					<div style={{ display: "flex", gap: 12, marginTop: 16 }}>
-						<Button variant="secondary" onClick={add}>+ Thêm giai đoạn</Button>
-						{tabs.length > 1 && <Button variant="link" isDestructive onClick={remove}>Xoá giai đoạn đang chọn</Button>}
+						) : (
+							<p>Chưa có tab nào. Bấm "+ Thêm tab" ở thanh bên phải.</p>
+						)}
 					</div>
-
 					<div className="crm__footer">
-						<RichText tagName="p" className="crm__footnote" value={footnote} onChange={set("footnote")} placeholder="Ghi chú..." allowedFormats={[]} />
-						<span className="crm__link"><RichText tagName="span" value={linkText} onChange={set("linkText")} placeholder="Link..." allowedFormats={[]} /></span>
+						<RichText tagName="p" className="crm__footnote" value={footnote} onChange={set("footnote")} placeholder="Ghi chú nhỏ" allowedFormats={[]} />
+						<span className="crm__link">
+							<RichText tagName="span" value={linkText} onChange={set("linkText")} placeholder="Chữ link" allowedFormats={[]} />
+						</span>
 					</div>
 				</div>
 			</div>

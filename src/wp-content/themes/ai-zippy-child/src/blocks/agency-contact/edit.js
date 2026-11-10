@@ -11,12 +11,12 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				<PanelBody title="Section" initialOpen={false}>
-					<TextControl label="Anchor (id for #links)" value={anchor} onChange={(val) => setAttributes({ anchor: val })} />
+					<TextControl label="Anchor (id để link tới)" value={anchor} onChange={(val) => setAttributes({ anchor: val })} />
 				</PanelBody>
 				{items.map((item, index) => (
-					<PanelBody key={index} title={`Item #${index + 1}`} initialOpen={index === 0}>
+					<PanelBody key={index} title={`Mục ${index + 1}`} initialOpen={index === 0}>
 						<SelectControl label="Icon" value={item.icon} options={ICON_OPTIONS.contact} onChange={(val) => update(index, { icon: val })} />
-						<TextControl label="Link (mailto:, tel:, https:// — optional)" value={item.url} onChange={(val) => update(index, { url: val })} />
+						<TextControl label="Link (mailto:, tel:, https:// — không bắt buộc)" value={item.url} onChange={(val) => update(index, { url: val })} />
 					</PanelBody>
 				))}
 			</InspectorControls>

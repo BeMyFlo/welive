@@ -1,57 +1,93 @@
 import { useBlockProps, RichText, InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TextControl } from "@wordpress/components";
-import ImagePicker from "../shared/ImagePicker.js";
-import BulletsEditor from "../shared/BulletsEditor.js";
+import { PanelBody, TextControl, TextareaControl } from "@wordpress/components";
+import ItemsPanel from "../shared/ItemsPanel.js";
+import { dec, enc } from "../shared/ItemsPanel.js";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { eyebrow, title, titleAccent, bullets, cardLabel, cardKicker, cardTitle, cardTitle2, logoUrl, logoId, photos, avatars, avatarText, btnText, btnUrl } = attributes;
+	const a = attributes;
 	const blockProps = useBlockProps({ className: "ccm" });
-	const set = (key) => (val) => setAttributes({ [key]: val });
-	const updateList = (key, list, index, patch) => setAttributes({ [key]: list.map((x, i) => (i === index ? { ...x, ...patch } : x)) });
+	const set = (key) => (v) => setAttributes({ [key]: v });
+	const bullets = a.bullets || [];
+	const photos = a.photos || [];
+	const avatars = a.avatars || [];
+	const show = (list, n) => list.slice(0, n);
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Button" initialOpen={true}>
-					<TextControl label="Button link" value={btnUrl} onChange={set("btnUrl")} help='Dùng "/duong-dan/" cho trang trong site.' />
+				<PanelBody title="Các ý bên phải" initialOpen={true}>
+					<TextareaControl label="Các ý (mỗi dòng một ý)" rows={6} value={bullets.map(dec).join("\n")} onChange={(v) => setAttributes({ bullets: v.split("\n").map(enc) })} />
+				</PanelBody>
+				<ItemsPanel
+					title="Ảnh trong thẻ"
+					hint="Tối đa 3 ảnh chân dung xếp chồng trong thẻ tối."
+					items={photos}
+					setItems={(v) => setAttributes({ photos: v })}
+					itemLabel={() => "Ảnh"}
+					makeItem={() => ({ imageId: 0, imageUrl: "" })}
+					addLabel="+ Thêm ảnh"
+					max={3}
+					fields={[{ key: "imageId", type: "image", label: "Ảnh" }]}
+					initialOpen={false}
+				/>
+				<ItemsPanel
+					title="Ảnh đại diện nhỏ"
+					hint="Các vòng tròn nhỏ cạnh nút."
+					items={avatars}
+					setItems={(v) => setAttributes({ avatars: v })}
+					itemLabel={() => "Ảnh"}
+					makeItem={() => ({ imageId: 0, imageUrl: "" })}
+					addLabel="+ Thêm ảnh"
+					max={4}
+					fields={[{ key: "imageId", type: "image", label: "Ảnh" }]}
+					initialOpen={false}
+				/>
+				<PanelBody title="Nút & logo" initialOpen={false}>
+					<TextControl label="Link nút" value={a.btnUrl} onChange={set("btnUrl")} help='Dùng "/duong-dan/" cho trang trong site.' />
+					<TextControl label="Link logo (để trống = logo của site)" value={a.logoUrl || ""} onChange={set("logoUrl")} />
 				</PanelBody>
 			</InspectorControls>
 			<div {...blockProps}>
 				<div className="ccm__container">
 					<div className="ccm__card">
 						<div className="ccm__card-top">
-							<ImagePicker className="ccm__logo-picker" imageId={logoId} imageUrl={logoUrl} label="+ Logo (mặc định: logo site)" onSelect={({ imageId, imageUrl }) => setAttributes({ logoId: imageId, logoUrl: imageUrl })} />
-							<RichText tagName="span" className="ccm__card-label" value={cardLabel} onChange={set("cardLabel")} placeholder="Label" allowedFormats={[]} />
+							{a.logoUrl ? <img className="ccm__logo" src={a.logoUrl} alt="" /> : null}
+							<RichText tagName="span" className="ccm__card-label" value={a.cardLabel} onChange={set("cardLabel")} placeholder="Nhãn trên thẻ" allowedFormats={[]} />
 						</div>
 						<div className="ccm__photos">
-							{photos.slice(0, 3).map((photo, i) => (
-								<ImagePicker key={i} className={`ccm__photo ccm__photo--${i + 1}`} imageId={photo.imageId} imageUrl={photo.imageUrl} onSelect={(patch) => updateList("photos", photos, i, patch)} />
+							{show(photos, 3).map((p, i) => (
+								<div key={i} className={`ccm__photo ccm__photo--${i + 1}`}>
+									{p.imageUrl ? <img src={p.imageUrl} alt="" /> : <span className="hm-img-empty">Ảnh</span>}
+								</div>
 							))}
 						</div>
 						<div className="ccm__card-text">
-							<RichText tagName="span" className="ccm__kicker" value={cardKicker} onChange={set("cardKicker")} placeholder="Kicker" allowedFormats={[]} />
-							<RichText tagName="strong" className="ccm__card-title" value={cardTitle} onChange={set("cardTitle")} placeholder="Title line 1" allowedFormats={[]} />
-							<RichText tagName="strong" className="ccm__card-title" value={cardTitle2} onChange={set("cardTitle2")} placeholder="Title line 2" allowedFormats={[]} />
+							<RichText tagName="span" className="ccm__kicker" value={a.cardKicker} onChange={set("cardKicker")} placeholder="Nhãn nhỏ" allowedFormats={[]} />
+							<RichText tagName="strong" className="ccm__card-title" value={a.cardTitle} onChange={set("cardTitle")} placeholder="Tiêu đề thẻ dòng 1" allowedFormats={[]} />
+							<RichText tagName="strong" className="ccm__card-title" value={a.cardTitle2} onChange={set("cardTitle2")} placeholder="Tiêu đề thẻ dòng 2" allowedFormats={[]} />
 						</div>
 					</div>
-
 					<div className="ccm__content">
-						<RichText tagName="span" className="ccm__eyebrow" value={eyebrow} onChange={set("eyebrow")} placeholder="Eyebrow..." allowedFormats={[]} />
-						<h2 className="ccm__title">
-							<RichText tagName="span" value={title} onChange={set("title")} placeholder="Title..." allowedFormats={[]} />{" "}
-							<RichText tagName="span" className="ccm__title-accent" value={titleAccent} onChange={set("titleAccent")} placeholder="Accent..." allowedFormats={[]} />
-						</h2>
-						<BulletsEditor items={bullets} onChange={set("bullets")} listClass="ccm__list" />
+						<RichText tagName="span" className="ccm__eyebrow" value={a.eyebrow} onChange={set("eyebrow")} placeholder="Nhãn nhỏ" allowedFormats={[]} />
+						<RichText tagName="h2" className="ccm__title" value={a.title} onChange={set("title")} placeholder="Tiêu đề" allowedFormats={[]} />
+						<RichText tagName="p" className="ccm__title ccm__title-accent" value={a.titleAccent} onChange={set("titleAccent")} placeholder="Tiêu đề (chữ màu)" allowedFormats={[]} />
+						<ul className="ccm__list">
+							{bullets.filter((b) => b.trim() !== "").map((b, i) => (
+								<li key={i} dangerouslySetInnerHTML={{ __html: b }} />
+							))}
+						</ul>
 						<div className="ccm__actions">
 							<div className="ccm__people">
 								<span className="ccm__avatars">
-									{avatars.map((a, i) => (
-										<ImagePicker key={i} className="ccm__avatar" imageId={a.imageId} imageUrl={a.imageUrl} label="+" onSelect={(patch) => updateList("avatars", avatars, i, patch)} />
+									{avatars.map((v, i) => (
+										<span key={i} className="ccm__avatar">{v.imageUrl ? <img src={v.imageUrl} alt="" /> : null}</span>
 									))}
 								</span>
-								<RichText tagName="span" className="ccm__people-text" value={avatarText} onChange={set("avatarText")} placeholder="Text" allowedFormats={[]} />
+								<RichText tagName="span" className="ccm__people-text" value={a.avatarText} onChange={set("avatarText")} placeholder="Chữ cạnh ảnh đại diện" allowedFormats={[]} />
 							</div>
-							<span className="ccm__btn"><RichText tagName="span" value={btnText} onChange={set("btnText")} placeholder="Button..." allowedFormats={[]} /></span>
+							<span className="ccm__btn">
+								<RichText tagName="span" value={a.btnText} onChange={set("btnText")} placeholder="Chữ nút" allowedFormats={[]} />
+							</span>
 						</div>
 					</div>
 				</div>

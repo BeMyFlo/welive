@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/creator-roadmap",
 	"version": "1.0.0",
-	"title": "[Creator] Roadmap",
+	"title": "Lộ trình 45 ngày · Các chặng đào tạo",
 	"category": "welive",
 	"icon": "editor-ol",
-	"description": "Badge, two-tone heading, day-range tabs with detail panel, and a footer note with link.",
+	"description": "Các tab ngày, mỗi tab có khung chi tiết, các ý và ảnh riêng. Quản lý tab ở thanh bên phải.",
 	"supports": {
 		"html": false,
 		"align": [

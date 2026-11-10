@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/artists-hero",
 	"version": "1.0.0",
-	"title": "Artists Hero",
+	"title": "Nhà sáng tạo · Tiêu đề trang (cũ)",
 	"category": "welive",
 	"icon": "heading",
-	"description": "Simple hero header block for the Artists page.",
+	"description": "Khối cũ: tiêu đề lớn đầu trang.",
 	"supports": {
 		"html": false,
 		"align": [

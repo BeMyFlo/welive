@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/home-creators",
 	"version": "1.0.0",
-	"title": "[Home] Creators grid",
+	"title": "Trang chủ · Nhà sáng tạo",
 	"category": "welive",
 	"icon": "id-alt",
-	"description": "Heading plus a grid of creator photo cards with links.",
+	"description": "Hàng ảnh nhà sáng tạo kèm tên và link. Quản lý từng người ở thanh bên phải.",
 	"supports": {
 		"html": false,
 		"align": [

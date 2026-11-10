@@ -1,30 +1,32 @@
 import { useBlockProps, RichText, InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TextControl, Button } from "@wordpress/components";
+import { PanelBody, TextControl } from "@wordpress/components";
+import ItemsPanel, { Html, dec } from "../shared/ItemsPanel.js";
 import ImagePicker from "../shared/ImagePicker.js";
 
 export default function Edit({ attributes, setAttributes }) {
 	const { eyebrow, title, titleAccent, caption, alt, imageId, imageUrl, items = [] } = attributes;
 	const blockProps = useBlockProps({ className: "abf" });
-	const setItem = (i, patch) => setAttributes({ items: items.map((it, k) => (k === i ? { ...it, ...patch } : it)) });
 
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody title="Ảnh" initialOpen={true}>
-					<TextControl label="Alt ảnh" value={alt || ""} onChange={(v) => setAttributes({ alt: v })} />
+					<p style={{ marginTop: 0, color: "#757575" }}>Bấm vào ảnh trên canvas để đổi ảnh.</p>
+					<TextControl label="Alt ảnh (mô tả cho người khiếm thị)" value={alt || ""} onChange={(v) => setAttributes({ alt: v })} />
 				</PanelBody>
-				<PanelBody title="Mục" initialOpen={false}>
-					<Button variant="secondary" onClick={() => setAttributes({ items: [...items, { title: "", text: "" }] })}>
-						+ Thêm mục
-					</Button>
-					{items.length > 0 && (
-						<Button isDestructive variant="link" style={{ marginLeft: 12 }} onClick={() => setAttributes({ items: items.slice(0, -1) })}>
-							Xoá mục cuối
-						</Button>
-					)}
-				</PanelBody>
+				<ItemsPanel
+					title="Các giá trị"
+					items={items}
+					setItems={(v) => setAttributes({ items: v })}
+					itemLabel={(it) => dec(it.title)}
+					makeItem={() => ({ title: "Giá trị mới", text: "" })}
+					addLabel="+ Thêm giá trị"
+					fields={[
+						{ key: "title", label: "Tiêu đề" },
+						{ key: "text", label: "Mô tả", type: "textarea", rows: 4 },
+					]}
+				/>
 			</InspectorControls>
-
 			<section {...blockProps}>
 				<div className="abf__wrap">
 					<figure className="abf__photo">
@@ -42,8 +44,8 @@ export default function Edit({ attributes, setAttributes }) {
 								<li key={i}>
 									<span>{String(i + 1).padStart(2, "0")}</span>
 									<div>
-										<RichText tagName="h3" value={it.title} onChange={(v) => setItem(i, { title: v })} placeholder="Tiêu đề" allowedFormats={[]} />
-										<RichText tagName="p" value={it.text} onChange={(v) => setItem(i, { text: v })} placeholder="Mô tả" />
+										<Html tag="h3" value={it.title} />
+										<Html tag="p" value={it.text} />
 									</div>
 								</li>
 							))}

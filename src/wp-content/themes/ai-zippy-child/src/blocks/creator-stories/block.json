@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/creator-stories",
 	"version": "1.0.0",
-	"title": "[Creator] Story row",
+	"title": "Nhà sáng tạo · Hàng câu chuyện",
 	"category": "welive",
 	"icon": "slides",
-	"description": "Optional eyebrow, a row title with Prev/Next buttons and a horizontally scrolling row of story cards that open a profile dialog.",
+	"description": "Một hàng thẻ chân dung vuốt ngang, bấm vào mở hộp giới thiệu.",
 	"supports": {
 		"html": false,
 		"align": [

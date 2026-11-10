@@ -3,21 +3,41 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/agency-cta",
 	"version": "1.0.0",
-	"title": "[Agency] Contact Band",
+	"title": "Agency · Dải liên hệ",
 	"category": "welive",
 	"icon": "megaphone",
-	"description": "Full-width orange band: heading, text and a dark pill button (e.g. Zalo).",
+	"description": "Dải màu cam: tiêu đề, mô tả và một nút (vd Zalo).",
 	"supports": {
 		"html": false,
-		"align": ["full"]
+		"align": [
+			"full"
+		]
 	},
 	"attributes": {
-		"anchor": { "type": "string", "default": "lien-he" },
-		"title": { "type": "string", "default": "Trao đổi cùng Welive" },
-		"text": { "type": "string", "default": "Chia sẻ với Welive về đội ngũ bạn muốn mở rộng hoặc agency bạn đang ấp ủ. Hai bên sẽ cùng trao đổi bước tiếp theo." },
-		"btnText": { "type": "string", "default": "Nhắn Welive qua Zalo" },
-		"btnUrl": { "type": "string", "default": "https://zalo.me/2311145967487700822" },
-		"newTab": { "type": "boolean", "default": true }
+		"anchor": {
+			"type": "string",
+			"default": "lien-he"
+		},
+		"title": {
+			"type": "string",
+			"default": "Trao đổi cùng Welive"
+		},
+		"text": {
+			"type": "string",
+			"default": "Chia sẻ với Welive về đội ngũ bạn muốn mở rộng hoặc agency bạn đang ấp ủ. Hai bên sẽ cùng trao đổi bước tiếp theo."
+		},
+		"btnText": {
+			"type": "string",
+			"default": "Nhắn Welive qua Zalo"
+		},
+		"btnUrl": {
+			"type": "string",
+			"default": "https://zalo.me/2311145967487700822"
+		},
+		"newTab": {
+			"type": "boolean",
+			"default": true
+		}
 	},
 	"textdomain": "ai-zippy-child",
 	"editorScript": "file:./index.js",

@@ -10,14 +10,14 @@ export default function Edit({ attributes, setAttributes }) {
 			<InspectorControls>
 				<PanelBody title="Ticker Settings" initialOpen={true}>
 					<RangeControl
-						label="Scroll Speed (Seconds)"
+						label="Tốc độ chạy (giây)"
 						value={speed}
 						onChange={(val) => setAttributes({ speed: val })}
 						min={2}
 						max={40}
 					/>
 					<RangeControl
-						label="Logo Height (px)"
+						label="Chiều cao logo (px)"
 						value={logoHeight}
 						onChange={(val) => setAttributes({ logoHeight: val })}
 						min={20}

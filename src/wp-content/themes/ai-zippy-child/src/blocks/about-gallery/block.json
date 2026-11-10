@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/about-gallery",
 	"version": "1.0.0",
-	"title": "[About] Photo moments gallery",
+	"title": "Giới thiệu · Thư viện khoảnh khắc",
 	"category": "welive",
 	"icon": "format-gallery",
-	"description": "Filterable photo grid with Show more and a lightbox.",
+	"description": "Lưới ảnh có bộ lọc, nút xem thêm và phóng to ảnh.",
 	"supports": {
 		"html": false,
 		"align": [

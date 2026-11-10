@@ -1,154 +1,71 @@
-import { useBlockProps, RichText, MediaUpload, InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TextControl, Button, Dashicon, SelectControl, TextareaControl } from "@wordpress/components";
+import { useBlockProps, RichText, InspectorControls } from "@wordpress/block-editor";
+import { PanelBody, TextControl, TextareaControl, SelectControl } from "@wordpress/components";
+import ItemsPanel, { Html, dec } from "../shared/ItemsPanel.js";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { title, subheading, artists, textAlign, layout, titleAccent, description, dividerText, note, dialogEyebrow, pendingText, dialogFallback } = attributes;
+	const { title, subheading, artists = [], textAlign, layout, titleAccent, description, dividerText, note, dialogEyebrow, pendingText, dialogFallback } = attributes;
 	const blockProps = useBlockProps({ className: `as has-text-align-${textAlign || "left"}` });
-
-	const addArtist = () => {
-		const newArtists = [
-			...artists,
-			{
-				name: "New Artist",
-				number: String(artists.length + 1).padStart(2, "0"),
-				imageId: 0,
-				imageUrl: "",
-				dob: "",
-				genre: "",
-				bio: "",
-				socials: { facebook: "", instagram: "", tiktok: "", threads: "", youtube: "" }
-			}
-		];
-		setAttributes({ artists: newArtists });
-	};
-
-	const removeArtist = (index) => {
-		const newArtists = artists.filter((_, i) => i !== index);
-		setAttributes({ artists: newArtists });
-	};
-
-	const updateArtist = (index, key, value) => {
-		const newArtists = [...artists];
-		newArtists[index] = { ...newArtists[index], [key]: value };
-		setAttributes({ artists: newArtists });
-	};
-
-	const updateArtistSocial = (index, socialKey, value) => {
-		const newArtists = [...artists];
-		newArtists[index] = {
-			...newArtists[index],
-			socials: {
-				...newArtists[index].socials,
-				[socialKey]: value
-			}
-		};
-		setAttributes({ artists: newArtists });
-	};
+	const isWall = layout === "wall";
+	const set = (key) => (v) => setAttributes({ [key]: v });
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Layout" initialOpen={true}>
+				<PanelBody title="Kiểu hiển thị" initialOpen={true}>
 					<SelectControl
-						label="Layout"
+						label="Kiểu hiển thị"
 						value={layout || "grid"}
 						options={[
-							{ label: "Grid", value: "grid" },
-							{ label: "Bức tường danh vọng (Wall of Honor)", value: "wall" }
+							{ label: "Lưới ảnh", value: "grid" },
+							{ label: "Bức tường danh vọng (khung vàng)", value: "wall" },
 						]}
-						onChange={(val) => setAttributes({ layout: val })}
+						onChange={set("layout")}
 					/>
 				</PanelBody>
-				{layout === "wall" && (
-					<PanelBody title="Bức tường danh vọng — chữ" initialOpen={true}>
-						<TextControl label="Tiêu đề (dòng 1)" value={title} onChange={(val) => setAttributes({ title: val })} />
-						<TextControl label="Tiêu đề (dòng 2, màu vàng)" value={titleAccent || ""} onChange={(val) => setAttributes({ titleAccent: val })} />
-						<TextareaControl label="Mô tả bên phải (dùng <br> để xuống dòng)" value={description || ""} onChange={(val) => setAttributes({ description: val })} rows={3} />
-						<TextControl label="Chữ phân cách" value={dividerText || ""} onChange={(val) => setAttributes({ dividerText: val })} />
-						<TextControl label="Dòng ghi chú cuối" value={note || ""} onChange={(val) => setAttributes({ note: val })} />
-						<TextControl label="Nhãn trong hộp giới thiệu" value={dialogEyebrow || ""} onChange={(val) => setAttributes({ dialogEyebrow: val })} />
-						<TextControl label="Nội dung hộp giới thiệu khi chưa có bio" value={dialogFallback || ""} onChange={(val) => setAttributes({ dialogFallback: val })} />
-						<TextControl label="Chữ khi chưa có chân dung" value={pendingText || ""} onChange={(val) => setAttributes({ pendingText: val })} />
+				<ItemsPanel
+					title="Nhà sáng tạo"
+					hint="Bức tường: 3 người đầu đứng bục cao, những người sau xếp hàng nhỏ. Thêm, xoá, đổi thứ tự và nhập thông tin từng người ở đây."
+					items={artists}
+					setItems={(v) => setAttributes({ artists: v })}
+					itemLabel={(a) => `${a.number || ""} ${dec(a.name)}`}
+					makeItem={(n) => ({ name: "TÊN", number: String(n + 1).padStart(2, "0"), imageId: 0, imageUrl: "", position: "", dob: "", genre: "", bio: "", socials: { facebook: "", instagram: "", tiktok: "", threads: "", youtube: "" } })}
+					addLabel="+ Thêm nhà sáng tạo"
+					fields={[
+						{ key: "name", label: "Tên" },
+						{ key: "number", label: "Số thứ tự (vd 01)", type: "url" },
+						{ key: "imageId", type: "image", label: "Ảnh chân dung (để trống = khung chờ)" },
+						{ key: "position", label: "Vị trí cắt ảnh (vd 50% 42%)", type: "url" },
+						{ key: "bio", label: "Giới thiệu (hiện khi bấm vào ảnh)", type: "textarea", rows: 5 },
+						{ key: "socials.facebook", label: "Facebook", type: "url" },
+						{ key: "socials.instagram", label: "Instagram", type: "url" },
+						{ key: "socials.tiktok", label: "TikTok", type: "url" },
+						{ key: "socials.threads", label: "Threads", type: "url" },
+						{ key: "socials.youtube", label: "YouTube", type: "url" },
+					]}
+				/>
+				{isWall && (
+					<PanelBody title="Chữ của Bức tường danh vọng" initialOpen={false}>
+						<TextControl label="Tiêu đề (dòng 1)" value={title} onChange={set("title")} />
+						<TextControl label="Tiêu đề (dòng 2, màu vàng)" value={titleAccent || ""} onChange={set("titleAccent")} />
+						<TextareaControl label="Mô tả bên phải (dùng <br> để xuống dòng)" value={description || ""} onChange={set("description")} rows={3} />
+						<TextControl label="Chữ phân cách" value={dividerText || ""} onChange={set("dividerText")} />
+						<TextControl label="Dòng ghi chú cuối" value={note || ""} onChange={set("note")} />
+						<TextControl label="Nhãn trong hộp giới thiệu" value={dialogEyebrow || ""} onChange={set("dialogEyebrow")} />
+						<TextControl label="Nội dung hộp giới thiệu khi chưa có bio" value={dialogFallback || ""} onChange={set("dialogFallback")} />
+						<TextControl label="Chữ khi chưa có chân dung" value={pendingText || ""} onChange={set("pendingText")} />
 					</PanelBody>
 				)}
-				<PanelBody title="Text Alignment" initialOpen={false}>
+				<PanelBody title="Căn chữ" initialOpen={false}>
 					<SelectControl
-						label="Text Alignment"
+						label="Căn chữ"
 						value={textAlign || "left"}
 						options={[
-							{ label: "Left", value: "left" },
-							{ label: "Center", value: "center" },
-							{ label: "Right", value: "right" },
-							{ label: "Justify", value: "justify" }
+							{ label: "Trái", value: "left" },
+							{ label: "Giữa", value: "center" },
+							{ label: "Phải", value: "right" },
 						]}
-						onChange={(val) => setAttributes({ textAlign: val })}
+						onChange={set("textAlign")}
 					/>
-				</PanelBody>
-				<PanelBody title="Manage Artists Info" initialOpen={true}>
-					{artists.map((artist, index) => (
-						<div key={index} style={{ borderBottom: "1px solid #ccc", paddingBottom: 15, marginBottom: 15 }}>
-							<div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-								<strong>Artist #{index + 1}</strong>
-								<Button isDestructive variant="link" onClick={() => removeArtist(index)}>
-									Remove
-								</Button>
-							</div>
-							<TextControl
-								label="Vị trí ảnh (object-position, vd 50% 42%)"
-								value={artist.position || ""}
-								onChange={(val) => updateArtist(index, "position", val)}
-							/>
-							<TextControl
-								label="Number"
-								value={artist.number}
-								onChange={(val) => updateArtist(index, "number", val)}
-							/>
-							<TextareaControl
-								label="Biography / Info"
-								value={artist.bio || ""}
-								onChange={(val) => updateArtist(index, "bio", val)}
-								rows={4}
-							/>
-							<TextControl
-								label="Date of Birth (DOB)"
-								value={artist.dob || ""}
-								onChange={(val) => updateArtist(index, "dob", val)}
-							/>
-							<TextControl
-								label="Genre(s)"
-								value={artist.genre || ""}
-								onChange={(val) => updateArtist(index, "genre", val)}
-							/>
-							<TextControl
-								label="Facebook URL"
-								value={artist.socials?.facebook}
-								onChange={(val) => updateArtistSocial(index, "facebook", val)}
-							/>
-							<TextControl
-								label="Instagram URL"
-								value={artist.socials?.instagram}
-								onChange={(val) => updateArtistSocial(index, "instagram", val)}
-							/>
-							<TextControl
-								label="TikTok URL"
-								value={artist.socials?.tiktok}
-								onChange={(val) => updateArtistSocial(index, "tiktok", val)}
-							/>
-							<TextControl
-								label="Threads URL"
-								value={artist.socials?.threads}
-								onChange={(val) => updateArtistSocial(index, "threads", val)}
-							/>
-							<TextControl
-								label="YouTube URL"
-								value={artist.socials?.youtube}
-								onChange={(val) => updateArtistSocial(index, "youtube", val)}
-							/>
-						</div>
-					))}
-					<Button variant="primary" onClick={addArtist} style={{ width: "100%", marginTop: 10 }}>
-						Add New Artist
-					</Button>
 				</PanelBody>
 			</InspectorControls>
 
@@ -156,84 +73,20 @@ export default function Edit({ attributes, setAttributes }) {
 				<div className="as__container">
 					<div className="as__header-wrap">
 						<div className="as__intro">
-							<div className="as__subheading-wrap">
-								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: "rotate(45deg)", marginRight: 8 }}>
-									<path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#EC4600" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-								</svg>
-								<RichText
-									tagName="h6"
-									className="as__subheading"
-									value={subheading}
-									onChange={(val) => setAttributes({ subheading: val })}
-									placeholder="Subheading..."
-								/>
-							</div>
-							<RichText
-								tagName="h2"
-								className="as__heading"
-								value={title}
-								onChange={(val) => setAttributes({ title: val })}
-								placeholder="Title..."
-							/>
+							<RichText tagName="h6" className="as__subheading" value={subheading} onChange={set("subheading")} placeholder="Nhãn nhỏ" allowedFormats={[]} />
+							<RichText tagName="h2" className="as__heading" value={title} onChange={set("title")} placeholder="Tiêu đề" allowedFormats={[]} />
 						</div>
-						<Button variant="primary" onClick={addArtist}>
-							Add Artist Card
-						</Button>
 					</div>
-
-					{/* Artists list editing */}
+					{isWall && <p style={{ color: "#8e8b7d", fontSize: 12, margin: "0 0 12px" }}>Bản xem trước đơn giản — khung vàng, bục và hộp giới thiệu chỉ hiện ở trang thật.</p>}
 					<div className="as__grid">
 						{artists.map((artist, index) => (
 							<div key={index} className="as__card">
-								<div className="as__card-img-wrap">
-									{artist.imageUrl ? (
-										<img className="as__card-img" src={artist.imageUrl} alt="" />
-									) : (
-										<div className="as__card-placeholder">
-											<MediaUpload
-												onSelect={(media) => {
-													updateArtist(index, "imageId", media.id);
-													updateArtist(index, "imageUrl", media.url);
-												}}
-												allowedTypes={["image"]}
-												render={({ open }) => (
-													<Button variant="secondary" onClick={open}>
-														Select Image
-													</Button>
-												)}
-											/>
-										</div>
-									)}
-									{artist.imageUrl && (
-										<div className="as__image-edit-overlay">
-											<MediaUpload
-												onSelect={(media) => {
-													updateArtist(index, "imageId", media.id);
-													updateArtist(index, "imageUrl", media.url);
-												}}
-												allowedTypes={["image"]}
-												value={artist.imageId}
-												render={({ open }) => (
-													<Button variant="secondary" onClick={open} style={{ fontSize: "11px" }}>
-														Replace
-													</Button>
-												)}
-											/>
-										</div>
-									)}
-								</div>
-
+								<div className="as__card-img-wrap">{artist.imageUrl ? <img className="as__card-img" src={artist.imageUrl} alt="" /> : <div className="as__card-placeholder">Chưa có ảnh</div>}</div>
 								<div className="as__card-info">
 									<div className="as__card-meta">
 										<span className="as__card-number">{artist.number}</span>
 									</div>
-									<RichText
-										tagName="h3"
-										className="as__card-name"
-										value={artist.name}
-										onChange={(val) => updateArtist(index, "name", val)}
-										placeholder="Artist Name"
-									/>
+									<Html tag="h3" className="as__card-name" value={artist.name} />
 								</div>
 							</div>
 						))}

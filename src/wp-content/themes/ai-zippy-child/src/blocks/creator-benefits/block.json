@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/creator-benefits",
 	"version": "1.0.0",
-	"title": "[Creator] Benefits",
+	"title": "Lộ trình 45 ngày · Quyền lợi",
 	"category": "welive",
 	"icon": "star-filled",
-	"description": "Eyebrow, two-line heading with side text and a row of image cards with bullet lists.",
+	"description": "Tiêu đề và các thẻ quyền lợi có ảnh và các ý. Quản lý thẻ ở thanh bên phải.",
 	"supports": {
 		"html": false,
 		"align": [

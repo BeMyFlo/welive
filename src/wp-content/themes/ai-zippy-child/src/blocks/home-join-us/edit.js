@@ -12,25 +12,25 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				<PanelColorSettings
-					title="Background Settings"
+					title="Màu nền"
 					initialOpen={true}
 					colorSettings={[
 						{
 							value: backgroundColor || "#0b0b0b",
 							onChange: (val) => setAttributes({ backgroundColor: val }),
-							label: "Background Color",
+							label: "Màu nền",
 						},
 					]}
 				/>
-				<PanelBody title="Button Settings" initialOpen={true}>
+				<PanelBody title="Nút" initialOpen={true}>
 					<TextControl
-						label="Button Link URL"
+						label="Link của nút"
 						value={btnUrl}
 						onChange={(val) => setAttributes({ btnUrl: val })}
 						placeholder="https://example.com/join-us"
 					/>
 					<TextControl
-						label="Button Text"
+						label="Chữ trên nút"
 						value={btnText}
 						onChange={(val) => setAttributes({ btnText: val })}
 					/>
@@ -44,13 +44,13 @@ export default function Edit({ attributes, setAttributes }) {
 						onChange={(val) => setAttributes({ variant: val })}
 					/>
 					<SelectControl
-						label="Text Alignment"
+						label="Căn chữ"
 						value={textAlign || "center"}
 						options={[
-							{ label: "Left", value: "left" },
-							{ label: "Center", value: "center" },
-							{ label: "Right", value: "right" },
-							{ label: "Justify", value: "justify" }
+							{ label: "Trái", value: "left" },
+							{ label: "Giữa", value: "center" },
+							{ label: "Phải", value: "right" },
+							{ label: "Đều hai bên", value: "justify" }
 						]}
 						onChange={(val) => setAttributes({ textAlign: val })}
 					/>

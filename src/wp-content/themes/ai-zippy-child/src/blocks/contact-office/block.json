@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/contact-office",
 	"version": "1.0.0",
-	"title": "[Contact] Office Strip",
+	"title": "Liên hệ · Văn phòng + bản đồ",
 	"category": "welive",
 	"icon": "location",
-	"description": "Office name and address with an orange directions link, and an optional Google Maps embed underneath.",
+	"description": "Tên và địa chỉ văn phòng, link chỉ đường và bản đồ Google Maps nhúng.",
 	"supports": {
 		"html": false,
 		"align": [

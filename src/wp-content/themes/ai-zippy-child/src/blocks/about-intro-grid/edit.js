@@ -21,15 +21,15 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Text Alignment" initialOpen={false}>
+				<PanelBody title="Căn chữ" initialOpen={false}>
 					<SelectControl
-						label="Text Alignment"
+						label="Căn chữ"
 						value={textAlign || "left"}
 						options={[
-							{ label: "Left", value: "left" },
-							{ label: "Center", value: "center" },
-							{ label: "Right", value: "right" },
-							{ label: "Justify", value: "justify" }
+							{ label: "Trái", value: "left" },
+							{ label: "Giữa", value: "center" },
+							{ label: "Phải", value: "right" },
+							{ label: "Đều hai bên", value: "justify" }
 						]}
 						onChange={(val) => setAttributes({ textAlign: val })}
 					/>
@@ -73,7 +73,7 @@ export default function Edit({ attributes, setAttributes }) {
 										value={image.imageId}
 										render={({ open }) => (
 											<Button variant="secondary" onClick={open} style={{ fontSize: 11 }}>
-												{image.imageUrl ? "Replace Image" : "Select Image"}
+												{image.imageUrl ? "Đổi ảnh" : "Chọn ảnh"}
 											</Button>
 										)}
 									/>

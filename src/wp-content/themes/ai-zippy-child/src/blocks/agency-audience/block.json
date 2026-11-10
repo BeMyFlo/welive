@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/agency-audience",
 	"version": "1.0.0",
-	"title": "[Agency] Audience Cards",
+	"title": "Agency · Hai thẻ lựa chọn",
 	"category": "welive",
 	"icon": "columns",
-	"description": "Two call-to-action cards. Tones dark/warm keep the old look with image; light/orange give the black-demo cards (eyebrow, title, text, dark pill button).",
+	"description": "Hai thẻ kêu gọi hành động: nhãn, tiêu đề, mô tả và nút.",
 	"supports": {
 		"html": false,
 		"align": [

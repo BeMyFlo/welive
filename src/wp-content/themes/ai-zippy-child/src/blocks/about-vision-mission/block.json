@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/about-vision-mission",
 	"version": "1.0.0",
-	"title": "[About Us] Vision Mission",
+	"title": "Giới thiệu · Tầm nhìn & sứ mệnh (cũ)",
 	"category": "welive",
 	"icon": "visibility",
-	"description": "About page section detailing corporate Vision, Mission, and USP next to a display image.",
+	"description": "Khối cũ: các thẻ tầm nhìn và sứ mệnh.",
 	"supports": {
 		"html": false,
 		"align": [

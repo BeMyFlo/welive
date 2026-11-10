@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/creator-faq",
 	"version": "1.0.0",
-	"title": "[Creator] FAQ",
+	"title": "Lộ trình 45 ngày · Câu hỏi thường gặp",
 	"category": "welive",
 	"icon": "editor-help",
-	"description": "Eyebrow, heading and description on the left, accordion questions on the right.",
+	"description": "Tiêu đề bên trái, danh sách câu hỏi mở ra từng câu bên phải. Quản lý câu hỏi ở thanh bên phải.",
 	"supports": {
 		"html": false,
 		"align": [

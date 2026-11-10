@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/about-community",
 	"version": "1.0.0",
-	"title": "[About] Community CTA",
+	"title": "Giới thiệu · Kêu gọi cộng đồng",
 	"category": "welive",
 	"icon": "megaphone",
-	"description": "Orange block with a photo, heading, text and a dark button.",
+	"description": "Khối màu cam có ảnh, tiêu đề, mô tả và nút.",
 	"supports": {
 		"html": false,
 		"align": [

@@ -3,22 +3,50 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/agency-partner",
 	"version": "1.0.0",
-	"title": "[Agency] Partnership",
+	"title": "Agency · Hợp tác xây dựng",
 	"category": "welive",
 	"icon": "format-image",
-	"description": "Photo on one side, heading, two paragraphs and a button on the other.",
+	"description": "Ảnh một bên, tiêu đề, hai đoạn chữ và nút bên kia.",
 	"supports": {
 		"html": false,
-		"align": ["full"]
+		"align": [
+			"full"
+		]
 	},
 	"attributes": {
-		"anchor": { "type": "string", "default": "hop-tac-agency" },
-		"image": { "type": "object", "default": { "imageId": 0, "imageUrl": "", "alt": "", "position": "50% 50%" } },
-		"title": { "type": "string", "default": "Bắt đầu agency cùng Welive" },
-		"text": { "type": "string", "default": "Buổi trao đổi đầu tiên tập trung vào điều bạn muốn xây dựng, từ nhóm nhà sáng tạo bạn muốn phát triển đến cách tổ chức hoạt động LIVE trong giai đoạn đầu." },
-		"text2": { "type": "string", "default": "Từ đó, hai bên bàn về hình thức hợp tác, vai trò của mỗi bên và những việc cần chuẩn bị để đội ngũ đầu tiên có thể đi vào hoạt động." },
-		"btnText": { "type": "string", "default": "Trao đổi cơ hội hợp tác" },
-		"btnUrl": { "type": "string", "default": "#lien-he" }
+		"anchor": {
+			"type": "string",
+			"default": "hop-tac-agency"
+		},
+		"image": {
+			"type": "object",
+			"default": {
+				"imageId": 0,
+				"imageUrl": "",
+				"alt": "",
+				"position": "50% 50%"
+			}
+		},
+		"title": {
+			"type": "string",
+			"default": "Bắt đầu agency cùng Welive"
+		},
+		"text": {
+			"type": "string",
+			"default": "Buổi trao đổi đầu tiên tập trung vào điều bạn muốn xây dựng, từ nhóm nhà sáng tạo bạn muốn phát triển đến cách tổ chức hoạt động LIVE trong giai đoạn đầu."
+		},
+		"text2": {
+			"type": "string",
+			"default": "Từ đó, hai bên bàn về hình thức hợp tác, vai trò của mỗi bên và những việc cần chuẩn bị để đội ngũ đầu tiên có thể đi vào hoạt động."
+		},
+		"btnText": {
+			"type": "string",
+			"default": "Trao đổi cơ hội hợp tác"
+		},
+		"btnUrl": {
+			"type": "string",
+			"default": "#lien-he"
+		}
 	},
 	"textdomain": "ai-zippy-child",
 	"editorScript": "file:./index.js",

@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/creator-wall",
 	"version": "1.0.0",
-	"title": "[Creator] Wall of Fame",
+	"title": "Lộ trình 45 ngày · Vinh danh nhà sáng tạo",
 	"category": "welive",
 	"icon": "awards",
-	"description": "Badge, heading, and a horizontal carousel of creator cards with arrow buttons.",
+	"description": "Hàng thẻ chân dung vuốt ngang kèm thẻ 'Đang cập nhật'. Quản lý người ở thanh bên phải.",
 	"supports": {
 		"html": false,
 		"align": [

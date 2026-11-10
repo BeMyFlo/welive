@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/agency-hero",
 	"version": "1.0.0",
-	"title": "[Agency] Hero",
+	"title": "Agency · Banner đầu trang",
 	"category": "welive",
 	"icon": "groups",
-	"description": "Agency page hero: eyebrow, heading, description and either a four-image collage or one large photo (layout \"split\").",
+	"description": "Nhãn, tiêu đề, mô tả và một ảnh lớn (hoặc 4 ảnh ghép kiểu cũ).",
 	"supports": {
 		"html": false,
 		"align": [

@@ -3,13 +3,15 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/scrolling-ticker",
 	"version": "1.0.0",
-	"title": "Scrolling Ticker",
+	"title": "Dải logo / chữ chạy",
 	"category": "welive",
 	"icon": "ellipsis",
-	"description": "Infinite scrolling text marquee.",
+	"description": "Dải logo hoặc chữ chạy ngang.",
 	"supports": {
 		"html": false,
-		"align": ["full"]
+		"align": [
+			"full"
+		]
 	},
 	"attributes": {
 		"tickerText": {

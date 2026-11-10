@@ -3,13 +3,15 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/artists-grid",
 	"version": "1.0.0",
-	"title": "Artists Grid",
+	"title": "Nhà sáng tạo · Lưới nghệ sĩ (cũ)",
 	"category": "welive",
 	"icon": "grid-view",
-	"description": "Interactive grid displaying artists with hover social links and modal profile popups.",
+	"description": "Khối cũ: lưới nghệ sĩ có danh sách nhanh.",
 	"supports": {
 		"html": false,
-		"align": ["full"]
+		"align": [
+			"full"
+		]
 	},
 	"attributes": {
 		"artists": {

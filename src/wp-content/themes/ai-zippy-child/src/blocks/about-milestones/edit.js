@@ -42,7 +42,7 @@ export default function Edit({ attributes, setAttributes }) {
 								onChange={(val) => updateMilestone(index, "year", val)}
 							/>
 							<TextControl
-								label="Day/Month (Optional)"
+								label="Ngày/tháng (không bắt buộc)"
 								value={milestone.date}
 								onChange={(val) => updateMilestone(index, "date", val)}
 							/>
@@ -88,10 +88,10 @@ export default function Edit({ attributes, setAttributes }) {
 					<div className="abm__timeline-editor">
 						{milestones.map((m, idx) => (
 								<div key={idx} style={{ padding: 15, border: "1px solid #333", borderRadius: 8, margin: "10px 0", backgroundColor: "#111" }}>
-									<RichText tagName="div" style={{ color: "#EC4600", fontSize: "1.25rem", fontWeight: "bold" }} value={m.year} onChange={(val) => updateMilestone(idx, "year", val)} placeholder="Value (5M+)" allowedFormats={[]} />
+									<RichText tagName="div" style={{ color: "#EC4600", fontSize: "1.25rem", fontWeight: "bold" }} value={m.year} onChange={(val) => updateMilestone(idx, "year", val)} placeholder="Số liệu (vd 5M+)" allowedFormats={[]} />
 									<RichText tagName="div" style={{ fontWeight: "bold", color: "#fff", marginTop: 5 }} value={m.label} onChange={(val) => updateMilestone(idx, "label", val)} placeholder="Label" allowedFormats={[]} />
 									<RichText tagName="div" style={{ color: "#aaa", fontSize: "0.9rem" }} value={m.detail} onChange={(val) => updateMilestone(idx, "detail", val)} placeholder="Detail" allowedFormats={[]} />
-									<RichText tagName="div" style={{ color: "#888", fontSize: "0.8rem" }} value={m.date} onChange={(val) => updateMilestone(idx, "date", val)} placeholder="Date (optional)" allowedFormats={[]} />
+									<RichText tagName="div" style={{ color: "#888", fontSize: "0.8rem" }} value={m.date} onChange={(val) => updateMilestone(idx, "date", val)} placeholder="Ngày (không bắt buộc)" allowedFormats={[]} />
 								</div>
 							))}
 							<Button variant="secondary" onClick={addMilestone} style={{ marginTop: 10, width: "100%" }}>

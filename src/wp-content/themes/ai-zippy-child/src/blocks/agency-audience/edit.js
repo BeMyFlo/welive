@@ -17,8 +17,8 @@ export default function Edit({ attributes, setAttributes }) {
 					<TextControl label="Anchor (id để link tới, vd #doi-tac)" value={attributes.anchor || ""} onChange={(v) => setAttributes({ anchor: v })} />
 				</PanelBody>
 				{cards.map((card, index) => (
-					<PanelBody key={index} title={`Card #${index + 1}`} initialOpen={index === 0}>
-						<TextControl label="Button link" value={card.btnUrl} onChange={(val) => update(index, { btnUrl: val })} />
+					<PanelBody key={index} title={`Thẻ ${index + 1}`} initialOpen={index === 0}>
+						<TextControl label="Link nút" value={card.btnUrl} onChange={(val) => update(index, { btnUrl: val })} />
 						<SelectControl
 							label="Style"
 							value={card.tone}

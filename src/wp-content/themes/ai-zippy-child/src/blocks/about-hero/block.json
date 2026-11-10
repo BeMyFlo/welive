@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/about-hero",
 	"version": "1.0.0",
-	"title": "[About Us] Hero",
+	"title": "Giới thiệu · Banner đầu trang (cũ)",
 	"category": "welive",
 	"icon": "welcome-widgets-menus",
-	"description": "About page hero section with floating banner and bold typography.",
+	"description": "Khối cũ: banner đầu trang giới thiệu.",
 	"supports": {
 		"html": false,
 		"align": [

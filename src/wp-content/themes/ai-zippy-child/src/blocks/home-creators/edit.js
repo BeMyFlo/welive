@@ -1,6 +1,6 @@
 import { useBlockProps, RichText, InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TextControl, Button, SelectControl } from "@wordpress/components";
-import ImagePicker from "../shared/ImagePicker.js";
+import { PanelBody, TextControl, SelectControl } from "@wordpress/components";
+import ItemsPanel, { Html, dec } from "../shared/ItemsPanel.js";
 
 export default function Edit({ attributes, setAttributes }) {
 	const { title, titleAccent, linkText, linkUrl, creators = [] } = attributes;
@@ -33,15 +33,22 @@ export default function Edit({ attributes, setAttributes }) {
 					/>
 					<TextControl label="Link" value={linkUrl} onChange={(v) => setAttributes({ linkUrl: v })} />
 				</PanelBody>
-				<PanelBody title="Link & vị trí ảnh từng người" initialOpen={false}>
-					{creators.map((c, i) => (
-						<div key={i} style={{ marginBottom: 16 }}>
-							<strong>{c.name || `Creator ${i + 1}`}</strong>
-							<TextControl label="Link" value={c.url || ""} onChange={(v) => setItem(i, { url: v })} />
-							<TextControl label="Vị trí ảnh (object-position)" value={c.position || ""} onChange={(v) => setItem(i, { position: v })} help='Ví dụ "50% 40%"' />
-						</div>
-					))}
-				</PanelBody>
+				<ItemsPanel
+					title="Nhà sáng tạo"
+					hint="Thêm, xoá, đổi thứ tự và chọn ảnh cho từng người. Canvas là bản xem trước."
+					items={creators}
+					setItems={(v) => setAttributes({ creators: v })}
+					itemLabel={(c) => dec(c.name)}
+					makeItem={() => ({ name: "Tên", cta: "Xem câu chuyện", url: "", imageId: 0, imageUrl: "", position: "50% 50%" })}
+					addLabel="+ Thêm nhà sáng tạo"
+					fields={[
+						{ key: "name", label: "Tên" },
+						{ key: "imageId", type: "image", label: "Ảnh chân dung" },
+						{ key: "cta", label: "Chữ link nhỏ" },
+						{ key: "url", label: "Link khi bấm vào", type: "url", help: 'Dùng "/duong-dan/" cho trang trong site.' },
+						{ key: "position", label: "Vị trí cắt ảnh (vd 50% 40%)", type: "url" },
+					]}
+				/>
 			</InspectorControls>
 
 			<section {...blockProps}>
@@ -58,20 +65,12 @@ export default function Edit({ attributes, setAttributes }) {
 					<div className="hcr__grid">
 						{creators.map((c, i) => (
 							<div className="hcr__card" key={i}>
-								<div className="hcr__photo">
-									<ImagePicker imageId={c.imageId} imageUrl={c.imageUrl} onSelect={(v) => setItem(i, v)} />
-								</div>
-								<RichText tagName="h3" value={c.name} onChange={(v) => setItem(i, { name: v })} placeholder="Tên" allowedFormats={[]} />
-								<RichText tagName="span" value={c.cta} onChange={(v) => setItem(i, { cta: v })} placeholder="Chữ link" allowedFormats={[]} />
-								<Button className="hcr__remove" isDestructive variant="link" onClick={() => setAttributes({ creators: creators.filter((_, k) => k !== i) })}>
-									Xoá
-								</Button>
+								<div className="hcr__photo">{c.imageUrl ? <img src={c.imageUrl} alt="" style={{ objectPosition: c.position || "50% 50%" }} /> : <span className="hm-img-empty">Chưa có ảnh</span>}</div>
+								<Html tag="h3" value={c.name} />
+								<Html value={c.cta} />
 							</div>
 						))}
 					</div>
-					<Button variant="secondary" style={{ marginTop: 20 }} onClick={() => setAttributes({ creators: [...creators, { name: "", cta: "Xem câu chuyện", url: "", imageId: 0, imageUrl: "", position: "50% 50%" }] })}>
-						+ Thêm creator
-					</Button>
 				</div>
 			</section>
 		</>

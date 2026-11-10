@@ -1,46 +1,58 @@
 import { useBlockProps, RichText, InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TextControl, Button } from "@wordpress/components";
-import ImagePicker from "../shared/ImagePicker.js";
-import BulletsEditor from "../shared/BulletsEditor.js";
+import { PanelBody, TextControl } from "@wordpress/components";
+import ItemsPanel, { Html, dec } from "../shared/ItemsPanel.js";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { anchor, eyebrow, title, titleLine2, description, cards } = attributes;
+	const { eyebrow, title, titleLine2, description, cards = [] } = attributes;
 	const blockProps = useBlockProps({ className: "cbn" });
-	const set = (key) => (val) => setAttributes({ [key]: val });
-	const update = (index, patch) => setAttributes({ cards: cards.map((c, i) => (i === index ? { ...c, ...patch } : c)) });
-	const remove = (index) => setAttributes({ cards: cards.filter((_, i) => i !== index) });
-	const add = () => setAttributes({ cards: [...cards, { title: "Tiêu đề", bullets: ["Nội dung"], imageId: 0, imageUrl: "" }] });
+	const set = (key) => (v) => setAttributes({ [key]: v });
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Section" initialOpen={true}>
-					<TextControl label="Anchor (id for #links)" value={anchor} onChange={set("anchor")} />
+				<ItemsPanel
+					title="Thẻ quyền lợi"
+					hint="Mỗi thẻ có ảnh, tiêu đề và các ý. Sửa ở đây, canvas bên trái là bản xem trước."
+					items={cards}
+					setItems={(v) => setAttributes({ cards: v })}
+					itemLabel={(c) => dec(c.title)}
+					makeItem={() => ({ title: "Quyền lợi mới", bullets: [""], imageId: 0, imageUrl: "" })}
+					addLabel="+ Thêm thẻ"
+					fields={[
+						{ key: "title", label: "Tiêu đề thẻ" },
+						{ key: "bullets", label: "Các ý", type: "lines" },
+						{ key: "imageId", type: "image", label: "Ảnh của thẻ" },
+					]}
+				/>
+				<PanelBody title="Liên kết" initialOpen={false}>
+					<TextControl label="Anchor (id để link tới, vd #quyen-loi)" value={attributes.anchor || ""} onChange={set("anchor")} />
 				</PanelBody>
 			</InspectorControls>
 			<div {...blockProps}>
 				<div className="cbn__container">
 					<div className="cbn__header">
 						<div className="cbn__intro">
-							<RichText tagName="span" className="cbn__eyebrow" value={eyebrow} onChange={set("eyebrow")} placeholder="Eyebrow..." allowedFormats={[]} />
-							<RichText tagName="h2" className="cbn__title" value={title} onChange={set("title")} placeholder="Title line 1..." allowedFormats={[]} />
-							<RichText tagName="h2" className="cbn__title" value={titleLine2} onChange={set("titleLine2")} placeholder="Title line 2..." allowedFormats={[]} />
+							<RichText tagName="span" className="cbn__eyebrow" value={eyebrow} onChange={set("eyebrow")} placeholder="Nhãn nhỏ" allowedFormats={[]} />
+							<RichText tagName="h2" className="cbn__title" value={title} onChange={set("title")} placeholder="Tiêu đề dòng 1" allowedFormats={[]} />
+							<RichText tagName="h2" className="cbn__title" value={titleLine2} onChange={set("titleLine2")} placeholder="Tiêu đề dòng 2" allowedFormats={[]} />
 						</div>
-						<RichText tagName="p" className="cbn__desc" value={description} onChange={set("description")} placeholder="Description..." allowedFormats={[]} />
+						<RichText tagName="p" className="cbn__desc" value={description} onChange={set("description")} placeholder="Mô tả ngắn" />
 					</div>
 					<div className="cbn__grid">
-						{cards.map((card, index) => (
-							<div key={index} className="cbn__card">
-								<ImagePicker className="cbn__media" imageId={card.imageId} imageUrl={card.imageUrl} onSelect={(patch) => update(index, patch)} />
+						{cards.map((c, i) => (
+							<div key={i} className="cbn__card">
+								<div className="cbn__media">{c.imageUrl ? <img src={c.imageUrl} alt="" /> : <span className="hm-img-empty">Chưa có ảnh</span>}</div>
 								<div className="cbn__body">
-									<RichText tagName="h3" className="cbn__card-title" value={card.title} onChange={(val) => update(index, { title: val })} placeholder="Title" allowedFormats={[]} />
-									<BulletsEditor items={card.bullets} onChange={(val) => update(index, { bullets: val })} listClass="cbn__list" />
-									<Button variant="link" isDestructive onClick={() => remove(index)}>Xoá thẻ</Button>
+									<Html tag="h3" className="cbn__card-title" value={c.title} />
+									<ul className="cbn__list">
+										{(c.bullets || []).filter((b) => b.trim() !== "").map((b, j) => (
+											<Html key={j} tag="li" value={b} />
+										))}
+									</ul>
 								</div>
 							</div>
 						))}
 					</div>
-					<Button variant="secondary" onClick={add} style={{ marginTop: 20 }}>+ Thêm thẻ</Button>
 				</div>
 			</div>
 		</>

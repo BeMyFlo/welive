@@ -3,13 +3,15 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/about-ecosystem",
 	"version": "1.0.0",
-	"title": "[About Us] Ecosystem",
+	"title": "Giới thiệu · Hệ sinh thái (cũ)",
 	"category": "welive",
 	"icon": "share",
-	"description": "Solutions row: heading with a button, and a grid of image cards with title and description.",
+	"description": "Khối cũ: các mảng hoạt động. Hiện chưa dùng trên trang nào.",
 	"supports": {
 		"html": false,
-		"align": ["full"]
+		"align": [
+			"full"
+		]
 	},
 	"attributes": {
 		"title": {
@@ -31,11 +33,36 @@
 		"divisions": {
 			"type": "array",
 			"default": [
-				{ "name": "Phát hành & phân phối", "description": "Phân phối nhạc số, kế hoạch phát hành và đối soát doanh thu.", "imageId": 0, "imageUrl": "" },
-				{ "name": "Bản quyền & cấp phép", "description": "Quản trị quyền tác giả, thu bản quyền và cấp phép âm nhạc.", "imageId": 0, "imageUrl": "" },
-				{ "name": "Phát triển & sản xuất", "description": "Phát triển nghệ sĩ, sáng tác, thu âm và sản xuất âm nhạc.", "imageId": 0, "imageUrl": "" },
-				{ "name": "Truyền thông & thương hiệu", "description": "Nội dung, quảng bá âm nhạc và hợp tác thương hiệu.", "imageId": 0, "imageUrl": "" },
-				{ "name": "Kết nối người hâm mộ", "description": "Đĩa nhạc, sản phẩm lưu niệm và trải nghiệm người hâm mộ.", "imageId": 0, "imageUrl": "" }
+				{
+					"name": "Phát hành & phân phối",
+					"description": "Phân phối nhạc số, kế hoạch phát hành và đối soát doanh thu.",
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"name": "Bản quyền & cấp phép",
+					"description": "Quản trị quyền tác giả, thu bản quyền và cấp phép âm nhạc.",
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"name": "Phát triển & sản xuất",
+					"description": "Phát triển nghệ sĩ, sáng tác, thu âm và sản xuất âm nhạc.",
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"name": "Truyền thông & thương hiệu",
+					"description": "Nội dung, quảng bá âm nhạc và hợp tác thương hiệu.",
+					"imageId": 0,
+					"imageUrl": ""
+				},
+				{
+					"name": "Kết nối người hâm mộ",
+					"description": "Đĩa nhạc, sản phẩm lưu niệm và trải nghiệm người hâm mộ.",
+					"imageId": 0,
+					"imageUrl": ""
+				}
 			]
 		}
 	},

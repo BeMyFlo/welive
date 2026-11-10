@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/artists-spotlight",
 	"version": "1.0.0",
-	"title": "Artists Spotlight",
+	"title": "Nhà sáng tạo · Lưới & Bức tường danh vọng",
 	"category": "welive",
 	"icon": "admin-users",
-	"description": "Artist showcase. Layout 'grid' = hover cards; layout 'wall' = Wall of Honor (podium, framed portraits, profile dialog).",
+	"description": "Danh sách nhà sáng tạo dạng lưới ảnh hoặc Bức tường danh vọng (khung vàng, bục, hộp giới thiệu khi bấm vào).",
 	"supports": {
 		"html": false,
 		"align": [

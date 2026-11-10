@@ -1,6 +1,6 @@
 import { useBlockProps, RichText, InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, TextControl, Button, SelectControl } from "@wordpress/components";
-import ImagePicker from "../shared/ImagePicker.js";
+import { PanelBody, TextControl, SelectControl } from "@wordpress/components";
+import ItemsPanel, { Html, dec } from "../shared/ItemsPanel.js";
 
 export default function Edit({ attributes, setAttributes }) {
 	const { kicker, title, titleAccent, linkText, linkUrl, cards = [] } = attributes;
@@ -33,19 +33,22 @@ export default function Edit({ attributes, setAttributes }) {
 					/>
 					<TextControl label="Link 'Khám phá giải pháp' (và card nếu không có link riêng)" value={linkUrl} onChange={(v) => setAttributes({ linkUrl: v })} />
 				</PanelBody>
-				<PanelBody title="Link riêng từng card" initialOpen={false}>
-					{cards.map((c, i) => (
-						<TextControl key={i} label={`Card ${i + 1}`} value={c.url || ""} onChange={(v) => setCard(i, { url: v })} />
-					))}
-					<Button variant="secondary" onClick={() => setAttributes({ cards: [...cards, { label: "", title: "", text: "", url: "", imageId: 0, imageUrl: "" }] })}>
-						+ Thêm card
-					</Button>
-					{cards.length > 0 && (
-						<Button isDestructive variant="link" style={{ marginLeft: 12 }} onClick={() => setAttributes({ cards: cards.slice(0, -1) })}>
-							Xoá card cuối
-						</Button>
-					)}
-				</PanelBody>
+				<ItemsPanel
+					title="Thẻ ảnh lớn"
+					hint="Mỗi thẻ có ảnh nền, nhãn, tiêu đề và mô tả. Canvas là bản xem trước."
+					items={cards}
+					setItems={(v) => setAttributes({ cards: v })}
+					itemLabel={(c) => dec(String(c.title || "").replace(/<br\s*\/?>/gi, " "))}
+					makeItem={() => ({ label: "NHÃN", title: "Tiêu đề", text: "", url: "", imageId: 0, imageUrl: "" })}
+					addLabel="+ Thêm thẻ"
+					fields={[
+						{ key: "imageId", type: "image", label: "Ảnh nền" },
+						{ key: "label", label: "Nhãn nhỏ phía trên" },
+						{ key: "title", label: "Tiêu đề", type: "multiline" },
+						{ key: "text", label: "Mô tả", type: "textarea", rows: 3 },
+						{ key: "url", label: "Link riêng (để trống = link mặc định ở trên)", type: "url" },
+					]}
+				/>
 			</InspectorControls>
 
 			<section {...blockProps}>
@@ -65,13 +68,11 @@ export default function Edit({ attributes, setAttributes }) {
 					<div className="hag__grid">
 						{cards.map((c, i) => (
 							<div className="hag__card" key={i}>
-								<div className="hag__media">
-									<ImagePicker imageId={c.imageId} imageUrl={c.imageUrl} onSelect={(v) => setCard(i, v)} />
-								</div>
+								{c.imageUrl ? <img src={c.imageUrl} alt="" /> : <span className="hm-img-empty">Chưa có ảnh</span>}
 								<div>
-									<RichText tagName="p" value={c.label} onChange={(v) => setCard(i, { label: v })} placeholder="NHÃN" allowedFormats={[]} />
-									<RichText tagName="h3" value={c.title} onChange={(v) => setCard(i, { title: v })} placeholder="Tiêu đề" />
-									<RichText tagName="span" value={c.text} onChange={(v) => setCard(i, { text: v })} placeholder="Mô tả" allowedFormats={[]} />
+									<Html tag="p" value={c.label} />
+									<Html tag="h3" value={c.title} />
+									<Html value={c.text} />
 								</div>
 							</div>
 						))}

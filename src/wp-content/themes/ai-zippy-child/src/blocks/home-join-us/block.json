@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/home-join-us",
 	"version": "1.0.0",
-	"title": "Home Join Us",
+	"title": "Trang chủ · Dải kêu gọi hành động",
 	"category": "welive",
 	"icon": "megaphone",
-	"description": "Call to action banner to join Welive with a customizable button link.",
+	"description": "Dải màu có tiêu đề và một nút.",
 	"supports": {
 		"html": false,
 		"align": [

@@ -13,9 +13,9 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Layout" initialOpen={true}>
+				<PanelBody title="Kiểu hiển thị" initialOpen={true}>
 					<SelectControl
-						label="Layout"
+						label="Kiểu hiển thị"
 						value={isSplit ? "split" : "collage"}
 						options={[
 							{ label: "Ảnh lớn bên phải (demo mới)", value: "split" },

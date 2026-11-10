@@ -62,14 +62,14 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				{activeArtist && (
-					<PanelBody title={`Edit: ${activeArtist.name || "Unnamed"}`} initialOpen={true}>
+					<PanelBody title={`Edit: ${activeArtist.name || "Chưa đặt tên"}`} initialOpen={true}>
 						<TextControl
 							label="Stage Name"
 							value={activeArtist.name}
 							onChange={(val) => updateArtist(activeArtistIndex, "name", val)}
 						/>
 						<TextControl
-							label="Number (e.g. 01, 02)"
+							label="Số thứ tự (vd 01, 02)"
 							value={activeArtist.number}
 							onChange={(val) => updateArtist(activeArtistIndex, "number", val)}
 						/>
@@ -86,7 +86,7 @@ export default function Edit({ attributes, setAttributes }) {
 							onChange={(val) => updateArtist(activeArtistIndex, "dob", val)}
 						/>
 						<TextControl
-							label="Genre(s)"
+							label="Thể loại"
 							value={activeArtist.genre}
 							onChange={(val) => updateArtist(activeArtistIndex, "genre", val)}
 						/>
@@ -146,27 +146,27 @@ export default function Edit({ attributes, setAttributes }) {
 
 						<h4 style={{ margin: "20px 0 10px", borderBottom: "1px solid #eee", paddingBottom: 5 }}>Social Links</h4>
 						<TextControl
-							label="Facebook URL"
+							label="Link Facebook"
 							value={activeArtist.socials?.facebook}
 							onChange={(val) => updateArtistSocial(activeArtistIndex, "facebook", val)}
 						/>
 						<TextControl
-							label="Instagram URL"
+							label="Link Instagram"
 							value={activeArtist.socials?.instagram}
 							onChange={(val) => updateArtistSocial(activeArtistIndex, "instagram", val)}
 						/>
 						<TextControl
-							label="TikTok URL"
+							label="Link TikTok"
 							value={activeArtist.socials?.tiktok}
 							onChange={(val) => updateArtistSocial(activeArtistIndex, "tiktok", val)}
 						/>
 						<TextControl
-							label="Threads URL"
+							label="Link Threads"
 							value={activeArtist.socials?.threads}
 							onChange={(val) => updateArtistSocial(activeArtistIndex, "threads", val)}
 						/>
 						<TextControl
-							label="YouTube URL"
+							label="Link YouTube"
 							value={activeArtist.socials?.youtube}
 							onChange={(val) => updateArtistSocial(activeArtistIndex, "youtube", val)}
 						/>
@@ -178,7 +178,7 @@ export default function Edit({ attributes, setAttributes }) {
 						</div>
 					</PanelBody>
 				)}
-				<PanelBody title="Quick List & Reorder" initialOpen={false}>
+				<PanelBody title="Danh sách nhanh & đổi thứ tự" initialOpen={false}>
 					{artists.map((artist, idx) => (
 						<div
 							key={idx}
@@ -195,7 +195,7 @@ export default function Edit({ attributes, setAttributes }) {
 								justifyContent: "space-between"
 							}}
 						>
-							<span>{artist.number} - {artist.name || "Unnamed"}</span>
+							<span>{artist.number} - {artist.name || "Chưa đặt tên"}</span>
 							<Button
 								isDestructive
 								variant="link"
@@ -262,7 +262,7 @@ export default function Edit({ attributes, setAttributes }) {
 												value={artist.imageId}
 												render={({ open }) => (
 													<Button variant="secondary" onClick={open} style={{ fontSize: "11px" }}>
-														Replace Image
+														Đổi ảnh
 													</Button>
 												)}
 											/>
@@ -271,7 +271,7 @@ export default function Edit({ attributes, setAttributes }) {
 								</div>
 								<div className="age__card-info">
 									<span className="age__card-number">{artist.number}</span>
-									<span className="age__card-name">{artist.name || "Unnamed"}</span>
+									<span className="age__card-name">{artist.name || "Chưa đặt tên"}</span>
 								</div>
 							</div>
 						);

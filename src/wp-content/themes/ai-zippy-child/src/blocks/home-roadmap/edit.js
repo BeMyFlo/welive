@@ -39,9 +39,9 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Layout" initialOpen={!isTabs}>
+				<PanelBody title="Kiểu hiển thị" initialOpen={!isTabs}>
 					<SelectControl
-						label="Layout"
+						label="Kiểu hiển thị"
 						value={isTabs ? "tabs" : "cards"}
 						options={[
 							{ label: "Tab ngày + khung chi tiết (mới)", value: "tabs" },

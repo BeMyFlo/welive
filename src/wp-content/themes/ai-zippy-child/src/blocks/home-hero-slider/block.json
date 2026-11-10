@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/home-hero-slider",
 	"version": "1.0.0",
-	"title": "Home Hero Slider",
+	"title": "Trang chủ · Banner ảnh trượt",
 	"category": "welive",
 	"icon": "images-alt2",
-	"description": "Full screen fading slider of creators: kicker, big name, dot tabs, pause button and CTA.",
+	"description": "Banner toàn màn hình: ảnh chân dung nhà sáng tạo chuyển dần, tên lớn, nhãn nhỏ và nút. Quản lý các ảnh ở thanh bên phải.",
 	"supports": {
 		"html": false,
 		"align": [

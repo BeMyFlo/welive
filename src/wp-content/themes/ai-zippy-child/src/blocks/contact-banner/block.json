@@ -3,18 +3,46 @@
 	"apiVersion": 3,
 	"name": "ai-zippy-child/contact-banner",
 	"version": "1.0.0",
-	"title": "[Contact] Photo Banner",
+	"title": "Liên hệ · Banner ảnh",
 	"category": "welive",
 	"icon": "cover-image",
-	"description": "Full-width photo with a dark gradient, big heading (with orange accent) and a light pill button.",
-	"supports": { "html": false, "align": ["full"] },
+	"description": "Ảnh toàn chiều rộng, tiêu đề lớn có chữ màu cam và một nút.",
+	"supports": {
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
 	"attributes": {
-		"anchor": { "type": "string", "default": "" },
-		"image": { "type": "object", "default": { "imageId": 0, "imageUrl": "", "alt": "", "position": "54% 48%" } },
-		"title": { "type": "string", "default": "Liên hệ" },
-		"titleAccent": { "type": "string", "default": "Welive." },
-		"btnText": { "type": "string", "default": "Thông tin liên hệ" },
-		"btnUrl": { "type": "string", "default": "#thong-tin-lien-he" }
+		"anchor": {
+			"type": "string",
+			"default": ""
+		},
+		"image": {
+			"type": "object",
+			"default": {
+				"imageId": 0,
+				"imageUrl": "",
+				"alt": "",
+				"position": "54% 48%"
+			}
+		},
+		"title": {
+			"type": "string",
+			"default": "Liên hệ"
+		},
+		"titleAccent": {
+			"type": "string",
+			"default": "Welive."
+		},
+		"btnText": {
+			"type": "string",
+			"default": "Thông tin liên hệ"
+		},
+		"btnUrl": {
+			"type": "string",
+			"default": "#thong-tin-lien-he"
+		}
 	},
 	"textdomain": "ai-zippy-child",
 	"editorScript": "file:./index.js",
